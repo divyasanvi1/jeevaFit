@@ -1,4 +1,4 @@
-const User=require("../models/user")
+const User=require("../models/userModel")
 const { hashPassword, comparePassword, generateToken}=require("../service/auth")
 
 async function handleUserSignUp(req,res){
