@@ -21,8 +21,8 @@ async function handleUserSignUp(req,res){
         })
         res.status(201).json({ msg: "User created successfully", user: { name: newUser.name, email: newUser.email } });
     }
-    catch{
-        res.status(500).json({ msg: "Internal Server Error" });
+    catch(err){
+        res.status(500).json({ msg: "Internal Server Error" ,error: err.message});
     }
 }
 
@@ -42,7 +42,7 @@ async function handleUserLogin(req,res){
             httpOnly: true,
             maxAge: 7 * 24 * 60 * 60 * 1000,
         })
-        res.json({ msg: "Login successful", user: { name: user.name, email: user.email } });
+        res.json({ msg: "Login successful",token, user: { name: user.name, email: user.email } });
     }
     catch{
         res.status(500).json({ msg: "Internal Server Error" });
