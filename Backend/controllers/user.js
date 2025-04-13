@@ -3,10 +3,11 @@ const { hashPassword, comparePassword, generateToken}=require("../service/auth")
 
 async function handleUserSignUp(req,res){
     try{
-        const {name,email,password}=req.body;
-        console.log("Received signup request for:", email);
-        if(!name || !email || !password)
-        {
+        const { name, email, password, age, weight, gender, height } = req.body;
+        console.log("Received signup request for:", req.body);
+        
+        if (!name || !email || !password || !age || !weight || !gender || !height) {
+            console.log("Missing fields:", { name, email, password, age, weight, gender, height }); // Log missing fields
             return res.status(400).json({ msg: "All fields are required" });
         }
         const existingUser=await User.findOne({email});
@@ -14,11 +15,17 @@ async function handleUserSignUp(req,res){
         if (existingUser) return res.status(400).json({ msg: "Email already in use" });
 
         const hashedPassword = await hashPassword(password);
+        console.log("Password hashed:", hashedPassword);
         const newUser=await User.create({
             name,
             email,
             password:hashedPassword,
+            age,
+            weight,
+            gender,
+            height
         })
+        console.log("new user",newUser);
         res.status(201).json({ msg: "User created successfully", user: { name: newUser.name, email: newUser.email } });
     }
     catch(err){
