@@ -69,6 +69,18 @@ if (isNaN(heartRate) || isNaN(respiratoryRate) || isNaN(bodyTemperature) || isNa
   }
 }
 
+async function handleGetUserHealthData(req, res) {
+  try {
+      const userId = req.user.id; // from the decoded token
+      const healthData = await HealthData.find({ userId:userId }).sort({ timestamp: -1 }); // sort by latest
+      console.log("healthData",healthData);
+      res.status(200).json({ data: healthData });
+  } catch (err) {
+      res.status(500).json({ msg: "Failed to fetch health data", error: err.message });
+  }
+}
+
 module.exports = {
   handleAddHealthData,
+  handleGetUserHealthData
 };
