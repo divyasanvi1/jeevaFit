@@ -73,11 +73,31 @@ if (isNaN(heartRate) || isNaN(respiratoryRate) || isNaN(bodyTemperature) || isNa
 
 async function handleGetUserHealthData(req, res) {
   try {
-      const userId = req.user.id; // from the decoded token
-      const healthData = await HealthData.find({ userId:userId }).sort({ timestamp: -1 }); // sort by latest
-      res.status(200).json({ data: healthData });
+    const userId = req.user.id;
+
+    // 1. Fetch user data (for latest weight & height)
+    const user = await User.findById(userId);
+    if (!user) return res.status(404).json({ msg: "User not found" });
+
+    const height = parseFloat(user.height);
+    const weight = parseFloat(user.weight);
+    const bmi = height && weight ? parseFloat((weight / (height * height)).toFixed(2)) : null;
+
+    // 2. Get all health data
+    const healthData = await HealthData.find({ userId }).sort({ timestamp: -1 });
+
+    // 3. Inject updated BMI into each record (if valid height/weight exist)
+    const updatedHealthData = healthData.map(entry => ({
+      ...entry.toObject(),
+      derived_BMI: bmi ?? entry.derived_BMI // fallback to stored value if calculation fails
+    }));
+
+    // 4. Send updated response
+    res.status(200).json({ data: updatedHealthData });
+
   } catch (err) {
-      res.status(500).json({ msg: "Failed to fetch health data", error: err.message });
+    console.error("Error fetching health data:", err);
+    res.status(500).json({ msg: "Failed to fetch health data", error: err.message });
   }
 }
 
