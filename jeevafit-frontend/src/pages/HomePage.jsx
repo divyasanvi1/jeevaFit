@@ -1,5 +1,5 @@
 // src/pages/HealthDashboard.jsx
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchHealthData } from '../redux/healthSlice';
 import HealthCard from '../components/HealthCard';
@@ -8,19 +8,41 @@ import RespiratoryRateChart from '../components/RespiratoryChart';
 import HRVChart from '../components/HrvChart';
 import BloodPressureChart from '../components/BpComponent';
 import OxygenSaturationChart from '../components/OxygenSaturation';
+import UserDetailsCard from '../components/UserDetailCard';
+
 const HomePage = () => {
   const dispatch = useDispatch();
   const { data, status } = useSelector((state) => state.health);
+  const user = useSelector((state) => state.auth.user); // assuming auth data stored here
+  const [showProfile, setShowProfile] = useState(false);
+  const initials = user ? user.name.split(' ').map((n) => n[0]).join('') : '';
+  const [showUserCard, setShowUserCard] = useState(false);
+
+  console.log('User Data:', user);
+  console.log("User passed to UserDetailsCard:", user);
 
   useEffect(() => {
     dispatch(fetchHealthData());
   }, [dispatch]);
 
   const latest = data?.[0]; // latest health record
+  const handleToggleCard = () => {
+    setShowUserCard((prev) => !prev); // Toggle visibility
+  };
 
   return (
     <div className="px-6 py-8 bg-gray-50 min-h-screen">
+      <h2 className="text-xl font-semibold mb-4">Welcome {user ? user.name : 'Guest'}</h2>
   {/* Latest Vitals Section */}
+      <button
+        onClick={handleToggleCard}
+        className="bg-blue-500 text-white px-4 py-2 rounded-full mb-4"
+      >
+         {initials}
+      </button>
+
+      {showUserCard && <UserDetailsCard user={user} onClose={handleToggleCard} />}
+
   <h2 className="text-2xl font-bold text-gray-800 mb-6">🩺 Latest Health Vitals</h2>
 
   <div className="flex flex-wrap gap-6 justify-start">
@@ -42,6 +64,7 @@ const HomePage = () => {
 
   {/* Chart Section */}
   <div className="mt-10">
+    
     <h2 className="text-2xl font-bold text-gray-800 mb-6">📊 Health Vitals Trends</h2>
 
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

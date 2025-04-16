@@ -28,6 +28,7 @@ const LoginPage = () => {
 
       const { token, user } = response.data;
       dispatch(loginSuccess({ token, user }));
+      console.log("user",user);
       setError('');
       navigate('/home'); 
     } catch (err) {

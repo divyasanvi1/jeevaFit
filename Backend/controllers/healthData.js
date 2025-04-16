@@ -2,7 +2,7 @@ const HealthData = require("../models/healthModel");
 const User = require("../models/userModel");
 
 // Utility to calculate BMI, Pulse Pressure, and MAP (no risk prediction)
-function calculateDerivedFields(data, user) {
+function calculateDerivedFields(data = {}, user = {}) {
   const height = parseFloat(user.height);
   const weight = parseFloat(user.weight);
 
@@ -11,9 +11,11 @@ function calculateDerivedFields(data, user) {
     derived_BMI = parseFloat((weight / (height * height)).toFixed(2));
   }
 
-  const pulsePressure = data.systolicBP - data.diastolicBP;
-  const map = data.diastolicBP + (pulsePressure / 3);
+  const systolic = data.systolicBP ?? 0;
+  const diastolic = data.diastolicBP ?? 0;
 
+  const pulsePressure = systolic - diastolic;
+  const map = diastolic + (pulsePressure / 3);
   return {
     derived_BMI,
     derived_Pulse_Pressure: pulsePressure,
@@ -73,7 +75,6 @@ async function handleGetUserHealthData(req, res) {
   try {
       const userId = req.user.id; // from the decoded token
       const healthData = await HealthData.find({ userId:userId }).sort({ timestamp: -1 }); // sort by latest
-      console.log("healthData",healthData);
       res.status(200).json({ data: healthData });
   } catch (err) {
       res.status(500).json({ msg: "Failed to fetch health data", error: err.message });

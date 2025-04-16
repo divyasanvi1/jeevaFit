@@ -49,7 +49,12 @@ async function handleUserLogin(req,res){
             httpOnly: true,
             maxAge: 7 * 24 * 60 * 60 * 1000,
         })
-        res.json({ msg: "Login successful",token, user: { name: user.name, email: user.email } });
+        res.json({ msg: "Login successful",token, user: { name: user.name,
+            email: user.email,
+            age: user.age,
+            weight: user.weight,
+            gender: user.gender,
+            height: user.height, } });
     }
     catch{
         res.status(500).json({ msg: "Internal Server Error" });
@@ -59,9 +64,61 @@ async function handleUserLogout(req, res) {
     res.clearCookie("auth_token");
     res.json({ msg: "Logged out successfully" });
 }
+async function handleUpdateUserData(req, res) {
+    try {
+      const { email, age, weight, gender, height } = req.body;
+  
+      if (!email) return res.status(400).json({ msg: "Email is required" });
+      if (!age && !weight && !gender && !height) {
+        return res.status(400).json({ msg: "At least one field must be provided to update" });
+      }
+  
+      const updatedUser = await User.findOneAndUpdate(
+        { email },
+        { age, weight, gender, height },
+        { new: true }
+      );
+  
+      if (!updatedUser) return res.status(404).json({ msg: "User not found" });
+  
+      res.status(200).json({
+        msg: "User data updated successfully",
+        user: {
+          name: updatedUser.name,
+          email: updatedUser.email,
+          age: updatedUser.age,
+          weight: updatedUser.weight,
+          gender: updatedUser.gender,
+          height: updatedUser.height,
+          id: updatedUser._id,
+        }
+      });
+    } catch (err) {
+      console.error("Update error:", err);
+      res.status(500).json({ msg: "Internal Server Error", error: err.message });
+    }
+  }
+  
+async function handleUserDetails(req, res){
+    // 👆 New route for fetching user profile
+    try {
+      const { email } = req.body;
+      if (!email) return res.status(400).json({ msg: "Email is required" });
+  
+      const user = await User.findOne({ email }).select("-password");
+      if (!user) return res.status(404).json({ msg: "User not found" });
+  
+      res.status(200).json({ user });
+    } catch (err) {
+      console.error("Error in /user/details route:", err);
+      res.status(500).json({ msg: "Internal Server Error" });
+    }
+  }
 
 module.exports={
     handleUserSignUp,
     handleUserLogin,
     handleUserLogout,
+    handleUpdateUserData,
+    handleUserDetails
 }
