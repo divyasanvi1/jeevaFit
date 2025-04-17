@@ -4,7 +4,7 @@ const cookieParser=require("cookie-parser");
 const cors = require("cors");
 const userRoute=require("./routes/userRoute")
 const healthRoute = require("./routes/health");
-
+const locationRoute=require('./routes/location');
 const app=express();
 const PORT=8001;
 
@@ -22,6 +22,7 @@ app.use(express.urlencoded({extended:false}));
 app.use(cookieParser());
 app.use("/userRoute",userRoute);
 app.use("/health", healthRoute);
+app.use("/location",locationRoute);
 
 
 app.listen(PORT,()=>console.log(`Server started at PORT ${PORT}`))

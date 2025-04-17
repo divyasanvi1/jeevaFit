@@ -1,9 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
-import { Chart as ChartJS, Title, Tooltip, Legend, LineElement, CategoryScale, LinearScale, PointElement } from 'chart.js';
+import {
+  Chart as ChartJS,
+  Title,
+  Tooltip,
+  Legend,
+  LineElement,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+} from 'chart.js';
 
-// Register necessary chart.js components
-ChartJS.register(Title, Tooltip, Legend, LineElement, CategoryScale, LinearScale, PointElement);
+ChartJS.register(
+  Title,
+  Tooltip,
+  Legend,
+  LineElement,
+  CategoryScale,
+  LinearScale,
+  PointElement
+);
 
 const HeartRateChart = ({ healthData }) => {
   const [chartData, setChartData] = useState({
@@ -21,8 +37,9 @@ const HeartRateChart = ({ healthData }) => {
 
   useEffect(() => {
     if (healthData.length > 0) {
-      const timestamps = healthData.map((data) => new Date(data.timestamp).toLocaleTimeString());
-      const heartRates = healthData.map((data) => data.heartRate);
+      const sortedData = [...healthData].reverse(); // ✅ moved up
+      const timestamps = sortedData.map((data) => new Date(data.timestamp).toLocaleTimeString());
+      const heartRates = sortedData.map((data) => data.heartRate);
 
       setChartData({
         labels: timestamps,

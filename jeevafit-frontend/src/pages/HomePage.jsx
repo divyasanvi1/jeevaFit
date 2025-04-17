@@ -9,8 +9,11 @@ import HRVChart from '../components/HrvChart';
 import BloodPressureChart from '../components/BpComponent';
 import OxygenSaturationChart from '../components/OxygenSaturation';
 import UserDetailsCard from '../components/UserDetailCard';
+import { useNavigate } from 'react-router-dom';
+
 
 const HomePage = () => {
+  const navigate = useNavigate(); 
   const dispatch = useDispatch();
   const { data, status } = useSelector((state) => state.health);
   const user = useSelector((state) => state.auth.user); // assuming auth data stored here
@@ -29,7 +32,9 @@ const HomePage = () => {
   const handleToggleCard = () => {
     setShowUserCard((prev) => !prev); // Toggle visibility
   };
-
+  const goToNearestHospitals = () => {
+    navigate("/nearest-hospitals");
+  };
   return (
     <div className="px-6 py-8 bg-gray-50 min-h-screen">
       <h2 className="text-xl font-semibold mb-4">Welcome {user ? user.name : 'Guest'}</h2>
@@ -42,6 +47,12 @@ const HomePage = () => {
       </button>
 
       {showUserCard && <UserDetailsCard user={user} onClose={handleToggleCard} />}
+      <button
+      onClick={goToNearestHospitals}
+      className="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 mt-4"
+    >
+      Find Nearest Hospitals
+    </button>
 
   <h2 className="text-2xl font-bold text-gray-800 mb-6">🩺 Latest Health Vitals</h2>
 
