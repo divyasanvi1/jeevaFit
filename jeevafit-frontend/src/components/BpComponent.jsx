@@ -3,7 +3,7 @@ import { LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContai
 const BloodPressureChart = ({ healthData }) => {
   const sortedData = [...healthData].reverse();
   return (
-    <div>
+    <div id="blood-pressure-chart">
       <h3 className="text-lg font-medium mb-2">Blood Pressure</h3>
       <ResponsiveContainer width="100%" height={300}>
         <LineChart data={sortedData}>
