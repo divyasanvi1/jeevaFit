@@ -44,14 +44,14 @@ const SignUpPage = () => {
     <>
     <div className='max-w-screen-lg mx-auto h-screen flex flex-wrap items-center justify-center'>
       <div className='w-full m-4 sm:mx-32 flex flex-wrap flex-col sm:flex-row bg-gray-100 rounded-lg '>
-        <div className='w-full sm:w-2/5 flex flex-col bg-[#FF7700]  justify-center rounded-lg p-8'>
+        <div className='w-full sm:w-2/5 flex flex-col bg-[#03045E]  justify-center rounded-lg p-8'>
         <h1 className='text-[24px] sm:text-[28px] md:text-[32px] font-sans-serif text-white font-bold -tracking-tight leading-[135%] mb-4'>
         Welcome to JeevaFit!
         </h1>
         <p className='text-[16px] font-medium font-sans-serif text-[#e5e5e5] -tracking-tight leading-[135%]'>
          we are exicted to have you here. If you haven't already, create your account to start your journey towards better health and well-being.
         </p>
-        <button className='bg-white/30 backdrop-blur-[16px]  mt-12 py-2 rounded-full cursor-pointer hover:bg-white/20 transition duration-300 ease-in-out'>
+        <button className='bg-white/20 backdrop-blur-[16px]  mt-12 py-2 rounded-full cursor-pointer hover:bg-white/15 transition duration-300 ease-in-out'>
         <a href="/login" className='text-[16px] font-serif font-medium text-white hover:text-gray-00'>Already have acoount</a>
         </button>
         </div>
@@ -59,14 +59,14 @@ const SignUpPage = () => {
         <h1 className='text-[24px] sm:text-[28px] font-sans-serif text-[#1e1e1e] font-bold  leading-[135%'>
         Register yourself
         </h1>
-        <p className='text-[16px] font-semibold font-sans-serif text-[#FF7700]/80 tracking-tight leading-[135%]'>
+        <p className='text-[16px] font-semibold font-sans-serif text-[#FF6D00]/80 tracking-tight leading-[135%]'>
          Create your free account
         </p>
         <form 
       className='w-full flex flex-col mx-auto mt-8'
       onSubmit={handleSignUp}>
             <input 
-        className='border-2  rounded-md p-2 m-2'
+        className='bg-[#FF5400]/5 focus:bg:white rounded-md p-2 m-2'
           type="text" 
           value={name}
           onChange={(e) => setName(e.target.value)}
@@ -74,7 +74,7 @@ const SignUpPage = () => {
           required
         />
         <input 
-        className='border-2  rounded-md p-2 m-2'
+        className='bg-[#FF5400]/5 focus:bg:white rounded-md p-2 m-2'
           type="email" 
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -82,7 +82,7 @@ const SignUpPage = () => {
           required
         />
         <input 
-        className='border-2  rounded-md p-2 m-2'
+        className='bg-[#FF5400]/5 focus:bg:white rounded-md p-2 m-2'
           type="password" 
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -90,7 +90,7 @@ const SignUpPage = () => {
           required
         />
         <input 
-        className='border-2  rounded-md p-2 m-2'
+        className='bg-[#FF5400]/5 focus:bg:white rounded-md p-2 m-2'
           type="password" 
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -98,7 +98,7 @@ const SignUpPage = () => {
           required
         />
         <input 
-        className='border-2  rounded-md p-2 m-2'
+        className='bg-[#FF5400]/5 focus:bg:white rounded-md p-2 m-2'
           type="password" 
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -138,8 +138,13 @@ const SignUpPage = () => {
           placeholder="Height"
           required
         /> */}
+        <div className='w-full flex flex-row items-center justify-between mt-4'>
+        <p className='text-[12px] font-semibold font-sans-serif text-[#03045E]/50 tracking-tight leading-[135%]'>
+        By <span className='font-bold text-[#03045E]/70 underline'>continuing</span>, I agree to HeathMate’s <span className='font-bold text-[#03045E]/70 underline'>Privacy Policy</span> and <span className='font-bold text-[#03045E]/70 underline'>Terms of Use</span>. 
+        </p>
+        </div>
         <button 
-        className='bg-[#FF7700] hover:bg-[#FF7700]/60 font-semibold text-[20px]  text-white hover:text-gray-300 rounded-md px-8 py-2 m-2 mt-6'
+        className='bg-[#FF5400] hover:bg-[#FF6D00] font-semibold text-[20px]  text-white hover:text-gray-300 rounded-full px-8 py-2 m-2 mt-6'
         type="submit">Sign Up</button>
       </form>
       {error && <p>{error}</p>}
