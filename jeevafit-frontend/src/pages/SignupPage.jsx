@@ -43,7 +43,7 @@ const SignUpPage = () => {
   return (
     <>
     <div className='max-w-screen-lg mx-auto h-screen flex flex-wrap items-center justify-center'>
-      <div className='w-full m-4 sm:mx-32 flex flex-wrap flex-col sm:flex-row bg-gray-100 rounded-lg '>
+      <div className='w-full m-4 sm:mx-32 flex flex-wrap flex-col sm:flex-row bg-[#FFEEDD]/10 rounded-lg '>
         <div className='w-full sm:w-2/5 flex flex-col bg-[#03045E]  justify-center rounded-lg p-8'>
         <h1 className='text-[24px] sm:text-[28px] md:text-[32px] font-sans-serif text-white font-bold -tracking-tight leading-[135%] mb-4'>
         Welcome to JeevaFit!
