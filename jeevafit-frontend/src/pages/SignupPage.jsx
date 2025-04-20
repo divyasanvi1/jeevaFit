@@ -105,7 +105,7 @@ const SignUpPage = () => {
           placeholder="Confirm Password"
           required
         />
-        {/* <input 
+        <input 
         className='border-2  rounded-md p-2 m-2'
           type="number" 
           value={age}
@@ -137,7 +137,7 @@ const SignUpPage = () => {
           onChange={(e) => setHeight(e.target.value)}
           placeholder="Height"
           required
-        /> */}
+        />
         <button 
         className='bg-[#FF7700] hover:bg-[#FF7700]/60 font-semibold text-[20px]  text-white hover:text-gray-300 rounded-md px-8 py-2 m-2 mt-6'
         type="submit">Sign Up</button>
