@@ -1,2 +1,7 @@
 @import "tailwindcss";
 
+@theme {
+    --font-mono: "Fira Code", monospace;
+    --font-serif: "Helvetica", sans-serif;
+    --font-sans-serif: "Open Sans", sans-serif;
+  }
