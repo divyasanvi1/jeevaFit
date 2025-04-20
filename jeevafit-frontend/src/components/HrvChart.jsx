@@ -3,7 +3,7 @@ import { LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContai
 const HRVChart = ({ healthData }) => {
   const sortedData = [...healthData].reverse();
   return (
-    <div>
+    <div id="hrv-chart">
       <h3 className="text-lg font-medium mb-2">Heart Rate Variability (HRV)</h3>
       <ResponsiveContainer width="100%" height={300}>
         <LineChart data={sortedData}>

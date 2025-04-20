@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateUserDetails } from '../redux/userSlice';
 import axios from 'axios';
+import generatePDF from '../utils/generatePdf';
 
 const UserDetailsCard = ({ onClose }) => {
   const dispatch = useDispatch();
@@ -101,6 +102,12 @@ const UserDetailsCard = ({ onClose }) => {
           </>
         )}
       </div>
+      <button
+  onClick={generatePDF}
+  className="mt-4 bg-green-600 text-white px-4 py-2 rounded"
+>
+  Download PDF Report
+</button>
     </div>
   );
 };

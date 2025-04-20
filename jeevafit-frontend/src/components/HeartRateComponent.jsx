@@ -85,7 +85,11 @@ const HeartRateChart = ({ healthData }) => {
     },
   };
 
-  return <Line data={chartData} options={options} />;
+  return (
+    <div id="heart-rate-chart" >
+      <Line data={chartData} options={options} />
+    </div>
+  );
 };
 
 export default HeartRateChart;
