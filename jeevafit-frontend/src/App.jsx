@@ -7,6 +7,7 @@ import { store } from './redux/store';
 import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignupPage';
 import HomePage from './pages/HomePage';
+import Dashboard from './pages/Dashboard';
 import NearestHospitalsPage from './pages/NearestHospitals';
 import './index.css'
 
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/home" element={<HomePage />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/nearest-hospitals" element={<NearestHospitalsPage />} />
           {/* Add other routes for the dashboard or protected routes here */}
         </Routes>

@@ -36,25 +36,26 @@ const HomePage = () => {
     navigate("/nearest-hospitals");
   };
   return (
-    <div className="px-6 py-8 bg-gray-50 min-h-screen">
+    <div className="max-w-screen-xl mx-auto flex flex-wrap px-6 py-8 min-h-screen">
       <h2 className="text-xl font-semibold mb-4">Welcome {user ? user.name : 'Guest'}</h2>
   {/* Latest Vitals Section */}
-      <button
+      {/* <button
         onClick={handleToggleCard}
         className="bg-blue-500 text-white px-4 py-2 rounded-full mb-4"
       >
          {initials}
-      </button>
+      </button> */}
 
       {showUserCard && <UserDetailsCard user={user} onClose={handleToggleCard} />}
-      <button
+      
+      {/* <button
       onClick={goToNearestHospitals}
       className="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 mt-4"
     >
       Find Nearest Hospitals
-    </button>
+    </button> */}
 
-  <h2 className="text-2xl font-bold text-gray-800 mb-6">🩺 Latest Health Vitals</h2>
+  <h2 className="text-2xl font-bold text-gray-800 mb-6"> Health Vitals and Activities</h2>
 
   <div className="flex flex-wrap gap-6 justify-start">
     {latest && (

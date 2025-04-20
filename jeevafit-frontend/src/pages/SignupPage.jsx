@@ -35,7 +35,7 @@ const SignUpPage = () => {
       dispatch(loginSuccess({ token, user }));
       setError('');
     } catch (err) {
-      dispatch(loginFailure(err.response?.data?.msg || 'Something went wrong.'));
+      dispatch(loginFailure(err.response?.data?.msg || 'Oops! We could not complete your sign-up. Please try again in a moment.'));
       setError('Error during signup');
     }
   };
@@ -43,27 +43,30 @@ const SignUpPage = () => {
   return (
     <>
     <div className='max-w-screen-lg mx-auto h-screen flex flex-wrap items-center justify-center'>
-      <div className='w-full m-4 sm:mx-32 flex flex-wrap flex-col sm:flex-row bg-[#FFEEDD]/10 rounded-lg '>
+      <div className='w-full m-4 sm:mx-32 flex flex-wrap flex-col sm:flex-row bg-[#FFEEDD]/25 rounded-lg shadow-sm shadow-[#FFEEDD] backdrop-blur-[4px] border border-[#FF5400]/20'>
         <div className='w-full sm:w-2/5 flex flex-col bg-[#03045E]  justify-center rounded-lg p-8'>
         <h1 className='text-[24px] sm:text-[28px] md:text-[32px] font-sans-serif text-white font-bold -tracking-tight leading-[135%] mb-4'>
         Welcome to JeevaFit!
         </h1>
-        <p className='text-[16px] font-medium font-sans-serif text-[#e5e5e5] -tracking-tight leading-[135%]'>
+        <p className='text-[16px] font-sans-serif text-[#F5F5F5] -tracking-tight leading-[135%]'>
          we are exicted to have you here. If you haven't already, create your account to start your journey towards better health and well-being.
         </p>
         <button className='bg-white/20 backdrop-blur-[16px]  mt-12 py-2 rounded-full cursor-pointer hover:bg-white/15 transition duration-300 ease-in-out'>
         <a href="/login" className='text-[16px] font-serif font-medium text-white hover:text-gray-00'>Already have acoount</a>
         </button>
         </div>
-        <div className='w-full sm:w-3/5 flex flex-col mx-auto sm:p-4 sm:px-8 pt-8 p-4 items-center justify-center my-6'>
-        <h1 className='text-[24px] sm:text-[28px] font-sans-serif text-[#1e1e1e] font-bold  leading-[135%'>
+        <div className='w-full sm:w-3/5 flex flex-col mx-auto sm:p-4 sm:px-8  p-4 items-center justify-center my-6'>
+        <h1 className='text-[24px] sm:text-[28px] font-sans-serif text-[#03045E] font-bold  leading-[135%'>
         Register yourself
         </h1>
-        <p className='text-[16px] font-semibold font-sans-serif text-[#FF6D00]/80 tracking-tight leading-[135%]'>
+        <p className='text-[16px] font-semibold font-sans-serif text-[#FF6D00] tracking-tight leading-[135%]'>
          Create your free account
         </p>
+        <div className='w-full flex flex-wrap items-center justify-center text-center mt-2'>
+        {error && <p className='text-red-500 text-[14px] font-semibold tracking-tight leading-[135%]'>{error}</p>}
+        </div>
         <form 
-      className='w-full flex flex-col mx-auto mt-8'
+      className='w-full flex flex-col mx-auto mt-8 text-gray-700 font-semibold font-sans-serif'
       onSubmit={handleSignUp}>
             <input 
         className='bg-[#FF5400]/5 focus:bg:white rounded-md p-2 m-2'
@@ -140,14 +143,13 @@ const SignUpPage = () => {
         /> */}
         <div className='w-full flex flex-row items-center justify-between mt-4'>
         <p className='text-[12px] font-semibold font-sans-serif text-[#03045E]/50 tracking-tight leading-[135%]'>
-        By <span className='font-bold text-[#03045E]/70 underline'>continuing</span>, I agree to HeathMate’s <span className='font-bold text-[#03045E]/70 underline'>Privacy Policy</span> and <span className='font-bold text-[#03045E]/70 underline'>Terms of Use</span>. 
+        By proceeding, I <span className='font-bold text-[#03045E]/70 underline'>acknowledge</span> that I have read and agree to JeevaFit’s <span className='font-bold text-[#03045E]/70 underline'>Privacy Policy</span> and <span className='font-bold text-[#03045E]/70 underline'>Terms of Use</span>. 
         </p>
         </div>
         <button 
         className='bg-[#FF5400] hover:bg-[#FF6D00] font-semibold text-[20px]  text-white hover:text-gray-300 rounded-full px-8 py-2 m-2 mt-6'
         type="submit">Sign Up</button>
       </form>
-      {error && <p>{error}</p>}
         </div>
       </div>
     </div>
