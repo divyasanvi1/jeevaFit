@@ -5,6 +5,8 @@ const cors = require("cors");
 const userRoute=require("./routes/userRoute")
 const healthRoute = require("./routes/health");
 const locationRoute=require('./routes/location');
+const reminderRoute = require("./routes/remainder");
+require('./tasks/reminderScheduler'); // 👈 ADD this line
 const app=express();
 const PORT=8001;
 
@@ -23,6 +25,6 @@ app.use(cookieParser());
 app.use("/userRoute",userRoute);
 app.use("/health", healthRoute);
 app.use("/location",locationRoute);
-
+app.use("/reminder", reminderRoute);
 
 app.listen(PORT,()=>console.log(`Server started at PORT ${PORT}`))

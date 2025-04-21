@@ -1,17 +1,17 @@
 // routes/reminder.js
-const express = require("express");
-const Reminder = require("../models/Reminder");
+const express = require('express');
 const router = express.Router();
+const {
+  createReminder,
+  getUserReminders,
+  deleteReminder,
+  updateReminder
+} = require('../controllers/remainder');
 
-router.post("/create", async (req, res) => {
-  try {
-    const { userId, reason, time, email } = req.body;
-    const reminder = new Reminder({ userId, reason, time, email });
-    await reminder.save();
-    res.status(201).json({ message: "Reminder scheduled!", reminder });
-  } catch (err) {
-    res.status(500).json({ message: "Failed to schedule reminder", error: err.message });
-  }
-});
+router.post('/create', createReminder);
+router.get('/:userId', getUserReminders);
+router.delete('/:id', deleteReminder);
+router.put('/:id', updateReminder);
 
 module.exports = router;
+

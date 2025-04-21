@@ -4,11 +4,13 @@ import { useDispatch } from 'react-redux';
 import { updateUserDetails } from '../redux/userSlice';
 import axios from 'axios';
 import generatePDF from '../utils/generatePdf';
+import ReminderForm from './RemainderForm';
+
 
 const UserDetailsCard = ({ onClose }) => {
   const dispatch = useDispatch();
   const storedUser = JSON.parse(localStorage.getItem("user"));
-
+  const [showReminderForm, setShowReminderForm] = useState(false);
   const [fullUser, setFullUser] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({
@@ -108,6 +110,27 @@ const UserDetailsCard = ({ onClose }) => {
 >
   Download PDF Report
 </button>
+<button
+  onClick={() => setShowReminderForm(true)}
+  className="mt-2 bg-purple-600 text-white px-4 py-2 rounded"
+>
+  Set Reminder
+</button>
+{showReminderForm && (
+  <div className="mt-4">
+    <ReminderForm
+      userId={formData._id}
+      userEmail={formData.email}
+    />
+    <button
+      onClick={() => setShowReminderForm(false)}
+      className="mt-2 text-sm text-red-500 underline"
+    >
+      Cancel Reminder
+    </button>
+  </div>
+)}
+
     </div>
   );
 };
