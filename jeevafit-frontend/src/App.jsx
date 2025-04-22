@@ -3,6 +3,7 @@ import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
+import ProfilePage from './pages/ProfilePage';
 import './index.css'
 const LoginPage = lazy(() => import('./pages/LoginPage'));
 const SignUpPage = lazy(() => import('./pages/SignupPage'));
@@ -23,6 +24,7 @@ const App = () => {
             <Route path="/home" element={<HomePage />} />
             <Route path="/nearest-hospitals" element={<NearestHospitalsPage />} />
             <Route path="/booking" element={<BookingPage />} />
+            <Route path="/profile/:userId" element={<ProfilePage />} />
             {/* Add other routes as needed */}
           </Routes>
         </Suspense>

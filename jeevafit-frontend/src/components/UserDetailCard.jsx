@@ -5,6 +5,7 @@ import { updateUserDetails } from '../redux/userSlice';
 import axios from 'axios';
 import generatePDF from '../utils/generatePdf';
 import ReminderForm from './RemainderForm';
+import HealthProfileQR from './HealthProfileQR';
 
 
 const UserDetailsCard = ({ onClose }) => {
@@ -136,6 +137,7 @@ const UserDetailsCard = ({ onClose }) => {
 >
   Book Appointment
 </button>
+<HealthProfileQR userId={formData._id} />
 
     </div>
   );

@@ -10,7 +10,8 @@ import BloodPressureChart from '../components/BpComponent';
 import OxygenSaturationChart from '../components/OxygenSaturation';
 import UserDetailsCard from '../components/UserDetailCard';
 import { useNavigate } from 'react-router-dom';
-
+import LowBatteryMode from '../components/LowBatteryMode';
+import HealthTopics from '../components/HealthTopics';
 
 const HomePage = () => {
   const navigate = useNavigate(); 
@@ -39,13 +40,14 @@ const HomePage = () => {
     <div className="px-6 py-8 bg-gray-50 min-h-screen">
       <h2 className="text-xl font-semibold mb-4">Welcome {user ? user.name : 'Guest'}</h2>
   {/* Latest Vitals Section */}
+
       <button
         onClick={handleToggleCard}
         className="bg-blue-500 text-white px-4 py-2 rounded-full mb-4"
       >
          {initials}
       </button>
-
+      <LowBatteryMode /> 
       {showUserCard && <UserDetailsCard user={user} onClose={handleToggleCard} />}
       <button
       onClick={goToNearestHospitals}
@@ -53,7 +55,7 @@ const HomePage = () => {
     >
       Find Nearest Hospitals
     </button>
-
+    <HealthTopics />
   <h2 className="text-2xl font-bold text-gray-800 mb-6">🩺 Latest Health Vitals</h2>
 
   <div className="flex flex-wrap gap-6 justify-start">
