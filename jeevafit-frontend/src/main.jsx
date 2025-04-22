@@ -4,8 +4,8 @@ import './index.css'
 import i18next from 'i18next';
 import { I18nextProvider } from 'react-i18next';
 import App from './App.jsx'
-import enTranslation from '../public/locales/en/translation.json';
-import hiTranslation from '../public/locales/hi/translation.json';
+import enTranslation from '../src/locales/en/translation.json';
+import hiTranslation from '../src/locales/hi/translation.json';
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker
