@@ -1,26 +1,31 @@
 // src/App.js
-
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
-import LoginPage from './pages/LoginPage';
-import SignUpPage from './pages/SignupPage';
-import HomePage from './pages/HomePage';
-import NearestHospitalsPage from './pages/NearestHospitals';
 import './index.css'
+const LoginPage = lazy(() => import('./pages/LoginPage'));
+const SignUpPage = lazy(() => import('./pages/SignupPage'));
+const HomePage = lazy(() => import('./pages/HomePage'));
+const NearestHospitalsPage = lazy(() => import('./pages/NearestHospitals'));
+const BookingPage = lazy(() => import('./components/BookingPage'));
+
+
 
 const App = () => {
   return (
     <Provider store={store}>
       <Router>
-        <Routes>
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/signup" element={<SignUpPage />} />
-        <Route path="/home" element={<HomePage />} />
-        <Route path="/nearest-hospitals" element={<NearestHospitalsPage />} />
-          {/* Add other routes for the dashboard or protected routes here */}
-        </Routes>
+      <Suspense fallback={<div className="text-center mt-10">Loading...</div>}>
+          <Routes>
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/signup" element={<SignUpPage />} />
+            <Route path="/home" element={<HomePage />} />
+            <Route path="/nearest-hospitals" element={<NearestHospitalsPage />} />
+            <Route path="/booking" element={<BookingPage />} />
+            {/* Add other routes as needed */}
+          </Routes>
+        </Suspense>
       </Router>
     </Provider>
   );

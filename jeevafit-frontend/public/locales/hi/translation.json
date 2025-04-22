@@ -1,0 +1,10 @@
+{
+    "loginPage": {
+      "title": "लॉगिन",
+      "emailPlaceholder": "ईमेल",
+      "passwordPlaceholder": "पासवर्ड",
+      "loginButton": "लॉगिन",
+      "errorMessage": "अमान्य क्रेडेंशियल्स"
+    }
+  }
+  

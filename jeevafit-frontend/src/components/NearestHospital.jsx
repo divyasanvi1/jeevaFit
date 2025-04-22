@@ -1,24 +1,24 @@
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const NearestHospitals = () => {
   const [hospitals, setHospitals] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const fetchHospitals = async () => {
     setLoading(true);
     setError("");
     try {
-      if (!navigator.geolocation) {
-        throw new Error("Geolocation not supported.");
-      }
+      if (!navigator.geolocation) throw new Error("Geolocation not supported.");
 
       navigator.geolocation.getCurrentPosition(async (position) => {
         const { latitude, longitude } = position.coords;
         const res = await axios.post("http://localhost:8001/location/hospitals", {
-            latitude,
-            longitude,
+          latitude,
+          longitude,
         });
         setHospitals(res.data.hospitals);
         setLoading(false);
@@ -28,6 +28,7 @@ const NearestHospitals = () => {
       setLoading(false);
     }
   };
+
 
   return (
     <div className="mt-10 bg-white rounded-2xl shadow p-4">
@@ -48,7 +49,15 @@ const NearestHospitals = () => {
             {hospitals.map((hospital, i) => (
               <li key={i} className="border-b pb-2">
                 <strong>{hospital.name}</strong>
-                <p className="text-sm text-gray-600">{hospital.vicinity}</p>
+                <p className="text-sm text-gray-600">{hospital.address}</p>
+                <button
+                  onClick={() =>
+                    navigate("/booking", { state: { hospital } })
+                  }
+                  className="bg-blue-600 text-white px-3 py-1 rounded mt-2"
+                >
+                  Book Now
+                </button>
               </li>
             ))}
           </ul>

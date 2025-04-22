@@ -5,7 +5,8 @@ import { useDispatch } from 'react-redux';
 import { loginStart, loginSuccess, loginFailure } from '../redux/authSlice';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-
+import LanguageSwitcher from '../components/LanguageSwitcher';
+import { useTranslation } from 'react-i18next';
 
 const LoginPage = () => {
   const dispatch = useDispatch();
@@ -13,7 +14,7 @@ const LoginPage = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
-
+  const { t } = useTranslation();
   const handleLogin = async (e) => {
     e.preventDefault();
     dispatch(loginStart());
@@ -25,7 +26,7 @@ const LoginPage = () => {
       }, {
         withCredentials: true, // Ensures cookies are sent/received
       });
-
+     
       const { token, user } = response.data;
       dispatch(loginSuccess({ token, user }));
       console.log("user",user);
@@ -39,23 +40,24 @@ const LoginPage = () => {
 
   return (
     <div>
-      <h1>Login</h1>
+      <h1>{t('loginPage.title')}</h1>
+      <LanguageSwitcher />
       <form onSubmit={handleLogin}>
         <input 
           type="email" 
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email"
+          placeholder={t('loginPage.emailPlaceholder')}
           required
         />
         <input 
           type="password" 
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
+          placeholder={t('loginPage.passwordPlaceholder')}
           required
         />
-        <button type="submit">Login</button>
+        <button type="submit">{t('loginPage.loginButton')}</button>
       </form>
       {error && <p>{error}</p>}
     </div>

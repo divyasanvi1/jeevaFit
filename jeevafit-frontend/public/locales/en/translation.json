@@ -1,0 +1,10 @@
+{
+    "loginPage": {
+      "title": "Login",
+      "emailPlaceholder": "Email",
+      "passwordPlaceholder": "Password",
+      "loginButton": "Login",
+      "errorMessage": "Invalid credentials"
+    }
+  }
+  

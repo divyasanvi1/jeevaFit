@@ -130,6 +130,12 @@ const UserDetailsCard = ({ onClose }) => {
     </button>
   </div>
 )}
+<button
+  onClick={() => window.location.href = "/booking"}
+  className="mt-2 bg-purple-600 text-white px-4 py-2 rounded"
+>
+  Book Appointment
+</button>
 
     </div>
   );

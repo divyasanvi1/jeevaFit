@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { loginStart, loginSuccess, loginFailure } from '../redux/authSlice';
+import LanguageSwitcher from '../components/LanguageSwitcher';
 import axios from 'axios';
 
 const SignUpPage = () => {
@@ -43,6 +44,7 @@ const SignUpPage = () => {
   return (
     <div>
       <h1>Sign Up</h1>
+      <LanguageSwitcher /> 
       <form onSubmit={handleSignUp}>
         <input 
           type="text" 
