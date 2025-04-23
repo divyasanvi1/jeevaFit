@@ -1,4 +1,3 @@
-// src/pages/NearestHospitalsPage.jsx
 import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 
@@ -9,6 +8,8 @@ const NearestHospitalsPage = () => {
   const [error, setError] = useState("");
   const mapRef = useRef(null);
   const mapInstance = useRef(null);
+  const directionsService = useRef(null);
+  const directionsRenderer = useRef(null);
 
   // Dynamically load the Google Maps script once
   const loadGoogleMapsScript = () => {
@@ -82,6 +83,38 @@ const NearestHospitalsPage = () => {
     fetchData();
   }, []);
 
+  const getDirectionsToHospital = (hospital) => {
+    if (!directionsService.current || !directionsRenderer.current || !location) return;
+
+    const { latitude, longitude } = hospital;
+
+    // Ensure the hospital's latitude and longitude are valid numbers
+    if (typeof latitude !== "number" || typeof longitude !== "number") {
+      console.error("Invalid latitude or longitude for the hospital");
+      return;
+    }
+
+    const destination = new window.google.maps.LatLng(latitude, longitude);
+
+    // Get the user's current location (origin)
+    const origin = new window.google.maps.LatLng(location.latitude, location.longitude);
+
+    const request = {
+      origin: origin,
+      destination: destination,
+      travelMode: window.google.maps.TravelMode.DRIVING, // Can be changed to WALKING, BICYCLING, etc.
+    };
+
+    directionsService.current.route(request, (result, status) => {
+      if (status === window.google.maps.DirectionsStatus.OK) {
+        directionsRenderer.current.setDirections(result);
+      } else {
+        console.error("Directions request failed due to " + status);
+        setError("Failed to get directions.");
+      }
+    });
+  };
+
   useEffect(() => {
     if (location && window.google && window.google.maps && mapRef.current) {
       // Initialize map only once
@@ -90,6 +123,15 @@ const NearestHospitalsPage = () => {
           center: { lat: location.latitude, lng: location.longitude },
           zoom: 13,
         });
+      }
+
+      // Initialize the DirectionsService and DirectionsRenderer if not already initialized
+      if (!directionsService.current) {
+        directionsService.current = new window.google.maps.DirectionsService();
+      }
+      if (!directionsRenderer.current) {
+        directionsRenderer.current = new window.google.maps.DirectionsRenderer();
+        directionsRenderer.current.setMap(mapInstance.current);
       }
 
       // Add user location marker
@@ -101,12 +143,20 @@ const NearestHospitalsPage = () => {
 
       // Add hospital markers
       hospitals.forEach((hospital) => {
-        if (typeof hospital.latitude === "number" && typeof hospital.longitude === "number") {
-          new window.google.maps.Marker({
-            position: { lat: hospital.latitude, lng: hospital.longitude },
+        const { latitude, longitude } = hospital;
+        if (typeof latitude === "number" && typeof longitude === "number") {
+          const marker = new window.google.maps.Marker({
+            position: { lat: latitude, lng: longitude },
             map: mapInstance.current,
             title: hospital.name,
           });
+
+          // Add a click event to show directions when clicking a hospital marker
+          marker.addListener("click", () => {
+            getDirectionsToHospital(hospital);
+          });
+        } else {
+          console.error(`Invalid coordinates for hospital: ${hospital.name}`);
         }
       });
     }
@@ -129,6 +179,12 @@ const NearestHospitalsPage = () => {
             {hospital.rating && (
               <p className="text-sm text-gray-500">Rating: {hospital.rating}</p>
             )}
+            <button
+              onClick={() => getDirectionsToHospital(hospital)}
+              className="bg-blue-600 text-white px-3 py-1 rounded mt-2"
+            >
+              Get Directions
+            </button>
           </li>
         ))}
       </ul>

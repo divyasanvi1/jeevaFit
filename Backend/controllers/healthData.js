@@ -62,7 +62,12 @@ if (isNaN(heartRate) || isNaN(respiratoryRate) || isNaN(bodyTemperature) || isNa
       derived_HRV,
       ...derived
     });
-
+      // ✅ Emit to Socket.IO clients
+    const io = req.app.get("io");
+    io.emit("healthDataUpdated", {
+      userId,
+      data: newData,
+    });
     res.status(201).json({ msg: "Health data added", data: newData });
 
   } catch (err) {

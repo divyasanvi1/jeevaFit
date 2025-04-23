@@ -12,7 +12,11 @@ export const fetchHealthData = createAsyncThunk('health/fetch', async () => {
 const healthSlice = createSlice({
   name: 'health',
   initialState: { data: [], status: 'idle', error: null },
-  reducers: {},
+  reducers: {
+    addNewHealthData: (state, action) => {
+      state.data = [action.payload, ...state.data];
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchHealthData.pending, (state) => {
@@ -28,5 +32,5 @@ const healthSlice = createSlice({
       });
   }
 });
-
+export const { addNewHealthData } = healthSlice.actions
 export default healthSlice.reducer;

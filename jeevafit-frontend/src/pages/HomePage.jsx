@@ -12,7 +12,12 @@ import UserDetailsCard from '../components/UserDetailCard';
 import { useNavigate } from 'react-router-dom';
 import LowBatteryMode from '../components/LowBatteryMode';
 import HealthTopics from '../components/HealthTopics';
+import io from "socket.io-client";
+import { addNewHealthData } from "../redux/healthSlice";
 
+const socket = io("http://localhost:8001", {
+  withCredentials: true,
+});
 const HomePage = () => {
   const navigate = useNavigate(); 
   const dispatch = useDispatch();
@@ -27,7 +32,18 @@ const HomePage = () => {
 
   useEffect(() => {
     dispatch(fetchHealthData());
-  }, [dispatch]);
+    // Setup listener
+  socket.on("healthDataUpdated", ({ userId, data }) => {
+    if (userId === user?._id) {
+      console.log("New health data received via socket:", data);
+      dispatch(addNewHealthData(data)); // ⬅️ You will create this action in your redux slice
+    }
+  });
+
+  return () => {
+    socket.off("healthDataUpdated");
+  };
+  }, [dispatch, user]);
 
   const latest = data?.[0]; // latest health record
   const handleToggleCard = () => {
