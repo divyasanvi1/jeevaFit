@@ -1,25 +1,56 @@
 const Reminder = require('../models/remainderModel');
+const moment = require('moment'); // For date manipulation
+const validator = require('validator'); // For email validation
 
 // Create a new reminder
 const createReminder = async (req, res) => {
   try {
-    const { userId, reason, time, email } = req.body;
+    const { userId, reason, time, startDate, endDate, email } = req.body;
 
-    if (!userId || !reason || !time || !email) {
+    // Validate all fields are provided
+    if (!userId || !reason || !time || !startDate || !endDate || !email) {
       return res.status(400).json({ message: "All fields are required." });
     }
 
-    const reminder = new Reminder({
-      userId,
-      reason,
-      time,
-      email,
-      isSent: false
+    // Validate email format
+    if (!validator.isEmail(email)) {
+      return res.status(400).json({ message: "Invalid email format." });
+    }
+
+    // Ensure that startDate and endDate are in valid date format
+    const start = moment(startDate, 'YYYY-MM-DD', true); // strict parsing
+    const end = moment(endDate, 'YYYY-MM-DD', true); // strict parsing
+
+    if (!start.isValid() || !end.isValid()) {
+      return res.status(400).json({ message: "Invalid date format. Use YYYY-MM-DD." });
+    }
+
+    const dates = [];
+    for (let currentDate = start; currentDate.isBefore(end) || currentDate.isSame(end); currentDate.add(1, 'days')) {
+      dates.push(currentDate.format('YYYY-MM-DD'));
+    }
+
+    // Create a reminder for each date in the range
+    const reminders = dates.map((date) => {
+      return new Reminder({
+        userId,
+        reason,
+        time,
+        startDate: date,
+        endDate,
+        email,
+        sentDates: [], // Initially, no dates are sent
+      });
     });
 
-    await reminder.save();
-    res.status(201).json({ message: "Reminder scheduled!", reminder });
+    // Insert all reminders into the database
+    await Reminder.insertMany(reminders);
+    console.log("Reminders saved to database");
+
+    // Return response
+    res.status(201).json({ message: "Reminders scheduled!", reminders });
   } catch (err) {
+    console.error("Error creating reminder:", err.message);
     res.status(500).json({ message: "Failed to schedule reminder", error: err.message });
   }
 };
@@ -31,6 +62,7 @@ const getUserReminders = async (req, res) => {
     const reminders = await Reminder.find({ userId }).sort({ time: 1 });
     res.status(200).json(reminders);
   } catch (err) {
+    console.error("Error fetching reminders:", err.message);
     res.status(500).json({ message: "Failed to fetch reminders", error: err.message });
   }
 };
@@ -42,6 +74,7 @@ const deleteReminder = async (req, res) => {
     await Reminder.findByIdAndDelete(id);
     res.status(200).json({ message: "Reminder deleted successfully" });
   } catch (err) {
+    console.error("Error deleting reminder:", err.message);
     res.status(500).json({ message: "Failed to delete reminder", error: err.message });
   }
 };
@@ -60,6 +93,7 @@ const updateReminder = async (req, res) => {
 
     res.status(200).json({ message: "Reminder updated", updated });
   } catch (err) {
+    console.error("Error updating reminder:", err.message);
     res.status(500).json({ message: "Failed to update reminder", error: err.message });
   }
 };

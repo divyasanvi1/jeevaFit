@@ -3,12 +3,25 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 // Try to load user data from localStorage
-const persistedUser = localStorage.getItem('user');
-const persistedToken = localStorage.getItem('token');
+// Safe user parsing from localStorage
+let persistedUser = null;
+let persistedToken = null;
+
+try {
+  const userData = localStorage.getItem('user');
+  const tokenData = localStorage.getItem('token');
+
+  persistedUser = userData && userData !== "undefined" ? JSON.parse(userData) : null;
+  persistedToken = tokenData && tokenData !== "undefined" ? tokenData : null;
+} catch (error) {
+  console.error("Failed to parse user/token from localStorage:", error);
+  persistedUser = null;
+  persistedToken = null;
+}
 
 const initialState = {
-  user: persistedUser ? JSON.parse(persistedUser) : null,  // Retrieve user from localStorage if available
-  token: persistedToken || null,  // Retrieve token from localStorage if available
+  user: persistedUser,
+  token: persistedToken,
   loading: false,
   error: null,
 };

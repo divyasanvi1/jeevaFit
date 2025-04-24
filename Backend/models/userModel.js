@@ -31,7 +31,20 @@ const userSchema= new mongoose.Schema({
     height: {
         type: Number,
         required: true,  // Optional based on your needs
-    }
+    },
+      emergencyContactEmail: {
+        type: String, // Store the emergency contact's email
+        required: true,
+      },
+      emergencyContactPhone: {
+        type: String, // Store the emergency contact's phone number
+        required: true,
+      },
+      bloodGroup: {
+        type: String, // Store the user's blood group
+        required: true,
+        enum: ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-', 'Other'], // You can customize this list
+      }
 },{timestamps:true})
 
 const User=mongoose.model('userJeevafit',userSchema)

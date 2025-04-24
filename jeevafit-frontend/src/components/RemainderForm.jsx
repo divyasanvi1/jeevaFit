@@ -5,12 +5,14 @@ import axios from 'axios';
 const ReminderForm = ({ userId, userEmail }) => {
   const [reason, setReason] = useState('');
   const [time, setTime] = useState('');
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
   const [message, setMessage] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!reason || !time) {
+    if (!reason || !time || !startDate || !endDate) {
       return setMessage("Please fill in all fields.");
     }
 
@@ -19,12 +21,16 @@ const ReminderForm = ({ userId, userEmail }) => {
         userId,
         reason,
         time,
+        startDate,
+        endDate,
         email: userEmail,
       });
 
       setMessage(response.data.message || "Reminder scheduled!");
       setReason('');
       setTime('');
+      setStartDate('');
+      setEndDate('');
     } catch (error) {
       console.error(error);
       setMessage("Failed to schedule reminder.");
@@ -48,10 +54,28 @@ const ReminderForm = ({ userId, userEmail }) => {
         <div>
           <label className="block text-sm font-medium">Reminder Time</label>
           <input
-            type="datetime-local"
+            type="time"
             className="w-full border rounded p-2"
             value={time}
             onChange={(e) => setTime(e.target.value)}
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium">Start Date</label>
+          <input
+            type="date"
+            className="w-full border rounded p-2"
+            value={startDate}
+            onChange={(e) => setStartDate(e.target.value)}
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium">End Date</label>
+          <input
+            type="date"
+            className="w-full border rounded p-2"
+            value={endDate}
+            onChange={(e) => setEndDate(e.target.value)}
           />
         </div>
         <button

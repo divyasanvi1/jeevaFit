@@ -1,37 +1,50 @@
 const User=require("../models/userModel")
 const { hashPassword, comparePassword, generateToken}=require("../service/auth")
 
-async function handleUserSignUp(req,res){
-    try{
-        const { name, email, password, age, weight, gender, height } = req.body;
-        console.log("Received signup request for:", req.body);
-        
-        if (!name || !email || !password || !age || !weight || !gender || !height) {
-            console.log("Missing fields:", { name, email, password, age, weight, gender, height }); // Log missing fields
-            return res.status(400).json({ msg: "All fields are required" });
-        }
-        const existingUser=await User.findOne({email});
-        console.log("Existing user:", existingUser);
-        if (existingUser) return res.status(400).json({ msg: "Email already in use" });
+async function handleUserSignUp(req, res) {
+  try {
+      const { name, email, password, age, weight, gender, height, phoneNumber, emergencyContactEmail, emergencyContactPhone, bloodGroup } = req.body;
+      
+      console.log("Received signup request for:", req.body);
+      
+      // Validate all required fields
+      if (!name || !email || !password || !age || !weight || !gender || !height  || !emergencyContactEmail || !emergencyContactPhone || !bloodGroup) {
+          console.log("Missing fields:", { name, email, password, age, weight, gender, height,  emergencyContactEmail, emergencyContactPhone, bloodGroup });
+          return res.status(400).json({ msg: "All fields are required" });
+      }
 
-        const hashedPassword = await hashPassword(password);
-        console.log("Password hashed:", hashedPassword);
-        const newUser=await User.create({
-            name,
-            email,
-            password:hashedPassword,
-            age,
-            weight,
-            gender,
-            height
-        })
-        console.log("new user",newUser);
-        res.status(201).json({ msg: "User created successfully", user: { name: newUser.name, email: newUser.email } });
-    }
-    catch(err){
-        res.status(500).json({ msg: "Internal Server Error" ,error: err.message});
-    }
+      // Check if the email already exists
+      const existingUser = await User.findOne({ email });
+      console.log("Existing user:", existingUser);
+      if (existingUser) return res.status(400).json({ msg: "Email already in use" });
+
+      // Hash the password before saving
+      const hashedPassword = await hashPassword(password);
+      console.log("Password hashed:", hashedPassword);
+
+      // Create the new user with all required fields
+      const newUser = await User.create({
+          name,
+          email,
+          password: hashedPassword,
+          age,
+          weight,
+          gender,
+          height,
+          emergencyContactEmail,
+          emergencyContactPhone,
+          bloodGroup,
+      });
+
+      console.log("New user:", newUser);
+      res.status(201).json({ msg: "User created successfully", user: { name: newUser.name, email: newUser.email } });
+
+  } catch (err) {
+      console.error("Error during signup:", err);
+      res.status(500).json({ msg: "Internal Server Error", error: err.message });
+  }
 }
+
 
 async function handleUserLogin(req,res){
     try{

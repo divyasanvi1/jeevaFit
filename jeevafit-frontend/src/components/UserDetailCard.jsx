@@ -6,6 +6,7 @@ import axios from 'axios';
 import generatePDF from '../utils/generatePdf';
 import ReminderForm from './RemainderForm';
 import HealthProfileQR from './HealthProfileQR';
+import  Modal from "../modal/Modal"
 
 
 const UserDetailsCard = ({ onClose }) => {
@@ -13,6 +14,8 @@ const UserDetailsCard = ({ onClose }) => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const [showReminderForm, setShowReminderForm] = useState(false);
   const [fullUser, setFullUser] = useState(null);
+  const [showSOSModal, setShowSOSModal] = useState(false);
+  const [sosStatus, setSosStatus] = useState('');
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({
     name: storedUser?.name || '',
@@ -59,6 +62,28 @@ const UserDetailsCard = ({ onClose }) => {
     }
   };
 
+  const handleSendSOS = () => {
+    if (!navigator.geolocation) {
+      setSosStatus('Geolocation is not supported by your browser');
+      return;
+    }
+    navigator.geolocation.getCurrentPosition(async (position) => {
+      try {
+        const { latitude, longitude } = position.coords;
+
+        const res = await axios.post('http://localhost:8001/api/sos', {
+          userId: formData._id,
+          location: { lat: latitude, lng: longitude },
+        });
+
+        setSosStatus(res.data.message);
+      } catch (err) {
+        setSosStatus(err.response?.data?.error || 'Failed to send SOS alert');
+      }
+    }, () => {
+      setSosStatus('Failed to get location');
+    });
+  };
 
   return (
     <div className="fixed right-0 top-0 h-full w-80 bg-white shadow-lg p-6 z-50 overflow-y-auto">
@@ -137,8 +162,26 @@ const UserDetailsCard = ({ onClose }) => {
 >
   Book Appointment
 </button>
+<button
+        onClick={() => setShowSOSModal(true)}
+        className="mt-2 bg-red-600 text-white px-4 py-2 rounded"
+      >
+        🚨 Send SOS
+      </button>
 <HealthProfileQR userId={formData._id} />
-
+{showSOSModal && (
+        <Modal onClose={() => setShowSOSModal(false)}>
+          <h3 className="text-lg font-semibold">Confirm SOS Alert</h3>
+          <p className="mb-2">Are you sure you want to send an SOS alert?</p>
+          <button onClick={handleSendSOS} className="bg-red-600 text-white px-3 py-1 rounded mr-2">
+            Yes, Send SOS
+          </button>
+          <button onClick={() => setShowSOSModal(false)} className="text-gray-500 underline">
+            Cancel
+          </button>
+          {sosStatus && <p className="mt-2 text-sm text-green-600">{sosStatus}</p>}
+        </Modal>
+      )}
     </div>
   );
 };

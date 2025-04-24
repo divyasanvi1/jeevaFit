@@ -15,6 +15,9 @@ const SignUpPage = () => {
   const [weight, setWeight] = useState('');
   const [gender, setGender] = useState('Male');
   const [height, setHeight] = useState('');
+  const [emergencyContactEmail, setEmergencyContactEmail] = useState('');
+  const [emergencyContactPhone, setEmergencyContactPhone] = useState('');
+  const [bloodGroup, setBloodGroup] = useState('');
   const [error, setError] = useState('');
 
   const handleSignUp = async (e) => {
@@ -30,6 +33,9 @@ const SignUpPage = () => {
         weight,
         gender,
         height,
+        emergencyContactEmail,
+        emergencyContactPhone,
+        bloodGroup,
       });
 
       const { token, user } = response.data;
@@ -94,6 +100,27 @@ const SignUpPage = () => {
           value={height}
           onChange={(e) => setHeight(e.target.value)}
           placeholder="Height"
+          required
+        />
+        <input 
+          type="email" 
+          value={emergencyContactEmail}
+          onChange={(e) => setEmergencyContactEmail(e.target.value)}
+          placeholder="Emergency Contact Email"
+          required
+        />
+        <input 
+          type="text" 
+          value={emergencyContactPhone}
+          onChange={(e) => setEmergencyContactPhone(e.target.value)}
+          placeholder="Emergency Contact Phone"
+          required
+        />
+        <input 
+          type="text" 
+          value={bloodGroup}
+          onChange={(e) => setBloodGroup(e.target.value)}
+          placeholder="Blood Group"
           required
         />
         <button type="submit">Sign Up</button>
