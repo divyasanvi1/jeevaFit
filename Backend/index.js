@@ -8,6 +8,7 @@ const locationRoute=require('./routes/location');
 const reminderRoute = require("./routes/remainder");
 const bookingRoute = require("./routes/booking");
 const sosRoutes = require('./routes/sosRoutes');
+const trackingRoutes = require('./routes/tracking');
 require('./tasks/reminderScheduler'); // 👈 ADD this line
 const http = require('http');
 const socketIo = require('socket.io');
@@ -41,7 +42,7 @@ app.use(cors({
 }));
 connectToMongoDb("mongodb://127.0.0.1:27017/jeevaFit").then(()=>console.log("mongoDb Connected")) .catch((error) => console.error(error));
 console.log("mongoDb Connected after")
-console.log(sosRoutes);
+//console.log(sosRoutes);
 app.use(express.urlencoded({extended:false}));
 app.use(cookieParser());
 app.use("/userRoute",userRoute);
@@ -50,5 +51,6 @@ app.use("/location",locationRoute);
 app.use("/reminder", reminderRoute);
 app.use("/booking", bookingRoute);
 app.use('/api', sosRoutes);
+app.use('/api/tracking', trackingRoutes);
 
 server.listen(PORT,()=>console.log(`Server started at PORT ${PORT}`))

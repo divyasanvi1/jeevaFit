@@ -14,7 +14,7 @@ import LowBatteryMode from '../components/LowBatteryMode';
 import HealthTopics from '../components/HealthTopics';
 import io from "socket.io-client";
 import { addNewHealthData } from "../redux/healthSlice";
-
+import TrackingComponent from '../components/Tracking';
 const socket = io("http://localhost:8001", {
   withCredentials: true,
 });
@@ -26,10 +26,10 @@ const HomePage = () => {
   const [showProfile, setShowProfile] = useState(false);
   const initials = user ? user.name.split(' ').map((n) => n[0]).join('') : '';
   const [showUserCard, setShowUserCard] = useState(false);
-
+  const [showTracking, setShowTracking] = useState(false);
   console.log('User Data:', user);
   console.log("User passed to UserDetailsCard:", user);
-
+  const userId = user?._id
   useEffect(() => {
     dispatch(fetchHealthData());
     // Setup listener
@@ -72,6 +72,16 @@ const HomePage = () => {
       Find Nearest Hospitals
     </button>
     <HealthTopics />
+    <div>
+    <button
+        onClick={() => setShowTracking(true)}
+        className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
+      >
+        🚨 Start SOS Tracking
+      </button>
+
+      {showTracking && <TrackingComponent userId={userId} />}
+    </div>
   <h2 className="text-2xl font-bold text-gray-800 mb-6">🩺 Latest Health Vitals</h2>
 
   <div className="flex flex-wrap gap-6 justify-start">

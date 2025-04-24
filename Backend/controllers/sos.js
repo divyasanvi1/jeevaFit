@@ -12,6 +12,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+
 // The sendSOS function
 const sendSOS = async (req, res) => {
   try {
@@ -40,13 +41,24 @@ const sendSOS = async (req, res) => {
 
     await sos.save();
     console.log('🚨 SOS alert saved:', sos);
+   // Check if user is inside any geofenced area
+   
+
+   // Prepare email content
+let subject = '🚨 SOS Emergency Alert';
+let emailBody = `An SOS alert was triggered by user: ${user.name} (${userId})
+Location: https://www.google.com/maps?q=${location.lat},${location.lng}
+Phone: ${user.emergencyContactPhone}
+Blood Group: ${user.bloodGroup}
+`;
+
 
     // Prepare email content
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: user.emergencyContactEmail, // Send email to the user's emergency contact email
-      subject: '🚨 SOS Emergency Alert',
-      text: `An SOS alert was triggered by user: ${user.name} (${userId})\nLocation: https://www.google.com/maps?q=${location.lat},${location.lng}\nPhone: ${user.emergencyContactPhone}\nBlood Group: ${user.bloodGroup}`,
+      subject,
+      text: `An SOS alert was triggered by user: ${user.name} (${userId})\nLocation: https://www.google.com/maps?q=${location.lat},${location.lng}\nPhone: ${user.emergencyContactPhone}\nBlood Group: ${user.bloodGroup}\n\n`,
     };
 
     // Send the email
