@@ -10,7 +10,7 @@ const SignUpPage = lazy(() => import('./pages/SignupPage'));
 const HomePage = lazy(() => import('./pages/HomePage'));
 const NearestHospitalsPage = lazy(() => import('./pages/NearestHospitals'));
 const BookingPage = lazy(() => import('./components/BookingPage'));
-
+import WeatherPage from './pages/WeatherPage';
 
 
 const App = () => {
@@ -25,6 +25,7 @@ const App = () => {
             <Route path="/nearest-hospitals" element={<NearestHospitalsPage />} />
             <Route path="/booking" element={<BookingPage />} />
             <Route path="/profile/:userId" element={<ProfilePage />} />
+            <Route path="/weather" element={<WeatherPage />} />
             {/* Add other routes as needed */}
           </Routes>
         </Suspense>

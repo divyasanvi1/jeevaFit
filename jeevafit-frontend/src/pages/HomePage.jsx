@@ -15,6 +15,7 @@ import HealthTopics from '../components/HealthTopics';
 import io from "socket.io-client";
 import { addNewHealthData } from "../redux/healthSlice";
 import TrackingComponent from '../components/Tracking';
+import WeatherPage from './WeatherPage'
 const socket = io("http://localhost:8001", {
   withCredentials: true,
 });
@@ -52,6 +53,9 @@ const HomePage = () => {
   const goToNearestHospitals = () => {
     navigate("/nearest-hospitals");
   };
+  const goToWeatherPage = () => {
+    navigate("/weather");
+  };  
   return (
     <div className="px-6 py-8 bg-gray-50 min-h-screen">
       <h2 className="text-xl font-semibold mb-4">Welcome {user ? user.name : 'Guest'}</h2>
@@ -81,6 +85,14 @@ const HomePage = () => {
       </button>
 
       {showTracking && <TrackingComponent userId={userId} />}
+    </div>
+    <div className="mt-4 text-center">
+      <button
+        onClick={goToWeatherPage}
+        className="bg-green-600 text-white px-6 py-2 rounded-full hover:bg-green-700 transition transform hover:scale-105"
+      >
+        🌤️ Weather Info
+      </button>
     </div>
   <h2 className="text-2xl font-bold text-gray-800 mb-6">🩺 Latest Health Vitals</h2>
 
