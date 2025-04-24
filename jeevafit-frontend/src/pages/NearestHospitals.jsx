@@ -60,6 +60,11 @@ const NearestHospitalsPage = () => {
                 latitude,
                 longitude,
               });
+              const validHospitals = res.data.hospitals.filter(
+                h =>
+                  typeof h.latitude === "number" &&
+                  typeof h.longitude === "number"
+              );
               setHospitals(res.data.hospitals);
             } catch (err) {
               console.error("Fetch hospitals error:", err);
@@ -88,17 +93,23 @@ const NearestHospitalsPage = () => {
 
     const { latitude, longitude } = hospital;
 
-    // Ensure the hospital's latitude and longitude are valid numbers
-    if (typeof latitude !== "number" || typeof longitude !== "number") {
-      console.error("Invalid latitude or longitude for the hospital");
-      return;
-    }
+    // Parse to float to ensure they're valid numbers
+  const lat = parseFloat(hospital.latitude);
+  const lng = parseFloat(hospital.longitude);
+console.log("lat",lat);
+console.log("lng",lng);
+  if (isNaN(lat) || isNaN(lng)) {
+    console.error("Invalid latitude or longitude for the hospital", hospital);
+    return;
+  }
 
     const destination = new window.google.maps.LatLng(latitude, longitude);
 
     // Get the user's current location (origin)
     const origin = new window.google.maps.LatLng(location.latitude, location.longitude);
+    const mapsUrl = `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${destination}&travelmode=driving`;
 
+  window.open(mapsUrl, "_blank");
     const request = {
       origin: origin,
       destination: destination,

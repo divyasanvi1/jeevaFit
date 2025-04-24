@@ -1,7 +1,7 @@
 const axios = require('axios');
 require('dotenv').config();
 async function handleNearbyHospitals(req, res) {
-    console.log("Received coordinates in backend:", req.body);
+   // console.log("Received coordinates in backend:", req.body);
 
   try {
     const { latitude, longitude } = req.body;
@@ -20,13 +20,20 @@ async function handleNearbyHospitals(req, res) {
       }
     );
     //console.log("Google API Response:", response.data);
-    const hospitals = response.data.results.map(place => ({
-      name: place.name,
-      address: place.vicinity,
-      location: place.geometry.location,
-      rating: place.rating
-    }));
-
+    const hospitals = response.data.results
+      .filter(place => (
+        place.geometry &&
+        place.geometry.location &&
+        typeof place.geometry.location.lat === 'number' &&
+        typeof place.geometry.location.lng === 'number'
+      ))
+      .map(place => ({
+        name: place.name,
+        address: place.vicinity,
+        latitude: place.geometry.location.lat,
+        longitude: place.geometry.location.lng,
+        rating: place.rating || null
+      }));
     res.status(200).json({ hospitals });
   } catch (err) {
     console.error("Error fetching hospitals:", err.message);
