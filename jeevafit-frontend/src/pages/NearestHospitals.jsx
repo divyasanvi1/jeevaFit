@@ -1,6 +1,23 @@
 import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 
+const calculateDistance = (lat1, lon1, lat2, lon2) => {
+  const toRad = (value) => (value * Math.PI) / 180;
+  const R = 6371; // Radius of Earth in kilometers
+
+  const dLat = toRad(lat2 - lat1);
+  const dLon = toRad(lon2 - lon1);
+
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(toRad(lat1)) *
+      Math.cos(toRad(lat2)) *
+      Math.sin(dLon / 2) *
+      Math.sin(dLon / 2);
+
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return R * c; // distance in kilometers
+};
 const NearestHospitalsPage = () => {
   const [hospitals, setHospitals] = useState([]);
   const [location, setLocation] = useState(null);
@@ -60,12 +77,37 @@ const NearestHospitalsPage = () => {
                 latitude,
                 longitude,
               });
-              const validHospitals = res.data.hospitals.filter(
-                h =>
-                  typeof h.latitude === "number" &&
-                  typeof h.longitude === "number"
-              );
-              setHospitals(res.data.hospitals);
+              const hospitalsWithDistance = res.data.hospitals.map((hospital) => {
+                const lat = parseFloat(hospital.latitude);
+                const lng = parseFloat(hospital.longitude);
+              
+                let distance = null;
+                if (!isNaN(lat) && !isNaN(lng)) {
+                  distance = calculateDistance(latitude, longitude, lat, lng);
+                  //console.log(`✅ ${hospital.name} - Distance: ${distance.toFixed(2)} km`);
+                } else {
+                  console.warn(`❌ ${hospital.name} - Invalid coordinates:`, {
+                    latitude: hospital.latitude,
+                    longitude: hospital.longitude
+                  });
+                }
+              
+                return {
+                  ...hospital,
+                  distance,
+                };
+              });
+              
+              // Optional: sort only those that have distance
+              hospitalsWithDistance.sort((a, b) => {
+                if (a.distance === null) return 1;
+                if (b.distance === null) return -1;
+                return a.distance - b.distance;
+              });
+              
+              setHospitals(hospitalsWithDistance);
+              
+
             } catch (err) {
               console.error("Fetch hospitals error:", err);
               setError("Failed to fetch hospitals.");
@@ -187,8 +229,9 @@ console.log("lng",lng);
           <li key={index} className="border-b pb-2">
             <strong>{hospital.name}</strong>
             <p>{hospital.address}</p>
+            <p> Distance: {hospital.distance.toFixed(2)} km </p>
             {hospital.rating && (
-              <p className="text-sm text-gray-500">Rating: {hospital.rating}</p>
+              <p className="text-sm text-gray-500">  Rating: {hospital.rating}</p>
             )}
             <button
               onClick={() => getDirectionsToHospital(hospital)}
