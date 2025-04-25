@@ -19,7 +19,7 @@ const PORT=8001;
 const server = http.createServer(app); // 👈 create server using http
 const io = socketIo(server, {
   cors: {
-    origin: "http://localhost:5173", // frontend origin
+    origin: ["http://localhost:5173","http://localhost:3000 "], // frontend origin
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
   }
