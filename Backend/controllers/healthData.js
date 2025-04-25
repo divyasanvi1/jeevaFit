@@ -45,6 +45,38 @@ async function handleAddHealthData(req, res) {
 if (isNaN(heartRate) || isNaN(respiratoryRate) || isNaN(bodyTemperature) || isNaN(oxygenSaturation) || isNaN(systolicBP) || isNaN(diastolicBP) || isNaN(derived_HRV)) {
   return res.status(400).json({ msg: "Invalid data, all values must be numbers" });
 }
+// Range validation
+const isValid =
+heartRate >= 30 && heartRate <= 220 &&
+respiratoryRate >= 5 && respiratoryRate <= 60 &&
+bodyTemperature >= 30 && bodyTemperature <= 45 &&
+oxygenSaturation >= 70 && oxygenSaturation <= 100 &&
+systolicBP >= 70 && systolicBP <= 200 &&
+diastolicBP >= 40 && diastolicBP <= 160 &&
+derived_HRV >= 0 && derived_HRV <= 100;
+
+if (!isValid) {
+  const io = req.app.get("io");
+
+  // Emit a fatal alert to only the user
+  io.to(userId.toString()).emit("fatalHealthAlert", {
+    userId,
+    values: {
+      heartRate,
+      respiratoryRate,
+      bodyTemperature,
+      oxygenSaturation,
+      systolicBP,
+      diastolicBP,
+      derived_HRV,
+    },
+    reason: "Abnormal or dangerous health data detected. Please check your inputs.",
+  });
+
+  return res.status(400).json({
+    msg: "Abnormal or dangerous health data detected. Please check your inputs.",
+  });
+}
 
     const derived = calculateDerivedFields(
       { systolicBP, diastolicBP, heartRate, oxygenSaturation },

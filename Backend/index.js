@@ -25,10 +25,16 @@ const io = socketIo(server, {
   }
 });
 io.on("connection", (socket) => {
-    console.log("A user connected");
-  
+   // console.log("A user connected");
+  console.log(`User connected: ${socket.id}`);
+  socket.on("registerUser", (userId) => {
+    console.log(`🔐 Registering user ${userId} to room`);
+    socket.join(userId.toString()); // Join user to a room named by their ID
+    console.log(`Rooms for socket ${socket.id}:`, Array.from(socket.rooms));
+  });
     socket.on("disconnect", () => {
-      console.log("User disconnected");
+      console.log(`User disconnected: ${socket.id}`);
+     // console.log("User disconnected");
     });
   });
   // Make io accessible in routes

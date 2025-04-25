@@ -37,7 +37,7 @@ const HeartRateChart = ({ healthData }) => {
 
   useEffect(() => {
     if (healthData.length > 0) {
-      const sortedData = [...healthData].reverse(); // ✅ moved up
+      const sortedData = [...healthData].reverse(); 
       const timestamps = sortedData.map((data) => new Date(data.timestamp).toLocaleTimeString());
       const heartRates = sortedData.map((data) => data.heartRate);
 
