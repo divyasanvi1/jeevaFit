@@ -16,6 +16,7 @@ import io from "socket.io-client";
 import { addNewHealthData } from "../redux/healthSlice";
 import TrackingComponent from "../components/Tracking";
 import Modal from "../modal/Modal";
+import VoiceCommandHandler from "../components/VoiceCommandHandler";
 import FatalAlertPopup from "../components/FatalAlertPopup"; // Add this
 
 
@@ -219,7 +220,6 @@ const getHealthColor = (label, value) => {
     ))}
   </>
 )}
-
       </div>
       {fatalAlert && (
   <Modal>
@@ -229,6 +229,15 @@ const getHealthColor = (label, value) => {
   </Modal>
 )}
 
+{latest && (
+  <>
+  
+    <div className="p-4 bg-white rounded-xl shadow-lg mt-8 w-fit">
+  <VoiceCommandHandler latest={latest} />
+</div>
+
+  </>
+)}
       {/* Chart Section */}
       <div className="mt-10">
         <h2 className="text-2xl font-bold text-gray-800 mb-6">
