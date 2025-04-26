@@ -1,42 +1,44 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import i18next from 'i18next';
-import { I18nextProvider } from 'react-i18next';
-import App from './App.jsx'
-import enTranslation from '../src/locales/en/translation.json';
-import hiTranslation from '../src/locales/hi/translation.json';
-import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
-import LoginPage from './pages/LoginPage.jsx';
-import SignUpPage from './pages/SignupPage.jsx';
-import HomePage from './pages/HomePage.jsx';
-import NearestHospitalsPage from './pages/NearestHospitals.jsx';
-import { Provider } from 'react-redux';
-import { store } from './redux/store.js';
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import i18next from "i18next";
+import { I18nextProvider } from "react-i18next";
+import App from "./App.jsx";
+import enTranslation from "../src/locales/en/translation.json";
+import hiTranslation from "../src/locales/hi/translation.json";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import LoginPage from "./pages/LoginPage.jsx";
+import SignUpPage from "./pages/SignupPage.jsx";
+import HomePage from "./pages/HomePage.jsx";
+import NearestHospitalsPage from "./pages/NearestHospitals.jsx";
+import { Provider } from "react-redux";
+import { store } from "./redux/store.js";
 import LandingPage from "./pages/LandingPage.jsx";
-import WeatherPage from './pages/WeatherPage';
-import BookingPage from './components/BookingPage.jsx';
-import ProtectedRoute from './components/ProtectedRoute';
-import HealthLearningPage from './pages/HealthLearningPage.jsx';
-import PublicRoute from './components/PublicRoute.jsx';
-import ProfilePage from './pages/ProfilePage';
+import WeatherPage from "./pages/WeatherPage";
+import BookingPage from "./components/BookingPage.jsx";
+import ProtectedRoute from "./components/ProtectedRoute";
+import HealthLearningPage from "./pages/HealthLearningPage.jsx";
+import PublicRoute from "./components/PublicRoute.jsx";
+import ProfilePage from "./pages/ProfilePage";
 
-
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
     navigator.serviceWorker
-      .register('/service-worker.js')  // Path to your service worker file
+      .register("/service-worker.js") // Path to your service worker file
       .then((registration) => {
-        console.log('Service Worker registered with scope:', registration.scope);
+        console.log(
+          "Service Worker registered with scope:",
+          registration.scope
+        );
       })
       .catch((error) => {
-        console.log('Service Worker registration failed:', error);
+        console.log("Service Worker registration failed:", error);
       });
   });
 }
 i18next.init({
-  lng: 'en',  // Default language
-  fallbackLng: 'en',  // Fallback language if translation is missing
+  lng: "en", // Default language
+  fallbackLng: "en", // Fallback language if translation is missing
   resources: {
     en: {
       translation: enTranslation,
@@ -47,18 +49,17 @@ i18next.init({
     // Add other languages as needed
   },
   interpolation: {
-    escapeValue: false,  // React escapes by default
+    escapeValue: false, // React escapes by default
   },
 });
 
 const router = createBrowserRouter([
-  
   {
-    path: '/',
+    path: "/",
     element: <App />, // Shared layout for logged-in views
     children: [
       {
-        path: '',
+        path: "",
         element: (
           <PublicRoute>
             <LandingPage />
@@ -66,7 +67,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: 'dashboard',
+        path: "dashboard",
         element: (
           <ProtectedRoute>
             <HomePage />
@@ -74,7 +75,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: 'nearest-hospitals',
+        path: "nearest-hospitals",
         element: (
           <ProtectedRoute>
             <NearestHospitalsPage />
@@ -82,15 +83,15 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: '/health-learning',
+        path: "/health-learning",
         element: (
           <ProtectedRoute>
-            <HealthLearningPage/>
+            <HealthLearningPage />
           </ProtectedRoute>
         ),
       },
       {
-        path: 'weather',
+        path: "weather",
         element: (
           <ProtectedRoute>
             <WeatherPage />
@@ -98,7 +99,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: '/profile-qr',
+        path: "/profile-qr",
         element: (
           <ProtectedRoute>
             <ProfilePage />
@@ -108,28 +109,34 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: '/login',
-    element: (
-      <PublicRoute>
-        <LoginPage />
-      </PublicRoute>
-    ),
-  },
-  {
-    path: '/signup',
-    element: (
-      <PublicRoute>
-        <SignUpPage />
-      </PublicRoute>
-    ),
+    path: "/",
+    element: <Auth />, // Shared layout for logged-in views
+    children: [
+      {
+        path: "login",
+        element: (
+          <PublicRoute>
+            <LoginPage />
+          </PublicRoute>
+        ),
+      },
+      {
+        path: "signup",
+        element: (
+          <PublicRoute>
+            <SignUpPage />
+          </PublicRoute>
+        ),
+      }
+    ],
   },
 ]);
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
-     <Provider store={store}>
-    <I18nextProvider i18n={i18next}> 
-    <RouterProvider router={router} />
-    </I18nextProvider>
+    <Provider store={store}>
+      <I18nextProvider i18n={i18next}>
+        <RouterProvider router={router} />
+      </I18nextProvider>
     </Provider>
-  </StrictMode>,
-)
+  </StrictMode>
+);
