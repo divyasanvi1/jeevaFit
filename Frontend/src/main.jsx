@@ -55,11 +55,11 @@ i18next.init({
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "",
     element: <App />, // Shared layout for logged-in views
     children: [
       {
-        path: "",
+        path: "/",
         element: (
           <PublicRoute>
             <LandingPage />
@@ -67,7 +67,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "dashboard",
+        path: "/dashboard",
         element: (
           <ProtectedRoute>
             <HomePage />
@@ -75,7 +75,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "nearest-hospitals",
+        path: "/nearest-hospitals",
         element: (
           <ProtectedRoute>
             <NearestHospitalsPage />
@@ -91,7 +91,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "weather",
+        path: "/weather",
         element: (
           <ProtectedRoute>
             <WeatherPage />
@@ -109,11 +109,11 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/",
+    path: "",
     element: <Auth />, // Shared layout for logged-in views
     children: [
       {
-        path: "login",
+        path: "/login",
         element: (
           <PublicRoute>
             <LoginPage />
@@ -121,7 +121,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "signup",
+        path: "/signup",
         element: (
           <PublicRoute>
             <SignUpPage />
