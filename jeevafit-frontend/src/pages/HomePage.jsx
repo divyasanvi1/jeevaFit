@@ -38,6 +38,10 @@ const HomePage = () => {
   console.log("User Data:", user);
   console.log("User passed to UserDetailsCard:", user);
   const userId = user?._id;
+  console.log("userId",userId);
+  
+
+  
   useEffect(() => {
     if (!user?._id) return;
 
@@ -171,7 +175,15 @@ const getHealthColor = (label, value) => {
 
         {showTracking && <TrackingComponent userId={userId} />}
       </div>
-      
+      {latest && (
+  <>
+  
+    <div className="p-4 bg-white rounded-xl shadow-lg mt-8 w-fit">
+  <VoiceCommandHandler latest={latest} />
+</div>
+
+  </>
+)}
       <h2 className="text-2xl font-bold text-gray-800 mb-6">
         🩺 Latest Health Vitals
       </h2>
@@ -210,15 +222,7 @@ const getHealthColor = (label, value) => {
   </Modal>
 )}
 
-{latest && (
-  <>
-  
-    <div className="p-4 bg-white rounded-xl shadow-lg mt-8 w-fit">
-  <VoiceCommandHandler latest={latest} />
-</div>
 
-  </>
-)}
       {/* Chart Section */}
       <div className="mt-10">
         <h2 className="text-2xl font-bold text-gray-800 mb-6">

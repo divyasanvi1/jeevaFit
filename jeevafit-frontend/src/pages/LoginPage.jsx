@@ -31,10 +31,11 @@ const LoginPage = () => {
       });
      
       const { token, user } = response.data;
+      console.log("login data",response.data);
       dispatch(loginSuccess({ token, user }));
       console.log("user",user);
       setError('');
-      navigate('/dashboard'); 
+      navigate('/dashboard', { replace: true }); 
     } catch (err) {
       dispatch(loginFailure(err.response?.data?.msg || 'Something went wrong.'));
       setError('Invalid credentials');

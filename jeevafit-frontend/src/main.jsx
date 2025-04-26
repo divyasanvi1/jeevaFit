@@ -19,7 +19,7 @@ import WeatherPage from './pages/WeatherPage';
 import BookingPage from './components/BookingPage.jsx';
 import ProtectedRoute from './components/ProtectedRoute';
 import HealthLearningPage from './pages/HealthLearningPage.jsx';
-
+import PublicRoute from './components/PublicRoute.jsx';
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
@@ -58,7 +58,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: '',
-        element: <LandingPage />,
+        element: (
+          <PublicRoute>
+            <LandingPage />
+          </PublicRoute>
+        ),
       },
       {
         path: 'dashboard',
@@ -96,11 +100,19 @@ const router = createBrowserRouter([
   },
   {
     path: '/login',
-    element: <LoginPage />,
+    element: (
+      <PublicRoute>
+        <LoginPage />
+      </PublicRoute>
+    ),
   },
   {
     path: '/signup',
-    element: <SignUpPage />,
+    element: (
+      <PublicRoute>
+        <SignUpPage />
+      </PublicRoute>
+    ),
   },
 ]);
 createRoot(document.getElementById('root')).render(

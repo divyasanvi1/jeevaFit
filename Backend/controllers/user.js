@@ -62,7 +62,9 @@ async function handleUserLogin(req,res){
             httpOnly: true,
             maxAge: 7 * 24 * 60 * 60 * 1000,
         })
-        res.json({ msg: "Login successful",token, user: { name: user.name,
+        res.json({ msg: "Login successful",token, user: {
+          _id: user._id, 
+           name: user.name,
             email: user.email,
             age: user.age,
             weight: user.weight,

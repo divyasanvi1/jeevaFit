@@ -12,11 +12,27 @@ const Header = () => {
     setIsLoggedIn(!!token);
   }, []);
 
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    setIsLoggedIn(false);
-    navigate('/login');
+  const handleLogout = async () => {
+    try {
+      // Call backend to clear the cookie
+      await fetch("http://localhost:8001/userRoute/logout", {
+        method: "POST",
+        credentials: "include", // include cookies
+      });
+  
+      // Clear token from localStorage
+      localStorage.removeItem("token");
+  
+      // Update UI state
+      setIsLoggedIn(false);
+  
+      // Redirect to login page
+      navigate("/login");
+    } catch (error) {
+      console.error("Logout failed:", error);
+    }
   };
+  
   const toggleSideBar = () => {
     setSidebarOpen(!sidebarOpen);
   };
@@ -123,6 +139,12 @@ const Header = () => {
                     <path d="M10.5 2v2.2C7.92 4.87 6 7.22 6 10v6l-2 2v1h16v-1l-2-2v-6c0-2.78-1.92-5.13-4.5-5.8V2h-3zM10 20c0 1.1.9 2 2 2s2-.9 2-2h-4z"></path>
                   </svg>
                 </Link>
+                <button
+      onClick={handleLogout}
+      className="ml-4 inline-block bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md text-sm font-semibold transition"
+    >
+      Logout
+    </button>
               </>
             ) : (
               <div className="hidden lg:flex items-center justify-center">
@@ -185,12 +207,22 @@ const Header = () => {
     </>
   )}
           {isLoggedIn && (
-            <li>
-              <NavLink to="/notifications" className={navLinkClass}>
-                Notifications
-              </NavLink>
-            </li>
-          )}
+  <>
+    <li>
+      <NavLink to="/notifications" className={navLinkClass}>
+        Notifications
+      </NavLink>
+    </li>
+    <li>
+      <button
+        onClick={handleLogout}
+        className="text-[16px] font-semibold font-sans text-white hover:text-[#FF6D00] transition duration-300 ease-in-out"
+      >
+        Logout
+      </button>
+    </li>
+  </>
+)}
           {!isLoggedIn && (
             <li>
               <NavLink to="/login" onClick={closeSidebar} className={navLinkClass}>
