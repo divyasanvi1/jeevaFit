@@ -11,7 +11,6 @@ import OxygenSaturationChart from "../components/OxygenSaturation";
 import UserDetailsCard from "../components/UserDetailCard";
 import { useNavigate } from "react-router-dom";
 import LowBatteryMode from "../components/LowBatteryMode";
-import HealthTopics from "../components/HealthTopics";
 import io from "socket.io-client";
 import { addNewHealthData } from "../redux/healthSlice";
 import TrackingComponent from "../components/Tracking";
@@ -94,12 +93,6 @@ const HomePage = () => {
   const handleToggleCard = () => {
     setShowUserCard((prev) => !prev); // Toggle visibility
   };
-  const goToNearestHospitals = () => {
-    navigate("/nearest-hospitals");
-  };
-  const goToWeatherPage = () => {
-    navigate("/weather");
-  };
 
   // At the top of your component file
 const getHealthColor = (label, value) => {
@@ -166,13 +159,8 @@ const getHealthColor = (label, value) => {
       {showUserCard && (
         <UserDetailsCard user={user} onClose={handleToggleCard} />
       )}
-      <button
-        onClick={goToNearestHospitals}
-        className="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 mt-4"
-      >
-        Find Nearest Hospitals
-      </button>
-      <HealthTopics />
+      
+     
       <div>
         <button
           onClick={() => setShowTracking(true)}
@@ -183,14 +171,7 @@ const getHealthColor = (label, value) => {
 
         {showTracking && <TrackingComponent userId={userId} />}
       </div>
-      <div className="mt-4 text-center">
-        <button
-          onClick={goToWeatherPage}
-          className="bg-green-600 text-white px-6 py-2 rounded-full hover:bg-green-700 transition transform hover:scale-105"
-        >
-          🌤️ Weather Info
-        </button>
-      </div>
+      
       <h2 className="text-2xl font-bold text-gray-800 mb-6">
         🩺 Latest Health Vitals
       </h2>

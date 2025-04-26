@@ -17,6 +17,10 @@ import { store } from './redux/store.js';
 import LandingPage from "./pages/LandingPage.jsx";
 import WeatherPage from './pages/WeatherPage';
 import BookingPage from './components/BookingPage.jsx';
+import ProtectedRoute from './components/ProtectedRoute';
+import HealthLearningPage from './pages/HealthLearningPage.jsx';
+
+
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker
@@ -58,15 +62,35 @@ const router = createBrowserRouter([
       },
       {
         path: 'dashboard',
-        element: <HomePage />,
+        element: (
+          <ProtectedRoute>
+            <HomePage />
+          </ProtectedRoute>
+        ),
       },
       {
         path: 'nearest-hospitals',
-        element: <NearestHospitalsPage />,
+        element: (
+          <ProtectedRoute>
+            <NearestHospitalsPage />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: '/health-learning',
+        element: (
+          <ProtectedRoute>
+            <HealthLearningPage/>
+          </ProtectedRoute>
+        ),
       },
       {
         path: 'weather',
-        element: <WeatherPage />,
+        element: (
+          <ProtectedRoute>
+            <WeatherPage />
+          </ProtectedRoute>
+        ),
       }
     ],
   },

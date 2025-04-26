@@ -75,30 +75,67 @@ const HealthTopics = () => {
   };
 
   return (
-    <div style={{ padding: '1rem' }}>
-      <h2>Search Health Topics</h2>
-      <form onSubmit={handleSubmit}>
+    <div style={{
+      padding: '2rem',
+      maxWidth: '800px',
+      margin: 'auto',
+      fontFamily: 'Segoe UI, sans-serif',
+    }}>
+      <h2 style={{ fontSize: '2rem', marginBottom: '1rem', color: '#03045E' }}>
+        🔍 Explore Health Topics
+      </h2>
+      <form onSubmit={handleSubmit} style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem' }}>
         <input
           type="text"
           value={searchTerm}
           placeholder="Enter disease or health topic"
           onChange={(e) => setSearchTerm(e.target.value)}
-          style={{ padding: '0.5rem', width: '300px' }}
+          style={{
+            padding: '0.75rem 1rem',
+            width: '100%',
+            borderRadius: '10px',
+            border: '1px solid #ccc',
+            outline: 'none',
+            fontSize: '1rem',
+          }}
         />
-        <button type="submit" style={{ padding: '0.5rem', marginLeft: '0.5rem' }}>Search</button>
+        <button
+          type="submit"
+          style={{
+            padding: '0.75rem 1.5rem',
+            backgroundColor: '#FF6D00',
+            color: '#fff',
+            border: 'none',
+            borderRadius: '10px',
+            cursor: 'pointer',
+            fontWeight: 'bold',
+          }}
+        >
+          Search
+        </button>
       </form>
 
-      {loading && <p>Loading...</p>}
+      {loading && <p style={{ color: '#555' }}>Loading topics...</p>}
       {error && <p style={{ color: 'red' }}>{error}</p>}
 
-      <ul style={{ marginTop: '1rem' }}>
+      <ul style={{ listStyle: 'none', padding: 0 }}>
         {topics.map((topic, index) => (
           <li
             key={index}
-            style={{ marginBottom: '0.5rem', cursor: 'pointer', color: 'blue' }}
+            style={{
+              backgroundColor: '#CAF0F8',
+              padding: '1rem',
+              marginBottom: '0.75rem',
+              borderRadius: '12px',
+              boxShadow: '0 2px 6px rgba(0,0,0,0.1)',
+              cursor: 'pointer',
+              transition: 'transform 0.2s ease',
+            }}
             onClick={() => setSelectedTopic(topic)}
+            onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.01)'}
+            onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
           >
-            {topic.title}
+            <strong style={{ color: '#03045E' }}>{topic.title}</strong>
           </li>
         ))}
       </ul>
@@ -110,23 +147,43 @@ const HealthTopics = () => {
             top: '10%',
             left: '50%',
             transform: 'translateX(-50%)',
-            backgroundColor: 'white',
-            border: '1px solid #ccc',
-            borderRadius: '8px',
-            padding: '1rem',
+            backgroundColor: '#fff',
+            borderRadius: '16px',
+            padding: '2rem',
             width: '90%',
-            maxWidth: '600px',
-            boxShadow: '0 2px 10px rgba(0,0,0,0.3)',
+            maxWidth: '650px',
+            boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
             zIndex: 1000,
             overflowY: 'auto',
             maxHeight: '80vh',
+            fontSize: '1rem',
           }}
         >
-          <h3>{selectedTopic.title}</h3>
-          <p>{selectedTopic.summary}</p>
-          <a href={selectedTopic.url} target="_blank" rel="noopener noreferrer">Read more</a>
-          <div style={{ marginTop: '1rem' }}>
-            <button onClick={() => setSelectedTopic(null)}>Close</button>
+          <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', color: '#03045E' }}>
+            📘 {selectedTopic.title}
+          </h3>
+          <p style={{ marginBottom: '1rem', color: '#333' }}>{selectedTopic.summary}</p>
+          <a
+            href={selectedTopic.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: '#FF6D00', textDecoration: 'underline', fontWeight: 'bold' }}
+          >
+            Read more →
+          </a>
+          <div style={{ marginTop: '1.5rem', textAlign: 'right' }}>
+            <button
+              onClick={() => setSelectedTopic(null)}
+              style={{
+                padding: '0.5rem 1rem',
+                backgroundColor: '#ccc',
+                border: 'none',
+                borderRadius: '8px',
+                cursor: 'pointer',
+              }}
+            >
+              Close
+            </button>
           </div>
         </div>
       )}

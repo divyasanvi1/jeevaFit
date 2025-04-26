@@ -34,7 +34,7 @@ const LoginPage = () => {
       dispatch(loginSuccess({ token, user }));
       console.log("user",user);
       setError('');
-      navigate('/home'); 
+      navigate('/dashboard'); 
     } catch (err) {
       dispatch(loginFailure(err.response?.data?.msg || 'Something went wrong.'));
       setError('Invalid credentials');
