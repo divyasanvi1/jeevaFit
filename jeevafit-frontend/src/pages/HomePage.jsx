@@ -41,7 +41,7 @@ const HomePage = () => {
   console.log("userId here",userIdtwo);
   
 
-  
+  console.log("fatal",fatalAlert);
   useEffect(() => {
     if (!userIdtwo) return;
 
@@ -57,7 +57,7 @@ const HomePage = () => {
     socket.on("connect", () => {
       console.log("Connected:", socket.id);
       // Register the user with the server to join their personal room
-  if (user?._id) {
+  if (userIdtwo) {
     socket.emit("registerUser", userIdtwo);
   }
       socket.emit("identify", { userId: userIdtwo});
@@ -79,6 +79,8 @@ const HomePage = () => {
 
         // Optional auto-dismiss
         setTimeout(() => setFatalAlert(null), 15000);
+      }else {
+        console.log("Received alert for another user:", alertUserId);
       }
     });
 
