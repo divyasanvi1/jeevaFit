@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { loginStart, loginSuccess, loginFailure } from '../redux/authSlice';
+import LanguageSwitcher from '../components/LanguageSwitcher';
 import axios from 'axios';
 
 const SignUpPage = () => {
@@ -14,6 +15,9 @@ const SignUpPage = () => {
   const [weight, setWeight] = useState('');
   const [gender, setGender] = useState('Male');
   const [height, setHeight] = useState('');
+  const [emergencyContactEmail, setEmergencyContactEmail] = useState('');
+  const [emergencyContactPhone, setEmergencyContactPhone] = useState('');
+  const [bloodGroup, setBloodGroup] = useState('');
   const [error, setError] = useState('');
 
   const handleSignUp = async (e) => {
@@ -29,13 +33,16 @@ const SignUpPage = () => {
         weight,
         gender,
         height,
+        emergencyContactEmail,
+        emergencyContactPhone,
+        bloodGroup,
       });
 
       const { token, user } = response.data;
       dispatch(loginSuccess({ token, user }));
       setError('');
     } catch (err) {
-      dispatch(loginFailure(err.response?.data?.msg || 'Oops! We could not complete your sign-up. Please try again in a moment.'));
+      dispatch(loginFailure(err.response?.data?.msg || 'Something went wrong.'));
       setError('Error during signup');
     }
   };
@@ -66,90 +73,116 @@ const SignUpPage = () => {
         {error && <p className='text-red-500 text-[14px] font-semibold tracking-tight leading-[135%]'>{error}</p>}
         </div>
         <form 
-      className='w-full flex flex-col mx-auto mt-8 text-gray-700 font-semibold font-sans-serif'
-      onSubmit={handleSignUp}>
-            <input 
-        className='bg-[#FF5400]/5 focus:bg:white rounded-md p-2 m-2'
-          type="text" 
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Name"
-          required
-        />
-        <input 
-        className='bg-[#FF5400]/5 focus:bg:white rounded-md p-2 m-2'
-          type="email" 
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email"
-          required
-        />
-        <input 
-        className='bg-[#FF5400]/5 focus:bg:white rounded-md p-2 m-2'
-          type="password" 
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Phone Number"
-          required
-        />
-        <input 
-        className='bg-[#FF5400]/5 focus:bg:white rounded-md p-2 m-2'
-          type="password" 
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-          required
-        />
-        <input 
-        className='bg-[#FF5400]/5 focus:bg:white rounded-md p-2 m-2'
-          type="password" 
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Confirm Password"
-          required
-        />
-        {/* <input 
-        className='border-2  rounded-md p-2 m-2'
-          type="number" 
-          value={age}
-          onChange={(e) => setAge(e.target.value)}
-          placeholder="Age"
-          required
-        />
-        <input 
-        className='border-2  rounded-md p-2 m-2'
-          type="number" 
-          value={weight}
-          onChange={(e) => setWeight(e.target.value)}
-          placeholder="Weight"
-          required
-        />
-        <select 
-        className='border-2  rounded-md p-2 m-2'
-          value={gender}
-          onChange={(e) => setGender(e.target.value)}
-        >
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
-          <option value="Other">Other</option>
-        </select>
-        <input 
-        className='border-2  rounded-md p-2 m-2'
-          type="number" 
-          value={height}
-          onChange={(e) => setHeight(e.target.value)}
-          placeholder="Height"
-          required
-        /> */}
-        <div className='w-full flex flex-row items-center justify-between mt-4'>
-        <p className='text-[12px] font-semibold font-sans-serif text-[#03045E]/50 tracking-tight leading-[135%]'>
-        By proceeding, I <span className='font-bold text-[#03045E]/70 underline'>acknowledge</span> that I have read and agree to JeevaFit’s <span className='font-bold text-[#03045E]/70 underline'>Privacy Policy</span> and <span className='font-bold text-[#03045E]/70 underline'>Terms of Use</span>. 
-        </p>
-        </div>
-        <button 
-        className='bg-[#FF5400] hover:bg-[#FF6D00] font-semibold text-[20px]  text-white hover:text-gray-300 rounded-full px-8 py-2 m-2 mt-6'
-        type="submit">Sign Up</button>
-      </form>
+  className='w-full flex flex-col mx-auto mt-8 text-gray-700 font-semibold font-sans-serif'
+  onSubmit={handleSignUp}
+>
+  <input 
+    className='bg-[#FF5400]/5 focus:bg:white rounded-md p-2 m-2'
+    type="text" 
+    value={name}
+    onChange={(e) => setName(e.target.value)}
+    placeholder="Name"
+    required
+  />
+
+  <input 
+    className='bg-[#FF5400]/5 focus:bg:white rounded-md p-2 m-2'
+    type="email" 
+    value={email}
+    onChange={(e) => setEmail(e.target.value)}
+    placeholder="Email"
+    required
+  />
+
+  <input 
+    className='bg-[#FF5400]/5 focus:bg:white rounded-md p-2 m-2'
+    type="text" 
+    value={emergencyContactPhone}
+    onChange={(e) => setEmergencyContactPhone(e.target.value)}
+    placeholder="Phone Number"
+    required
+  />
+
+  <input 
+    className='bg-[#FF5400]/5 focus:bg:white rounded-md p-2 m-2'
+    type="password" 
+    value={password}
+    onChange={(e) => setPassword(e.target.value)}
+    placeholder="Password"
+    required
+  />
+
+  
+
+  <input 
+    className='bg-[#FF5400]/5 focus:bg:white rounded-md p-2 m-2'
+    type="number" 
+    value={age}
+    onChange={(e) => setAge(e.target.value)}
+    placeholder="Age"
+    required
+  />
+
+  <input 
+    className='bg-[#FF5400]/5 focus:bg:white rounded-md p-2 m-2'
+    type="number" 
+    value={weight}
+    onChange={(e) => setWeight(e.target.value)}
+    placeholder="Weight (kg)"
+    required
+  />
+
+  <input 
+    className='bg-[#FF5400]/5 focus:bg:white rounded-md p-2 m-2'
+    type="number" 
+    value={height}
+    onChange={(e) => setHeight(e.target.value)}
+    placeholder="Height (cm)"
+    required
+  />
+
+  <select 
+    className='bg-[#FF5400]/5 focus:bg:white rounded-md p-2 m-2'
+    value={gender}
+    onChange={(e) => setGender(e.target.value)}
+  >
+    <option value="Male">Male</option>
+    <option value="Female">Female</option>
+    <option value="Other">Other</option>
+  </select>
+
+  <input 
+    className='bg-[#FF5400]/5 focus:bg:white rounded-md p-2 m-2'
+    type="email" 
+    value={emergencyContactEmail}
+    onChange={(e) => setEmergencyContactEmail(e.target.value)}
+    placeholder="Emergency Contact Email"
+    required
+  />
+
+  <input 
+    className='bg-[#FF5400]/5 focus:bg:white rounded-md p-2 m-2'
+    type="text" 
+    value={bloodGroup}
+    onChange={(e) => setBloodGroup(e.target.value)}
+    placeholder="Blood Group (e.g., A+, O-)"
+    required
+  />
+
+  <div className='w-full flex flex-row items-center justify-between mt-4'>
+    <p className='text-[12px] font-semibold font-sans-serif text-[#03045E]/50 tracking-tight leading-[135%]'>
+      By proceeding, I <span className='font-bold text-[#03045E]/70 underline'>acknowledge</span> that I have read and agree to JeevaFit’s <span className='font-bold text-[#03045E]/70 underline'>Privacy Policy</span> and <span className='font-bold text-[#03045E]/70 underline'>Terms of Use</span>. 
+    </p>
+  </div>
+
+  <button 
+    className='bg-[#FF5400] hover:bg-[#FF6D00] font-semibold text-[20px] text-white hover:text-gray-300 rounded-full px-8 py-2 m-2 mt-6'
+    type="submit"
+  >
+    Sign Up
+  </button>
+</form>
+
         </div>
       </div>
     </div>
