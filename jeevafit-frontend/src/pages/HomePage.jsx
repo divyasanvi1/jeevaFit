@@ -173,7 +173,7 @@ const getHealthColor = (label, value) => {
           🚨 Start SOS Tracking
         </button>
 
-        {showTracking && <TrackingComponent userId={userId} />}
+        {showTracking && <TrackingComponent userId={userIdtwo} />}
       </div>
       {latest && (
   <>
