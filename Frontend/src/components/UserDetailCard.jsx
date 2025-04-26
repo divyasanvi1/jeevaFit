@@ -136,7 +136,6 @@ const UserDetailsCard = ({ onClose }) => {
 >
   Download PDF Report
 </button>
-<<<<<<< HEAD:jeevafit-frontend/src/components/UserDetailCard.jsx
 <button
   onClick={() => setShowReminderForm(true)}
   className="mt-2 bg-purple-600 text-white px-4 py-2 rounded"
@@ -183,8 +182,6 @@ const UserDetailsCard = ({ onClose }) => {
           {sosStatus && <p className="mt-2 text-sm text-green-600">{sosStatus}</p>}
         </Modal>
       )}
-=======
->>>>>>> UI:Frontend/src/components/UserDetailCard.jsx
     </div>
   );
 };
