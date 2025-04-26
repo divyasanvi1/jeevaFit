@@ -37,13 +37,13 @@ const HomePage = () => {
   const [showTracking, setShowTracking] = useState(false);
   console.log("User Data:", user);
   console.log("User passed to UserDetailsCard:", user);
-  const userId = user?._id;
-  console.log("userId",userId);
+  const userIdtwo = user?.id ||user?._id;
+  console.log("userId here",userIdtwo);
   
 
   
   useEffect(() => {
-    if (!user?._id) return;
+    if (!userIdtwo) return;
 
     // Fetch initial health data
     dispatch(fetchHealthData());
@@ -58,22 +58,22 @@ const HomePage = () => {
       console.log("Connected:", socket.id);
       // Register the user with the server to join their personal room
   if (user?._id) {
-    socket.emit("registerUser", user._id);
+    socket.emit("registerUser", userIdtwo);
   }
-      socket.emit("identify", { userId: user._id });
+      socket.emit("identify", { userId: userIdtwo});
     });
 
     // Listen for real-time health updates
     socket.on("healthDataUpdated", ({ userId, data }) => {
-      if (userId === user._id) {
+      if (userId === userIdtwo) {
         console.log("New health data received via socket:", data);
         dispatch(addNewHealthData(data));
       }
     });
     // Inside your existing useEffect
     socket.on("fatalHealthAlert", ({ userId: alertUserId, values, reason }) => {
-      console.log("fatalHealthAlert received:", { userId, values, reason });
-      if (alertUserId === user?._id) {
+      console.log("fatalHealthAlert received:", { userIdtwo, values, reason });
+      if (alertUserId === userIdtwo) {
         console.warn("🚨 FATAL HEALTH ALERT:", values);
         setFatalAlert({ values, reason });
 

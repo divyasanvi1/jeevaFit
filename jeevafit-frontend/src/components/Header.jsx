@@ -1,17 +1,25 @@
 import React, { useEffect, useState  } from "react";
+import { useTranslation } from "react-i18next";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../assets/JeevaFit_logo.svg";
+
 
 const Header = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
+  const { i18n } = useTranslation();
 
+  const handleChangeLanguage = (e) => {
+    const selectedLang = e.target.value;
+    i18n.changeLanguage(selectedLang);
+    localStorage.setItem("language", selectedLang);
+  };
+  
   useEffect(() => {
-    const token = localStorage.getItem('token');
-    setIsLoggedIn(!!token);
+    const token = localStorage.getItem('token'); // or whatever you save after login
+    setIsLoggedIn(!!token); // set to true if token exists
   }, []);
-
   const handleLogout = async () => {
     try {
       // Call backend to clear the cookie
@@ -140,11 +148,11 @@ const Header = () => {
                   </svg>
                 </Link>
                 <button
-      onClick={handleLogout}
-      className="ml-4 inline-block bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md text-sm font-semibold transition"
-    >
-      Logout
-    </button>
+                onClick={handleLogout}
+                className="ml-4 inline-block bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md text-sm font-semibold transition"
+                 >
+                  Logout
+                 </button>
               </>
             ) : (
               <div className="hidden lg:flex items-center justify-center">
@@ -155,6 +163,7 @@ const Header = () => {
                   Get Started
                 </NavLink>
               </div>
+              
             )}
           </div>
         </div>

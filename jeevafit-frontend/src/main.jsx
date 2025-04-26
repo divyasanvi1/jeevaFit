@@ -6,7 +6,6 @@ import { I18nextProvider } from 'react-i18next';
 import App from './App.jsx'
 import enTranslation from '../src/locales/en/translation.json';
 import hiTranslation from '../src/locales/hi/translation.json';
-import Header from "./components/Header.jsx";
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
 import LoginPage from './pages/LoginPage.jsx';
 import SignUpPage from './pages/SignupPage.jsx';
@@ -20,6 +19,8 @@ import BookingPage from './components/BookingPage.jsx';
 import ProtectedRoute from './components/ProtectedRoute';
 import HealthLearningPage from './pages/HealthLearningPage.jsx';
 import PublicRoute from './components/PublicRoute.jsx';
+import ProfilePage from './pages/ProfilePage';
+
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
@@ -95,7 +96,15 @@ const router = createBrowserRouter([
             <WeatherPage />
           </ProtectedRoute>
         ),
-      }
+      },
+      {
+        path: '/profile-qr',
+        element: (
+          <ProtectedRoute>
+            <ProfilePage />
+          </ProtectedRoute>
+        ),
+      },
     ],
   },
   {

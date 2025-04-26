@@ -50,10 +50,10 @@ const LoginPage = () => {
         <div className="w-full m-4 sm:mx-32 flex flex-wrap flex-col-reverse sm:flex-row bg-[#F8F7FF] rounded-lg 023E8Ashadow-sm shadow-[#F8F7FF] backdrop-blur-[4px] border border-[#023E8A]/20">
           <div className="w-full sm:w-3/5 flex flex-col mx-auto sm:p-4 sm:px-8 p-4 items-center justify-center my-6">
             <h1 className="text-[24px] sm:text-[28px] font-sans-serif text-[#03045E] font-bold  leading-[135%">
-              Login to JeevaFit
+            {t('loginPage.title')}
             </h1>
             <p className="text-[16px] font-semibold font-sans-serif text-[#FF6D00] tracking-tight leading-[135%]">
-              Login with your email and password
+            {t('loginPage.subtitle')}
             </p>
             <div className="w-full flex flex-wrap items-center justify-center text-center mt-2">
               {error && (
@@ -71,7 +71,7 @@ const LoginPage = () => {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Email"
+                placeholder={t('loginPage.emailPlaceholder')}
                 required
               />
               <input
@@ -79,20 +79,20 @@ const LoginPage = () => {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder="Password"
+                placeholder={t('loginPage.passwordPlaceholder')}
                 required
               />
               <button
                 className="bg-[#03045E] hover:bg-[#023E8A] font-semibold text-[20px]  text-white hover:text-gray-300 rounded-full px-8 py-2 m-2 mt-6"
                 type="submit"
               >
-                Login
+                {t('loginPage.loginButton')}
               </button>
             </form>
             <div className="w-full flex flex-row items-center justify-center mt-8">
               <div className="items-center justify-center text-center inline-block h-[2px] w-[120px] bg-[#03045E] rounded-lg mr-2"></div>
               <p className="text-[18px] font-bold font-sans-serif text-[#FF5400] tracking-tight leading-[135%]">
-                or
+              {t('loginPage.or')}
               </p>
               <div className="items-center justify-center text-center inline-block h-[2px] w-[120px] bg-[#03045E] rounded-lg ml-2"></div>
             </div>
@@ -116,17 +116,17 @@ const LoginPage = () => {
             </div>
             <div className="w-full flex flex-wrap items-center justify-between mt-12 mx-2">
               <p className="text-[12px] font-semibold font-sans-serif text-[#FF6D00]/50 tracking-tight leading-[135%]">
-                By{" "}
+              {t('loginPage.privacyMessage.part1')}{" "}
                 <span className="font-bold text-[#FF6D00]/70 underline">
-                  continuing
+                {t('loginPage.privacyMessage.continue')}
                 </span>
-                , I agree to JeevaFits’s{" "}
+                {t('loginPage.privacyMessage.privacy')}{" "}
                 <span className="font-bold text-[#FF6D00]/70 underline">
-                  Privacy Policy
+                {t('loginPage.privacyMessage.and')}
                 </span>{" "}
                 and{" "}
                 <span className="font-bold text-[#FF6D00]/70 underline">
-                  Terms of Use
+                {t('loginPage.privacyMessage.terms')}
                 </span>
                 .
               </p>
@@ -135,18 +135,17 @@ const LoginPage = () => {
           <div className=" w-full  sm:w-2/5 flex flex-wrap bg-[#FF5400] items-center justify-center rounded-lg p-8">
             <div className="w-full h-full flex flex-col items-center justify-center">
               <h1 className="text-[24px] sm:text-[28px] md:text-[32px] font-sans-serif text-white font-bold -tracking-tight leading-[135%] mb-4">
-                Welcome Back!
+              {t('loginPage.welcomeTitle')}
               </h1>
               <p className="text-[16px] font-sans-serif text-[#F5F5F5] -tracking-tight leading-[135%]">
-                Log in to continue your journey toward a healthier, more
-                balanced life by managing your health effortlessly.
+              {t('loginPage.welcomeMessage')}
               </p>
               <button className="w-full bg-white/20 backdrop-blur-[16px]  mt-12 py-2 rounded-full cursor-pointer hover:bg-white/10 transition duration-300 ease-in-out">
                 <a
                   href="/signup"
                   className="text-[16px] font-serif font-medium text-white hover:text-gray-00"
                 >
-                  New to JeevaFit
+                  {t('loginPage.newToJeevaFit')}
                 </a>
               </button>
             </div>

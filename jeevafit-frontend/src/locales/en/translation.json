@@ -1,10 +1,34 @@
 {
-    "loginPage": {
-      "title": "Login",
-      "emailPlaceholder": "Email",
-      "passwordPlaceholder": "Password",
-      "loginButton": "Login",
-      "errorMessage": "Invalid credentials"
+  "loginPage": {
+    "title": "Login",
+    "subtitle": "Login with your email and password",
+    "emailPlaceholder": "Email",
+    "passwordPlaceholder": "Password",
+    "loginButton": "Login",
+    "errorMessage": "Invalid credentials",
+    "or": "or",
+    "welcomeTitle": "Welcome Back!",
+    "welcomeMessage": "Log in to continue your journey toward a healthier, more balanced life.",
+    "newToJeevaFit": "New to JeevaFit?",
+    "privacyMessage": {
+      "part1": "By continuing, I agree to",
+      "continue": "continuing",
+      "part2": ", I agree to JeevaFit’s ",
+      "privacy": "Privacy Policy",
+      "and": " and ",
+      "terms": "Terms of Use"
+    }
+  },
+  "landingPage": {
+    "title": "Welcome to JeevaFit",
+    "tagline": "Your Health, Our Priority",
+    "startJourneyButton": "Start Your Journey",
+    "learnMoreButton": "Learn More",
+    "features": {
+      "feature1": "Track Your Health",
+      "feature2": "Find Nearby Hospitals",
+      "feature3": "Get Weather Updates",
+      "feature4": "Stay Informed with Health Learning"
     }
   }
-  
+}
