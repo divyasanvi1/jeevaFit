@@ -4,6 +4,7 @@ import "./index.css";
 import i18next from "i18next";
 import { I18nextProvider } from "react-i18next";
 import App from "./App.jsx";
+import Auth from "./Auth.jsx";
 import enTranslation from "../src/locales/en/translation.json";
 import hiTranslation from "../src/locales/hi/translation.json";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
