@@ -17,7 +17,7 @@ import TrackingComponent from "../components/Tracking";
 import Modal from "../modal/Modal";
 import VoiceCommandHandler from "../components/VoiceCommandHandler";
 import FatalAlertPopup from "../components/FatalAlertPopup"; // Add this
-
+import PdfFileInput from "../components/PdfUpload";
 
 const HomePage = () => {
   const [fatalAlert, setFatalAlert] = useState(null);
@@ -186,6 +186,8 @@ const getHealthColor = (label, value) => {
 
   </>
 )}
+<PdfFileInput userId={userIdtwo} />
+
       <h2 className="text-2xl font-bold text-gray-800 mb-6">
         🩺 Latest Health Vitals
       </h2>

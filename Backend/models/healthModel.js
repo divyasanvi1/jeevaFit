@@ -29,5 +29,6 @@ const healthDataSchema = new mongoose.Schema({
 
 // TTL index to delete documents older than 7 days
 healthDataSchema.index({ timestamp: 1 }, { expireAfterSeconds: 604800 });
-const HealthData = mongoose.model('HealthData', healthDataSchema);
+const HealthData = mongoose.models.HealthData || mongoose.model('HealthData', healthDataSchema);
+
 module.exports = HealthData;

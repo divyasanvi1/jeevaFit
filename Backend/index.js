@@ -9,6 +9,7 @@ const reminderRoute = require("./routes/remainder");
 const bookingRoute = require("./routes/booking");
 const sosRoutes = require('./routes/sosRoutes');
 const trackingRoutes = require('./routes/tracking');
+const uploadHealthPdfRoutes = require('./routes/HealthPdf');
 require('./tasks/reminderScheduler'); // 👈 ADD this line
 const http = require('http');
 const socketIo = require('socket.io');
@@ -58,5 +59,6 @@ app.use("/reminder", reminderRoute);
 app.use("/booking", bookingRoute);
 app.use('/api', sosRoutes);
 app.use('/api/tracking', trackingRoutes);
+app.use('/api', uploadHealthPdfRoutes);
 
 server.listen(PORT,()=>console.log(`Server started at PORT ${PORT}`))
