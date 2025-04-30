@@ -1,6 +1,6 @@
 const pdfjsLib = require('pdfjs-dist/legacy/build/pdf');
 
-const HealthData = require('../models/HealthModel');
+const HealthData = require('../models/healthModel');
 
 // Function to parse PDF
 const parsePdf = async (buffer) => {

@@ -18,6 +18,7 @@ import Modal from "../modal/Modal";
 import VoiceCommandHandler from "../components/VoiceCommandHandler";
 import FatalAlertPopup from "../components/FatalAlertPopup"; // Add this
 import PdfFileInput from "../components/PdfUpload";
+import BluetoothConnect from '../components/BluetoothConnect';
 
 const HomePage = () => {
   const [fatalAlert, setFatalAlert] = useState(null);
@@ -165,7 +166,8 @@ const getHealthColor = (label, value) => {
       {showUserCard && (
         <UserDetailsCard user={user} onClose={handleToggleCard} />
       )}
-      
+       
+       <BluetoothConnect userId={userIdtwo} />
      
       <div>
         <button

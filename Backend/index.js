@@ -10,6 +10,7 @@ const bookingRoute = require("./routes/booking");
 const sosRoutes = require('./routes/sosRoutes');
 const trackingRoutes = require('./routes/tracking');
 const uploadHealthPdfRoutes = require('./routes/HealthPdf');
+const bluetoothRoutes = require('./routes/bluetooth');
 require('./tasks/reminderScheduler'); // 👈 ADD this line
 const http = require('http');
 const socketIo = require('socket.io');
@@ -60,5 +61,6 @@ app.use("/booking", bookingRoute);
 app.use('/api', sosRoutes);
 app.use('/api/tracking', trackingRoutes);
 app.use('/api', uploadHealthPdfRoutes);
+app.use('/api/bluetooth', bluetoothRoutes);
 
 server.listen(PORT,()=>console.log(`Server started at PORT ${PORT}`))
