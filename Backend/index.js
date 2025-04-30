@@ -48,7 +48,7 @@ app.use(cors({
     allowedHeaders: ["Content-Type", "Authorization"], 
 }));
 connectToMongoDb("mongodb://127.0.0.1:27017/jeevaFit").then(()=>console.log("mongoDb Connected")) .catch((error) => console.error(error));
-console.log("mongoDb Connected after")
+//console.log("mongoDb Connected after")
 //console.log(sosRoutes);
 app.use(express.urlencoded({extended:false}));
 app.use(cookieParser());

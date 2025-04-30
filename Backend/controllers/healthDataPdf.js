@@ -1,106 +1,85 @@
-const pdfParse = require('pdf-parse');
+const pdfjsLib = require('pdfjs-dist/legacy/build/pdf');
+
 const HealthData = require('../models/HealthModel');
 
-async function handleHealthPdfUpload(req, res) {
+// Function to parse PDF
+const parsePdf = async (buffer) => {
+  const uint8Array = new Uint8Array(buffer);
+  const loadingTask = pdfjsLib.getDocument({ data: uint8Array });
+  const pdf = await loadingTask.promise;
+  let text = '';
+
+  for (let i = 1; i <= pdf.numPages; i++) {
+    const page = await pdf.getPage(i);
+    const content = await page.getTextContent();
+    const pageText = content.items.map(item => item.str).join(' ');
+    text += pageText + '\n';
+  }
+
+  return text;
+};
+
+// Controller to handle PDF upload and save to database
+exports.handleHealthPdfUpload = async (req, res) => {
   try {
-    const pdfBuffer = req.file.buffer;
-    const data = await pdfParse(pdfBuffer);
-    const text = data.text;
-    console.log('Extracted PDF Text:', text); 
-    const extractedHealthData = parseHealthDataFromText(text);
-    console.log('Parsed Health Data:', extractedHealthData);
-    const newHealthData = new HealthData({
-      userId: req.body.userId,
-      ...extractedHealthData,
+    const { userId } = req.body;
+    const file = req.file;
+
+    // Ensure the file is a valid PDF
+    if (!file || file.mimetype !== 'application/pdf') {
+      return res.status(400).json({ message: 'Invalid file format' });
+    }
+
+    console.log('Received file:', file);
+    console.log('Received body:', req.body);
+
+    // Parse the PDF
+    const pdfText = await parsePdf(file.buffer);
+    console.log('Extracted PDF Text:', pdfText);
+
+    // Extract health metrics using flexible regex
+    const extractValue = (label, unit) => {
+      const regex = new RegExp(`${label}[:\\s]+(\\d+(\\.\\d+)?)\\s*${unit}`);
+      const match = pdfText.match(regex);
+      console.log(`Extracting ${label}:`, match ? match[1] : 'NOT FOUND');
+      return match ? parseFloat(match[1]) : undefined;
+    };
+    
+    // Extract values
+    const heartRate = extractValue('Heart Rate', 'bpm');
+    const respiratoryRate = extractValue('Respiratory Rate', 'breaths per minute');
+    const bodyTemperature = extractValue('Body Temperature', '°C');
+    const oxygenSaturation = extractValue('Oxygen Saturation', '%');
+    const systolicBP = extractValue('Systolic BP', 'mmHg');
+    const diastolicBP = extractValue('Diastolic BP', 'mmHg');
+    const derivedHRV = extractValue('Derived HRV', 'ms');
+    const pulsePressure = extractValue('Derived Pulse Pressure', 'mmHg');
+    const bmi = extractValue('BMI', '');
+    const map = extractValue('Derived MAP', 'mmHg');
+
+    // Create and save a new health data record in the database
+    const healthData = new HealthData({
+      userId,       // User who uploaded the PDF
+      heartRate,
+      respiratoryRate,
+      bodyTemperature,
+      oxygenSaturation,
+      systolicBP,
+      diastolicBP,
+      derived_HRV:derivedHRV,
+      derived_Pulse_Pressure:pulsePressure,
+      derived_BMI:bmi ,
+      derived_MAP:map,
+              // The parsed text from the PDF
     });
 
-    await newHealthData.save();
+    await healthData.save();  // Save to the database
+    console.log('Health data saved successfully');
 
-    res.status(200).json({ message: 'Health data saved successfully' });
+    // Respond with success message
+    res.json({ message: 'PDF uploaded and parsed successfully!', data: healthData });
   } catch (error) {
-    // Handle specific error messages from pdf-parse library
-    if (error.message && error.message.includes('bad XRef entry')) {
-      return res.status(400).json({ message: 'The PDF is corrupted or in an invalid format. Please upload a valid PDF.' });
-    }
-    console.error('Error uploading health PDF:', error);
-    res.status(500).json({ message: 'Failed to process PDF', error });
+    console.error('PDF parsing failed:', error);
+    res.status(400).json({ message: 'PDF parsing failed.' });
   }
-}
-
-function parseHealthDataFromText(text) {
-  const healthData = {};
-
-  // Split text into non-empty trimmed lines
-  const lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
-
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i].toLowerCase();
-
-    if (line.includes('heart rate')) {
-      const value = extractNumber(lines[i + 1]);
-      if (value !== null) healthData.heartRate = value;
-    }
-
-    if (line.includes('respiratory rate')) {
-      const value = extractNumber(lines[i + 1]);
-      if (value !== null) healthData.respiratoryRate = value;
-    }
-
-    if (line.includes('body temperature')) {
-      const value = extractFloat(lines[i + 1]);
-      if (value !== null) healthData.bodyTemperature = value;
-    }
-
-    if (line.includes('oxygen saturation')) {
-      const value = extractNumber(lines[i + 1]);
-      if (value !== null) healthData.oxygenSaturation = value;
-    }
-
-    if (line.includes('systolic bp')) {
-      const value = extractNumber(lines[i + 1]);
-      if (value !== null) healthData.systolicBP = value;
-    }
-
-    if (line.includes('diastolic bp')) {
-      const value = extractNumber(lines[i + 1]);
-      if (value !== null) healthData.diastolicBP = value;
-    }
-
-    if (line.includes('derived hrv')) {
-      const value = extractNumber(lines[i + 1]);
-      if (value !== null) healthData.derived_HRV = value;
-    }
-
-    if (line.includes('derived pulse pressure')) {
-      const value = extractNumber(lines[i + 1]);
-      if (value !== null) healthData.derived_Pulse_Pressure = value;
-    }
-
-    if (line.includes('derived bmi')) {
-      const value = extractFloat(lines[i + 1]);
-      if (value !== null) healthData.derived_BMI = value;
-    }
-
-    if (line.includes('derived map')) {
-      const value = extractFloat(lines[i + 1]);
-      if (value !== null) healthData.derived_MAP = value;
-    }
-  }
-
-  return healthData;
-}
-
-// Helper to extract integer from text (removes non-digits)
-function extractNumber(text) {
-  const match = text.match(/\d+/);
-  return match ? parseInt(match[0]) : null;
-}
-
-// Helper to extract float from text (removes non-digits except dot)
-function extractFloat(text) {
-  const match = text.match(/[\d.]+/);
-  return match ? parseFloat(match[0]) : null;
-}
-
-
-module.exports = { handleHealthPdfUpload };
+};

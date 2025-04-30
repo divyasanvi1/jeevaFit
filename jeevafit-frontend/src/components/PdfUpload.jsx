@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const PdfFileInput = ({ userId }) => {
+  console.log("userId in component:", userId);
+
   const [file, setFile] = useState(null);
   const [uploading, setUploading] = useState(false);
   const [message, setMessage] = useState('');
