@@ -3,8 +3,7 @@ const commandMap = {
   "heart rate btao": "Heart Rate",
   "heart rate batao": "Heart Rate",
 
-  "bp btao": "Systolic BP",
-  "bp batao": "Systolic BP",       // <-- This solves your issue
+       // <-- This solves your issue
   "systolic bp btao": "Systolic BP",
   "systolic bp batao": "Systolic BP",
 
@@ -41,6 +40,7 @@ const commandMap = {
   "tell me systolic bp": "Systolic BP",
   "tell me diastolic bp": "Diastolic BP",
   "tell me sp o two": "SpO₂",
+  "tell me spo2": "SpO₂",
   "tell me temperature": "Temperature",
   "tell me respiratory rate": "Respiratory Rate",
   "tell me hrv": "HRV",

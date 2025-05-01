@@ -97,6 +97,7 @@ const HomePage = () => {
   }, [dispatch, user]);
 
   const latest = data?.[0]; // latest health record
+  console.log("latest",latest);
   const handleToggleCard = () => {
     setShowUserCard((prev) => !prev); // Toggle visibility
   };
@@ -200,7 +201,7 @@ const HomePage = () => {
       <h3 className="text-lg font-semibold text-gray-800 mb-4">
         🗣️ Voice Command
       </h3>
-      <VoiceCommandHandler latest={latest} />
+      <VoiceCommandHandler latest={latest} gender={user.gender}/>
     </div>
   )}
 

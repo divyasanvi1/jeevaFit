@@ -1,12 +1,15 @@
 import React, { useEffect } from "react";
 import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
 import commandMap from "../locales/HindiEnglishVocals";
+import vitalRanges from "../utils/vitalRanges";
 
-const VoiceCommandHandler = ({ latest }) => {
+const VoiceCommandHandler = ({ latest,gender }) => {
   const { transcript, listening, resetTranscript } = useSpeechRecognition();
   useEffect(() => {
     console.log("Latest vitals received:", latest);
-  }, [latest]);
+    console.log("Gender received:", gender);
+  }, [latest, gender]);
+
   useEffect(() => {
     const lower = transcript.toLowerCase();
     console.log("Transcript:", lower);
@@ -34,12 +37,29 @@ const matchedLabel = Object.keys(commandMap).find(cmd =>
       ].find(v => v.label === vital);
       console.log("Matched Vital Object:", matchedVital);
       if (matchedVital) {
+        const genderKey = gender?.toLowerCase() === "female" ? "female" : "male";
+        const range = vitalRanges[vital]?.[genderKey];
+        const unit = vitalRanges[vital]?.unit || "";
+        const isHindiCommand = matchedLabel.match(/[अ-ह]/) || matchedLabel.includes("batao");
         alert(`${matchedVital.label}: ${matchedVital.value}`);
-        const message = `${matchedVital.label} is ${matchedVital.value}`;
+        let message = `${vital} is ${matchedVital.value} ${unit}.`;
+
+        if (range) {
+          const genderWord = genderKey === "female" ? "mahila" : "purush";
+          if (isHindiCommand) {
+            message += `. Saamaanya maan ${genderWord} k liye ${range.min} se ${range.max} ${unit} ke beech hona chahiye.`;
+          } else {
+            message += `. Normal range for ${genderKey} is ${range.min} to ${range.max} ${unit}.`;
+          }
+        }
+
+        alert(message);
+        console.log("Speaking:", message);
+        
         console.log("Speaking:", message);
         
         const utterance = new SpeechSynthesisUtterance(message);
-        const isHindiCommand = matchedLabel.match(/[अ-ह]/) || matchedLabel.includes("batao");
+       
 
 utterance.lang = isHindiCommand ? "hi-IN" : "en-IN";
 
