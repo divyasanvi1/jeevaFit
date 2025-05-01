@@ -1,0 +1,6 @@
+# Ignore model files
+*.pkl
+*.joblib
+*.h5
+models/
+.DS_Store

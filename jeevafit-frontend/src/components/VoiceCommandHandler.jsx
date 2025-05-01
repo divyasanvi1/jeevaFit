@@ -50,13 +50,30 @@ utterance.lang = isHindiCommand ? "hi-IN" : "en-IN";
   }, [transcript, latest]);
 
   return (
-    <div>
-      <button onClick={SpeechRecognition.startListening}>
-        🎤 Start Voice Command
-      </button>
-      <p>{listening ? "Listening..." : "Click the mic to start speaking"}</p>
-      <p>Heard: {transcript}</p>
-    </div>
+    <div className="p-6 bg-white rounded-2xl shadow-md mt-6">
+  <h3 className="text-lg font-semibold text-gray-800 mb-4">
+    🎤 Voice Command Assistant
+  </h3>
+  <button
+    onClick={SpeechRecognition.startListening}
+    className="px-5 py-2 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition duration-200 shadow"
+  >
+    🎤 Start Voice Command
+  </button>
+  <div className="mt-4 text-sm text-gray-700">
+    <p className="mb-1">
+      {listening ? (
+        <span className="text-green-600 font-medium">Listening...</span>
+      ) : (
+        "Click the mic to start speaking"
+      )}
+    </p>
+    <p>
+      <span className="font-medium text-gray-900">Heard:</span> {transcript}
+    </p>
+  </div>
+</div>
+
   );
 };
 

@@ -31,20 +31,29 @@ if (token) {
   };
 
   return (
-    <div>
-      <button
-        onClick={handleConnect}
-        className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
-      >
-        Connect Bluetooth & Save Vitals
-      </button>
+    <div >
+  <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+    <span className="text-blue-600 text-2xl">🔗</span> Bluetooth Sync
+  </h3>
 
-      {vitals && (
-        <pre className="mt-4 bg-gray-100 p-2 rounded text-sm">
-          {JSON.stringify(vitals, null, 2)}
-        </pre>
-      )}
+  <button
+    onClick={handleConnect}
+    className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-5 py-2 rounded-full shadow-sm transition duration-200"
+  >
+    Connect & Save
+  </button>
+
+  {vitals && (
+    <div className="mt-4">
+      <h4 className="text-lg font-semibold text-gray-800 mb-2">Synced Vitals</h4>
+      <div className="bg-gray-50 border border-gray-200 rounded-lg p-3 max-h-48 overflow-auto text-sm text-gray-700 font-mono whitespace-pre-wrap">
+        {JSON.stringify(vitals, null, 2)}
+      </div>
     </div>
+  )}
+</div>
+
+
   );
 };
 
