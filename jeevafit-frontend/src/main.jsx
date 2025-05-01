@@ -22,6 +22,7 @@ import PublicRoute from './components/PublicRoute.jsx';
 import ProfilePage from './pages/ProfilePage';
 
 
+
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker
@@ -98,7 +99,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: '/profile-qr',
+        path: '/profile/:userId',
         element: (
           <ProtectedRoute>
             <ProfilePage />

@@ -19,7 +19,6 @@ const Footer = () => {
           <ul className="space-y-2 font-sans-serif font-medium text-sm text-gray-300">
             <li><a href="#features" className="hover:underline">Features</a></li>
             <li><a href="#how-it-works" className="hover:underline">How It Works</a></li>
-            <li><a href="/login" className="hover:underline">Get Started</a></li>
             <li><a href="#contact" className="hover:underline">Contact Us</a></li>
           </ul>
         </div>
@@ -27,7 +26,7 @@ const Footer = () => {
         {/* Contact & Social */}
         <div className='w-full items-center justify-center md:text-center'>
           <h4 className="text-lg font-sans-serif font-bold mb-3">Get in Touch</h4>
-          <p className="text-sm text-gray-300">Email: support@jeevafit.app</p>
+          <p className="text-sm text-gray-300">Email: support@jeevafit.co.in</p>
 
           {/* Optional: Social icons (placeholder) */}
           {/* <div className="flex gap-4 mt-4">
