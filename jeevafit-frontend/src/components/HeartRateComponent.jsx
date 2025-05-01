@@ -1,93 +1,44 @@
-import React, { useEffect, useState } from 'react';
-import { Line } from 'react-chartjs-2';
+import React from 'react';
 import {
-  Chart as ChartJS,
-  Title,
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
   Tooltip,
-  Legend,
-  LineElement,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-} from 'chart.js';
-
-ChartJS.register(
-  Title,
-  Tooltip,
-  Legend,
-  LineElement,
-  CategoryScale,
-  LinearScale,
-  PointElement
-);
+  CartesianGrid,
+  ResponsiveContainer,
+} from 'recharts';
 
 const HeartRateChart = ({ healthData }) => {
-  const [chartData, setChartData] = useState({
-    labels: [],
-    datasets: [
-      {
-        label: 'Heart Rate',
-        data: [],
-        fill: false,
-        borderColor: 'rgb(75, 192, 192)',
-        tension: 0.1,
-      },
-    ],
-  });
-
-  useEffect(() => {
-    if (healthData.length > 0) {
-      const sortedData = [...healthData].reverse(); 
-      const timestamps = sortedData.map((data) => new Date(data.timestamp).toLocaleTimeString());
-      const heartRates = sortedData.map((data) => data.heartRate);
-
-      setChartData({
-        labels: timestamps,
-        datasets: [
-          {
-            label: 'Heart Rate',
-            data: heartRates,
-            fill: false,
-            borderColor: 'rgb(75, 192, 192)',
-            tension: 0.1,
-          },
-        ],
-      });
-    }
-  }, [healthData]);
-
-  const options = {
-    responsive: true,
-    plugins: {
-      tooltip: {
-        callbacks: {
-          label: function (tooltipItem) {
-            return `${tooltipItem.dataset.label}: ${tooltipItem.raw} bpm at ${tooltipItem.label}`;
-          },
-        },
-      },
-    },
-    scales: {
-      x: {
-        type: 'category',
-        title: {
-          display: true,
-          text: 'Time',
-        },
-      },
-      y: {
-        title: {
-          display: true,
-          text: 'Heart Rate (bpm)',
-        },
-        beginAtZero: true,
-      },
-    },
-  };
+  const sortedData = [...healthData].reverse();
 
   return (
-    <div id="heart-rate-chart" >
-      <Line data={chartData} options={options} />
+    <div id="heart-rate-chart">
+      <h3 className="text-lg font-medium mb-2">Heart Rate</h3>
+      <ResponsiveContainer width="100%" height={300}>
+        <LineChart data={sortedData}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis
+            dataKey="timestamp"
+            tickFormatter={(time) => new Date(time).toLocaleTimeString()}
+          />
+          <YAxis
+            label={{ value: 'bpm', angle: -90, position: 'insideLeft' }}
+            domain={['auto', 'auto']}
+          />
+          <Tooltip
+            labelFormatter={(label) => new Date(label).toLocaleString()}
+            formatter={(value) => [`${value} bpm`, 'Heart Rate']}
+          />
+          <Line
+            type="monotone"
+            dataKey="heartRate"
+            stroke="#34d399"
+            strokeWidth={2}
+            dot={false}
+          />
+        </LineChart>
+      </ResponsiveContainer>
     </div>
   );
 };

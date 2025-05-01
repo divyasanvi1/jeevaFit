@@ -31,7 +31,7 @@ exports.predictRiskLive = async (req, res) => {
       "Systolic Blood Pressure": latestHealth.systolicBP,
       "Diastolic Blood Pressure": latestHealth.diastolicBP,
       "Age": user.age,
-      "Gender": user.gender.toLowerCase() === 'Female' ? 1 : 0,
+      "Gender": user.gender.toLowerCase() === 'female' ? 1 : 0,
       "Weight (kg)": user.weight,
       "Height (m)": user.height,
       "Derived_HRV": latestHealth.derived_HRV || 0,
@@ -39,6 +39,7 @@ exports.predictRiskLive = async (req, res) => {
       "Derived_BMI": latestHealth.derived_BMI || BMI,
       "Derived_MAP": latestHealth.derived_MAP || MAP
     };
+    console.log("Sending gender", user.gender);
     console.log("Sending to model API:", inputData);
 
     const response = await axios.post('http://127.0.0.1:5000/predict', [inputData]);
