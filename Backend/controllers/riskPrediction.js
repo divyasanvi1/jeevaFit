@@ -20,8 +20,11 @@ exports.predictRiskLive = async (req, res) => {
     }
 
     const pulsePressure = latestHealth.systolicBP - latestHealth.diastolicBP;
-    const BMI = user.weight / (user.height * user.height);
-    const MAP = latestHealth.diastolicBP + (1 / 3 * (latestHealth.systolicBP - latestHealth.diastolicBP));
+    const BMI = parseFloat(user.weight / (user.height * user.height)).toFixed(2);
+    const MAP = parseFloat(
+      latestHealth.diastolicBP + (1 / 3 * (latestHealth.systolicBP - latestHealth.diastolicBP))
+    ).toFixed(2);
+    
 
     const inputData = {
       "Heart Rate": latestHealth.heartRate,
@@ -36,7 +39,7 @@ exports.predictRiskLive = async (req, res) => {
       "Height (m)": user.height,
       "Derived_HRV": latestHealth.derived_HRV || 0,
       "Derived_Pulse_Pressure": latestHealth.derived_Pulse_Pressure || pulsePressure,
-      "Derived_BMI": latestHealth.derived_BMI || BMI,
+      "Derived_BMI": parseFloat(latestHealth.derived_BMI || BMI),
       "Derived_MAP": latestHealth.derived_MAP || MAP
     };
     console.log("Sending gender", user.gender);

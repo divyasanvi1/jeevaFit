@@ -13,8 +13,7 @@ function calculateDerivedFields(data = {}, user = {}) {
 
   const systolic = data.systolicBP ?? 0;
   const diastolic = data.diastolicBP ?? 0;
-
-  const pulsePressure = systolic - diastolic;
+  const pulsePressure = parseFloat((systolic - diastolic).toFixed(2));
   const map = diastolic + (pulsePressure / 3);
   return {
     derived_BMI,

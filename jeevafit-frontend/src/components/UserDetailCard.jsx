@@ -120,7 +120,7 @@ const UserDetailsCard = ({ onClose }) => {
             <p><strong>Gender:</strong> {formData.gender}</p>
             <p><strong>Age:</strong> {formData.age}</p>
             <p><strong>Weight:</strong> {formData.weight} kg</p>
-            <p><strong>Height:</strong> {formData.height} cm</p>
+            <p><strong>Height:</strong> {formData.height} m</p>
             <button
               onClick={() => setIsEditing(true)}
               className="mt-2 bg-blue-500 text-white px-3 py-1 rounded"
