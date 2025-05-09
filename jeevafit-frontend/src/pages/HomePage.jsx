@@ -107,11 +107,11 @@ const HomePage = () => {
     switch (label) {
       case "Heart Rate":
         if (value < 60) return "#60a5fa"; // low - blue
-        if (value > 100) return "#f87171"; // high - red
+        if (value > 95) return "#f87171"; // high - red
         return "#34d399"; // normal - green
       case "SpO₂":
         if (value < 90) return "#60a5fa"; // low - red
-        if (value < 95) return "#f87171"; // medium - yellow
+        if (value > 100) return "#f87171"; 
         return "#34d399"; // normal - green
       case "Temperature":
         if (value < 36) return "#60a5fa";
