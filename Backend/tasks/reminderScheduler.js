@@ -2,7 +2,7 @@ const cron = require("node-cron");
 const nodemailer = require("nodemailer");
 const Reminder = require("../models/remainderModel");
 require("dotenv").config(); // Load environment variables
-const moment = require("moment-timezone"); // Add this at the top
+const moment = require("moment-timezone"); 
 
 
 // Set up the email transporter
@@ -14,7 +14,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 console.log('Email user:', process.env.EMAIL_USER);
-console.log('Email password:', process.env.EMAIL_PASS);  // Be cautious with printing sensitive data
+console.log('Email password:', process.env.EMAIL_PASS); 
 
 
 // Function to send email reminders

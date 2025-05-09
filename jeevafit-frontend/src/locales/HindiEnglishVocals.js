@@ -3,7 +3,7 @@ const commandMap = {
   "heart rate btao": "Heart Rate",
   "heart rate batao": "Heart Rate",
 
-       // <-- This solves your issue
+       
   "systolic bp btao": "Systolic BP",
   "systolic bp batao": "Systolic BP",
 

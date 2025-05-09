@@ -8,12 +8,12 @@ const BookingForm = ({ hospital }) => {
   const [reason, setReason] = useState("");
   const [bookingStatus, setBookingStatus] = useState("");
 
-  if (!hospital) return null; // 👈 prevents crash
+  if (!hospital) return null; // prevents crash
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // You can define your own booking backend logic
+      
       const res = await axios.post("http://localhost:8001/booking/create", {
         hospitalName: hospital.name,
         patientName,

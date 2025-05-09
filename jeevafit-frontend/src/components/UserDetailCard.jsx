@@ -1,12 +1,13 @@
 // src/components/UserDetailsCard.jsx
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 import { updateUserDetails } from '../redux/userSlice';
 import axios from 'axios';
 import generatePDF from '../utils/generatePdf';
 import ReminderForm from './RemainderForm';
 import HealthProfileQR from './HealthProfileQR';
 import  Modal from "../modal/Modal"
+import healthSlice from '../redux/healthSlice';
 
 
 const UserDetailsCard = ({ onClose }) => {
@@ -17,6 +18,7 @@ const UserDetailsCard = ({ onClose }) => {
   const [showSOSModal, setShowSOSModal] = useState(false);
   const [sosStatus, setSosStatus] = useState('');
   const [isEditing, setIsEditing] = useState(false);
+  const healthData = useSelector((state) => state.health);
   const [formData, setFormData] = useState({
     name: storedUser?.name || '',
     email: storedUser?.email || '',
@@ -25,7 +27,9 @@ const UserDetailsCard = ({ onClose }) => {
     gender: storedUser?.gender || '',
     height: storedUser?.height || '',
   });
-
+  const handleGeneratePDF = () => {
+    generatePDF({ userData: formData, healthData });
+  };
   useEffect(() => {
     const fetchFullUserDetails = async () => {
       try {
@@ -131,7 +135,7 @@ const UserDetailsCard = ({ onClose }) => {
         )}
       </div>
       <button
-  onClick={generatePDF}
+  onClick={handleGeneratePDF}
   className="mt-4 bg-green-600 text-white px-4 py-2 rounded"
 >
   Download PDF Report

@@ -13,7 +13,7 @@ const PredictRisk = ({ userId }) => {
 
     try {
       const response = await axios.post('http://localhost:8001/api/predict-risk-live', { userId });
-      console.log("Prediction response:", response.data);  // Check the response in the console
+      console.log("Prediction response:", response.data);  
       setResult(response.data.result);  // Set result from response
     } catch (err) {
       setError(err.response?.data?.error || 'Prediction failed.');
