@@ -10,6 +10,7 @@
     "welcomeTitle": "वापसी पर स्वागत है!",
     "welcomeMessage": "स्वस्थ, संतुलित जीवन की ओर अपने सफर को जारी रखने के लिए लॉगिन करें।",
     "newToJeevaFit": "JeevaFit में नए हैं?",
+    "Home": "मुखपृष्ठ",
     "privacyMessage": {
       "part1": "जारी रखकर, मैं सहमत हूँ",
       "continue": "जारी रखने",
@@ -30,5 +31,16 @@
       "feature3": "मौसम अपडेट प्राप्त करें",
       "feature4": "स्वास्थ्य शिक्षा के साथ अपडेट रहें"
     }
-  }
+  },
+  "header": {
+  "home": "मुखपृष्ठ",
+  "healthDashboard": "स्वास्थ्य डैशबोर्ड",
+  "nearestHospitals": "निकटतम अस्पताल",
+  "weather": "मौसम",
+  "healthLearning": "स्वास्थ्य शिक्षा",
+  "notifications": "सूचनाएँ",
+  "logout": "लॉगआउट",
+  "get_started": "शुरू करें"
+}
+
 }

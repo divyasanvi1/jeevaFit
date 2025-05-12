@@ -1,6 +1,6 @@
 // pages/HealthLearningPage.jsx
 import React from 'react';
-import HealthTopics from '../components/HealthTopics';
+import HealthTopics from '../components/FunctionalComponents/HealthTopics';
 
 const HealthLearningPage = () => {
   return (

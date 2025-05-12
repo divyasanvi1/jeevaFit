@@ -10,6 +10,7 @@
     "welcomeTitle": "Welcome Back!",
     "welcomeMessage": "Log in to continue your journey toward a healthier, more balanced life.",
     "newToJeevaFit": "New to JeevaFit?",
+    "Home":"HOME",
     "privacyMessage": {
       "part1": "By continuing, I agree to",
       "continue": "continuing",
@@ -30,5 +31,15 @@
       "feature3": "Get Weather Updates",
       "feature4": "Stay Informed with Health Learning"
     }
-  }
+  },
+  "header":{
+    "home": "Home",
+    "health_dashboard": "Health Dashboard",
+    "nearest_hospitals": "Nearest Hospitals",
+    "weather": "Weather",
+    "health_learning": "Health Learning",
+    "notifications": "Notifications",
+    "logout": "Logout",
+    "get_started": "Get Started"
+  } 
 }

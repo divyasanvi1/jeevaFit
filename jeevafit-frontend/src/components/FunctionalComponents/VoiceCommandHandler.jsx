@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
-import commandMap from "../locales/HindiEnglishVocals";
-import vitalRanges from "../utils/vitalRanges";
+import commandMap from "../../locales/HindiEnglishVocals";
+import vitalRanges from "../../utils/vitalRanges";
 
 const VoiceCommandHandler = ({ latest,gender }) => {
   const { transcript, listening, resetTranscript } = useSpeechRecognition();

@@ -3,23 +3,23 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchHealthData } from "../redux/healthSlice";
 import HealthCard from "../components/HealthCard";
-import HeartRateChart from "../components/HeartRateComponent";
-import RespiratoryRateChart from "../components/RespiratoryChart";
-import HRVChart from "../components/HrvChart";
-import BloodPressureChart from "../components/BpComponent";
-import OxygenSaturationChart from "../components/OxygenSaturation";
+import HeartRateChart from "../components/charts/HeartRateComponent";
+import RespiratoryRateChart from "../components/charts/RespiratoryChart";
+import HRVChart from "../components/charts/HrvChart";
+import BloodPressureChart from "../components/charts/BpComponent";
+import OxygenSaturationChart from "../components/charts/OxygenSaturation";
 import UserDetailsCard from "../components/UserDetailCard";
 import { useNavigate } from "react-router-dom";
-import LowBatteryMode from "../components/LowBatteryMode";
+import LowBatteryMode from "../components/FunctionalComponents/LowBatteryMode";
 import io from "socket.io-client";
 import { addNewHealthData } from "../redux/healthSlice";
-import TrackingComponent from "../components/Tracking";
+import TrackingComponent from "../components/FunctionalComponents/Tracking";
 import Modal from "../modal/Modal";
-import VoiceCommandHandler from "../components/VoiceCommandHandler";
+import VoiceCommandHandler from "../components/FunctionalComponents/VoiceCommandHandler";
 import FatalAlertPopup from "../components/FatalAlertPopup"; // Add this
-import PdfFileInput from "../components/PdfUpload";
-import BluetoothConnect from "../components/BluetoothConnect";
-import PredictRisk from "../components/PredictRisk";
+import PdfFileInput from "../components/FunctionalComponents/PdfUpload";
+import BluetoothConnect from "../components/FunctionalComponents/BluetoothConnect";
+import PredictRisk from "../components/FunctionalComponents/PredictRisk";
 
 const HomePage = () => {
   const [fatalAlert, setFatalAlert] = useState(null);

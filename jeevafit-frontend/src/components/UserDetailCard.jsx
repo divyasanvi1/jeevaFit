@@ -4,8 +4,8 @@ import { useDispatch,useSelector } from 'react-redux';
 import { updateUserDetails } from '../redux/userSlice';
 import axios from 'axios';
 import generatePDF from '../utils/generatePdf';
-import ReminderForm from './RemainderForm';
-import HealthProfileQR from './HealthProfileQR';
+import ReminderForm from './FunctionalComponents/RemainderForm';
+import HealthProfileQR from './FunctionalComponents/HealthProfileQR';
 import  Modal from "../modal/Modal"
 import healthSlice from '../redux/healthSlice';
 

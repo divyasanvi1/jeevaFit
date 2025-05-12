@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { connectAndReadVitals } from '../utils/bluetooth';
+import { connectAndReadVitals } from '../../utils/bluetooth';
 import axios from 'axios';
 
 const BluetoothConnect = ({ userId }) => {

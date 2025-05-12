@@ -1,8 +1,8 @@
 import React from "react";
-import HeroSection from "../components/HeroSection";
-import FeaturesSection from "../components/FeaturesSection";
-import HowItWorks from "../components/HowItWorks";
-import FinalCTA from "../components/FinalCTA";
+import HeroSection from "../components/LandingPageSections/HeroSection";
+import FeaturesSection from "../components/LandingPageSections/FeaturesSection";
+import HowItWorks from "../components/LandingPageSections/HowItWorks";
+import FinalCTA from "../components/LandingPageSections/FinalCTA";
 
 function LandingPage() {
   return (

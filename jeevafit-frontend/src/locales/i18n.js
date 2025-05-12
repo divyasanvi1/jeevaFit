@@ -5,6 +5,7 @@ import { initReactI18next } from 'react-i18next';
 import translationEN from './en/translation.json';
 import translationHI from './hi/translation.json';
 
+const savedLanguage = localStorage.getItem('language') || 'en';
 // Language files
 const resources = {
   en: { translation: translationEN },
@@ -15,7 +16,7 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    lng: sessionStorage.getItem('language') || 'en', // default
+    lng: savedLanguage, // default
     fallbackLng: 'en',
     interpolation: { escapeValue: false },
   });

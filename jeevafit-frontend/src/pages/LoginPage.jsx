@@ -1,5 +1,4 @@
 // src/pages/LoginPage.js
-
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { loginStart, loginSuccess, loginFailure } from '../redux/authSlice';
@@ -148,6 +147,14 @@ const LoginPage = () => {
                   {t('loginPage.newToJeevaFit')}
                 </a>
               </button>
+              <button className="w-full bg-white/20 backdrop-blur-[16px]  mt-12 py-2 rounded-full cursor-pointer hover:bg-white/10 transition duration-300 ease-in-out">
+              <a
+                  href="/"
+                  className="text-[16px] font-serif font-medium text-white hover:text-gray-00"
+                >
+                  {t('loginPage.Home')}
+                </a>
+                </button>
             </div>
           </div>
         </div>
