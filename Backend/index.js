@@ -12,7 +12,9 @@ const trackingRoutes = require('./routes/tracking');
 const uploadHealthPdfRoutes = require('./routes/HealthPdf');
 const bluetoothRoutes = require('./routes/bluetooth');
 const predictRiskRoute = require('./routes/riskPredict');
+const emailroute=require('./routes/emailroute')
 require('./tasks/reminderScheduler'); // 👈 ADD this line
+require('./tasks/cleanupUnverifiedUsers')
 const http = require('http');
 const socketIo = require('socket.io');
 
@@ -64,5 +66,7 @@ app.use('/api/tracking', trackingRoutes);
 app.use('/api', uploadHealthPdfRoutes);
 app.use('/api/bluetooth', bluetoothRoutes);
 app.use('/api', predictRiskRoute);
+app.use('/api',emailroute);
+
 
 server.listen(PORT,()=>console.log(`Server started at PORT ${PORT}`))

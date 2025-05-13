@@ -41,5 +41,108 @@
     "notifications": "Notifications",
     "logout": "Logout",
     "get_started": "Get Started"
-  } 
+  } ,
+  
+    "heroSection": {
+      "heading": {
+        "part1": "Your Health,",
+        "part2": "All in Place"
+      },
+      "description": "Track your vitals, book appointments, check your medical history, get reminders, find hospitals, chat with health experts, and even talk to our AI-powered chatbot – all in one place.",
+      "knowMoreButton": "Know More",
+      "getStartedButton": "Get Started"
+    },
+    "howItWorks": {
+    "title": "How It Works",
+    "subtitle": "Getting started with JeevaFit is simple! Follow these 3 easy steps to begin your journey.",
+    "step1": {
+      "title": "Step 1: Login/Signup",
+      "desc": "Start by creating your account or logging in to get access to all features."
+    },
+    "step2": {
+      "title": "Step 2: Enter Your Info",
+      "desc": "Provide your basic information, including medical history, to tailor the experience."
+    },
+    "step3": {
+      "title": "Step 3: Let JeevaFit Take Care",
+      "desc": "Jeevafit will handle everything: monitor your vitals, schedule appointments, keep your medical records, and send reminders!"
+    }
+  },
+  "finalCTA": {
+    "title": "Ready to take charge of your health?",
+    "subtitle": "Join thousands who track vitals, book appointments, manage medical history, and stay on top of their health with JeevaFit.",
+    "buttonText": "Get Started Now"
+  },
+  "features": {
+    "title": "Why Choose JeevaFit?",
+    "subtitle": "JeevaFit goes beyond tracking — it transforms your well-being with intelligent tools, personalized care, and a user-first experience.",
+    "liveTracking": {
+      "title": "Live Health Tracking",
+      "description": "Track heart rate, blood oxygen, steps, and more — synced directly from your smartwatch."
+    },
+    "appointment": {
+      "title": "Appointment Scheduling",
+      "description": "Let HealthMate auto-book appointments when your health metrics need professional care."
+    },
+    "reports": {
+      "title": "Personalized Health Reports",
+      "description": "Visualize your health trends and receive insights to improve your daily lifestyle."
+    },
+    "reminders": {
+      "title": "Smart Reminders",
+      "description": "Get notified for medication, hydration, and physical activity — never miss a thing."
+    }
+  },
+  "footer": {
+    "brand": {
+      "title": "JeevaFit",
+      "description": "Your intelligent companion for managing health — from vitals tracking to appointments and more."
+    },
+    "links": {
+      "title": "Quick Links",
+      "features": "Features",
+      "howItWorks": "How It Works",
+      "contact": "Contact Us"
+    },
+    "contact": {
+      "title": "Get in Touch",
+      "email": "Email: support@jeevafit.co.in"
+    },
+    "copyright": "© {{year}} JeevaFit. All rights reserved."
+  },
+  "signup": {
+    "welcomeTitle": "Welcome to JeevaFit!",
+    "welcomeSubtitle": "Start your health journey with us today.",
+    "alreadyHaveAccount": "Already have an account?",
+    "registerTitle": "Register Yourself",
+    "registerSubtitle": "Create your free account",
+    "submit": "Sign Up",
+    "name": "Full Name",
+    "email": "Email Address",
+    "phoneNumber": "Phone Number",
+    "password": "Password",
+    "age": "Age",
+    "weight": "Weight (kg)",
+    "height": "Height (m)",
+    "male": "Male",
+    "female": "Female",
+    "emergencyEmail": "Emergency Contact Email",
+    "bloodGroup": "Blood Group",
+    "acknowledgement": {
+      "text": "By proceeding, I",
+      "acknowledge": "acknowledge",
+      "continue": "that I have read and agree to JeevaFit’s",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Use",
+      "and": "and"
+    }
+  },
+  "otp": {
+  "title": "OTP Verification",
+  "placeholder": "Enter OTP",
+  "verify": "Verify OTP",
+  "resend": "Resend OTP"
+}
+
+
 }

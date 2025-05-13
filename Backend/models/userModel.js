@@ -43,8 +43,20 @@ const userSchema= new mongoose.Schema({
       bloodGroup: {
         type: String, // Store the user's blood group
         required: true,
-        enum: ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-', 'Other'], // You can customize this list
-      }
+        enum: ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-', 'A1+','A1-','A2+','A2-','Bombay Blood Group'], // You can customize this list
+      },
+      isVerified: {
+        type: Boolean,
+        default: false,
+      },
+      verificationToken: {
+        type: String, // Token generated for email verification
+        default: null,
+    },
+    tokenExpiry: {
+        type: Date, // Expiry time of the token
+        default: null,
+    },
 },{timestamps:true})
 
 const User=mongoose.model('userJeevafit',userSchema)

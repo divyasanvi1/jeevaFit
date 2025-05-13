@@ -1,16 +1,18 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const HowItWorks = () => {
+  const { t } = useTranslation();
+
   return (
    <div className="w-full mx-auto flex flex-wrap items-center justify-center bg-orange-50 px-4 lg:px-6 py-8 lg:py-12">
      <section className="py-16 max-w-screen-xl mx-auto flex flex-wrap items-center justify-center" id="how-it-works">
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold text-[#03045E]">
-          How It Works
+          {t("howItWorks.title")}
         </h2>
         <p className="text-lg font-sans-serif font-semibold mt-4 text-gray-600">
-          Getting started with HealthMate is simple! Follow these 3 easy steps
-          to begin your journey.
+        {t("howItWorks.subtitle")}
         </p>
       </div>
 
@@ -27,11 +29,10 @@ const HowItWorks = () => {
             </g>
           </svg>
           <h3 className="text-xl font-semibold text-[#FF6D00]">
-            Step 1: Login/Signup
+          {t("howItWorks.step1.title")}
           </h3>
           <p className="text-lg text-gray-600 mt-2">
-            Start by creating your account or logging in to get access to all
-            features.
+          {t("howItWorks.step1.desc")}
           </p>
         </div>
 
@@ -47,11 +48,10 @@ const HowItWorks = () => {
             </g>
           </svg>
           <h3 className="text-xl font-semibold text-[#FF6D00]">
-            Step 2: Enter Your Info
+          {t("howItWorks.step2.title")}
           </h3>
           <p className="text-lg text-gray-600 mt-2">
-            Provide your basic information, including medical history, to tailor
-            the experience.
+          {t("howItWorks.step2.desc")}
           </p>
         </div>
 
@@ -67,11 +67,10 @@ const HowItWorks = () => {
             </g>
           </svg>
           <h3 className="text-xl font-semibold text-[#FF6D00]">
-            Step 3: Let JeevaFit Take Care
+          {t("howItWorks.step3.title")}
           </h3>
           <p className="text-lg text-gray-600 mt-2">
-            Jeevafit will handle everything: monitor your vitals, schedule
-            appointments, keep your medical records, and send reminders!
+          {t("howItWorks.step3.desc")}
           </p>
         </div>
       </div>

@@ -1,5 +1,7 @@
 const User=require("../models/userModel")
 const { hashPassword, comparePassword, generateToken}=require("../service/auth")
+const { sendVerificationEmail } = require('../service/emailVerification');
+const crypto = require('crypto');
 
 async function handleUserSignUp(req, res) {
   try {
@@ -34,17 +36,88 @@ async function handleUserSignUp(req, res) {
           emergencyContactEmail,
           emergencyContactPhone,
           bloodGroup,
+          isVerified: false, 
       });
+      // Generate a unique verification token using crypto
+      const verificationToken = crypto.randomBytes(32).toString('hex');
+      const verificationLink = `http://localhost:8001/api/verify/${verificationToken}`;
 
+      // Set token expiry to 1 hour (or your desired time)
+      const tokenExpiry = Date.now() + 60 * 60 * 1000;  // 1 hour from now
+
+      // Save the verification token in the user document
+      newUser.verificationToken = verificationToken;
+      newUser.tokenExpiry = tokenExpiry;
+      await newUser.save();
+
+      // Send verification email
+      await sendVerificationEmail(email, verificationLink);
       console.log("New user:", newUser);
-      res.status(201).json({ msg: "User created successfully", user: { name: newUser.name, email: newUser.email } });
+      res.status(201).json({ msg: "User created successfully.email sent to user.", user: { name: newUser.name, email: newUser.email } });
 
   } catch (err) {
       console.error("Error during signup:", err);
       res.status(500).json({ msg: "Internal Server Error", error: err.message });
   }
 }
+async function verifyEmail(req, res) {
+  try {
+    const { verificationToken } = req.params; // Retrieve the token from URL parameters
 
+    // Find the user with the matching token
+    const user = await User.findOne({ verificationToken });
+    if (!user) {
+      return res.status(400).json({ msg: "Invalid or expired verification token" });
+    }
+
+    // Check if the token has expired
+    if (user.tokenExpiry && user.tokenExpiry < Date.now()) {
+      return res.status(400).json({ msg: "Verification token has expired" });
+    }
+
+    // Update the user as verified
+    user.isVerified = true;
+    user.verificationToken = null;  // Optionally clear the verification token
+    user.tokenExpiry = null;
+    await user.save();
+
+    res.status(200).json({ msg: "Email verified successfully" });
+  } catch (error) {
+    console.error("Error during email verification:", error);
+    res.status(500).json({ msg: "Internal Server Error" });
+  }
+}
+async function resendVerificationEmail(req, res) {
+  try {
+    const { email } = req.body;
+    if (!email) return res.status(400).json({ msg: "Email is required" });
+
+    const user = await User.findOne({ email });
+    if (!user) return res.status(404).json({ msg: "User not found" });
+
+    if (user.isVerified) {
+      return res.status(400).json({ msg: "User is already verified" });
+    }
+    
+    // Generate a new verification token
+    const verificationToken = crypto.randomBytes(32).toString('hex');
+    const tokenExpiry = Date.now() + 60 * 60 * 1000; // 1 hour
+    const verificationLink = `http://localhost:5000/api/user/verify/${verificationToken}`;
+
+    // Update the user with new token and expiry
+    user.verificationToken = verificationToken;
+    user.tokenExpiry = tokenExpiry;
+    await user.save();
+
+    // Send verification email
+    await sendVerificationEmail(email, verificationLink);
+
+    res.status(200).json({ msg: "Verification email resent successfully" });
+  } catch (error) {
+    console.error("Error in resending verification email:", error.message);
+    res.status(500).json({ msg: "Internal Server Error" });
+  }
+}
 
 async function handleUserLogin(req,res){
     try{
@@ -53,7 +126,9 @@ async function handleUserLogin(req,res){
 
         const user = await User.findOne({ email });
         if (!user) return res.status(400).json({ msg: "Invalid credentials" });
-
+        
+        if (!user.isVerified)return res.status(401).json({ msg: "Please verify your email before logging in" });
+          
         const isMatch = await comparePassword(password, user.password);
         if (!isMatch) return res.status(400).json({ msg: "Invalid credentials" });
          
@@ -143,6 +218,8 @@ async function handleUserDetails(req, res){
   };
 module.exports={
     handleUserSignUp,
+    verifyEmail,
+    resendVerificationEmail,
     handleUserLogin,
     handleUserLogout,
     handleUpdateUserData,
