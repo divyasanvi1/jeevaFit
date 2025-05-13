@@ -20,7 +20,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import HealthLearningPage from './pages/HealthLearningPage.jsx';
 import PublicRoute from './components/PublicRoute.jsx';
 import ProfilePage from './pages/ProfilePage';
-
+import ResendVerification from './pages/ResendVerification.jsx';
 
 
 
@@ -125,7 +125,14 @@ const router = createBrowserRouter([
       </PublicRoute>
     ),
   },
-  
+  {
+    path: '/resendverification',
+    element: (
+      <PublicRoute>
+        <ResendVerification />
+      </PublicRoute>
+    ),
+  }
 ]);
 createRoot(document.getElementById('root')).render(
   <StrictMode>

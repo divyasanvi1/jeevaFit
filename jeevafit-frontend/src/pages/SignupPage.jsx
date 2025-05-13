@@ -96,7 +96,7 @@ const SignUpPage = () => {
        alert('Signup successful! Please check your email to verify your account.');
 
        // ✅ Redirect to login or OTP verification page
-       navigate('/login');
+       navigate('/resendverification', { state: { email: userEmail } });
     } else {
       setError(response.data.msg || 'Signup failed. Please try again.');
     }

@@ -60,33 +60,7 @@ async function handleUserSignUp(req, res) {
       res.status(500).json({ msg: "Internal Server Error", error: err.message });
   }
 }
-async function verifyEmail(req, res) {
-  try {
-    const { verificationToken } = req.params; // Retrieve the token from URL parameters
 
-    // Find the user with the matching token
-    const user = await User.findOne({ verificationToken });
-    if (!user) {
-      return res.status(400).json({ msg: "Invalid or expired verification token" });
-    }
-
-    // Check if the token has expired
-    if (user.tokenExpiry && user.tokenExpiry < Date.now()) {
-      return res.status(400).json({ msg: "Verification token has expired" });
-    }
-
-    // Update the user as verified
-    user.isVerified = true;
-    user.verificationToken = null;  // Optionally clear the verification token
-    user.tokenExpiry = null;
-    await user.save();
-
-    res.status(200).json({ msg: "Email verified successfully" });
-  } catch (error) {
-    console.error("Error during email verification:", error);
-    res.status(500).json({ msg: "Internal Server Error" });
-  }
-}
 async function resendVerificationEmail(req, res) {
   try {
     const { email } = req.body;
@@ -102,7 +76,7 @@ async function resendVerificationEmail(req, res) {
     // Generate a new verification token
     const verificationToken = crypto.randomBytes(32).toString('hex');
     const tokenExpiry = Date.now() + 60 * 60 * 1000; // 1 hour
-    const verificationLink = `http://localhost:5000/api/user/verify/${verificationToken}`;
+    const verificationLink = `http://localhost:8001/api/verify/${verificationToken}`;
 
     // Update the user with new token and expiry
     user.verificationToken = verificationToken;
@@ -218,7 +192,6 @@ async function handleUserDetails(req, res){
   };
 module.exports={
     handleUserSignUp,
-    verifyEmail,
     resendVerificationEmail,
     handleUserLogin,
     handleUserLogout,
