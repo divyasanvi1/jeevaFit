@@ -21,6 +21,8 @@ import HealthLearningPage from './pages/HealthLearningPage.jsx';
 import PublicRoute from './components/PublicRoute.jsx';
 import ProfilePage from './pages/ProfilePage';
 import ResendVerification from './pages/ResendVerification.jsx';
+import { LoadingProvider } from './context/LoadingContext.jsx';
+
 
 
 
@@ -138,7 +140,9 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
      <Provider store={store}>
     <I18nextProvider i18n={i18next}> 
+    <LoadingProvider>
     <RouterProvider router={router} />
+    </LoadingProvider>
     </I18nextProvider>
     </Provider>
   </StrictMode>,

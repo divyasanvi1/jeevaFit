@@ -128,6 +128,8 @@
     "female": "Female",
     "emergencyEmail": "Emergency Contact Email",
     "bloodGroup": "Blood Group",
+    "submitting": "Submitting...",
+    "loadingMessage": "Creating your account...",
     "acknowledgement": {
       "text": "By proceeding, I",
       "acknowledge": "acknowledge",
@@ -136,13 +138,22 @@
       "terms": "Terms of Use",
       "and": "and"
     }
+   
   },
-  "otp": {
-  "title": "OTP Verification",
-  "placeholder": "Enter OTP",
-  "verify": "Verify OTP",
-  "resend": "Resend OTP"
-}
-
-
+  "resend": {
+    "title": "Verify Your Email",
+    "subtitle": "We’ve sent a verification link to your email.",
+    "button": "Resend Verification Email",
+    "gotoLogin": "Go to Login",
+    "success": "Verification email sent successfully.",
+    "error": "Failed to resend verification email."
+  },
+  "bluetooth":{
+    "title": "Bluetooth Sync",
+    "connectAndSave": "Connect & Save",
+    "syncedVitals": "Synced Vitals",
+    "vitalsSaved": "Vitals saved to database!",
+    "vitalsFailed": "Failed to connect or save vitals."
+  }
+  
 }

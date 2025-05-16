@@ -24,6 +24,13 @@ async function handleUserSignUp(req, res) {
       const hashedPassword = await hashPassword(password);
       console.log("Password hashed:", hashedPassword);
 
+      // Generate a unique verification token using crypto
+      const verificationToken = crypto.randomBytes(32).toString('hex');
+      const verificationLink = `http://localhost:8001/api/verify/${verificationToken}`;
+
+      // Set token expiry to 1 hour (or your desired time)
+      const tokenExpiry = Date.now() + 60 * 60 * 1000;  // 1 hour from now
+
       // Create the new user with all required fields
       const newUser = await User.create({
           name,
@@ -37,19 +44,11 @@ async function handleUserSignUp(req, res) {
           emergencyContactPhone,
           bloodGroup,
           isVerified: false, 
+          verificationToken,
+          tokenExpiry
       });
-      // Generate a unique verification token using crypto
-      const verificationToken = crypto.randomBytes(32).toString('hex');
-      const verificationLink = `http://localhost:8001/api/verify/${verificationToken}`;
-
-      // Set token expiry to 1 hour (or your desired time)
-      const tokenExpiry = Date.now() + 60 * 60 * 1000;  // 1 hour from now
-
-      // Save the verification token in the user document
-      newUser.verificationToken = verificationToken;
-      newUser.tokenExpiry = tokenExpiry;
-      await newUser.save();
-
+      
+      
       // Send verification email
       await sendVerificationEmail(email, verificationLink);
       console.log("New user:", newUser);

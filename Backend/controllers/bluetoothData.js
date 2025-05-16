@@ -34,6 +34,13 @@ console.log("mappp",derived_MAP);
     });
 
     await newVitals.save();
+    // ✅ Emit via Socket.IO to user's room
+    const io = req.app.get('io');
+    if (io) {
+      io.to(userId.toString()).emit('vitals-updated', newVitals);
+      console.log(`🔔 Emitted vitals to user ${userId}`);
+    }
+
     res.status(201).json({ message: 'Vitals saved', data: newVitals });
   } catch (err) {
     console.error('Error saving vitals:', err);

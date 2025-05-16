@@ -2,6 +2,18 @@ const express = require("express");
 const { resendVerificationEmail } = require("../controllers/user");
 const router = express.Router();
 const User = require("../models/userModel"); // Adjust the path if needed
+const rateLimit = require('express-rate-limit');
+
+// Create a rate limiter for resend verification
+const resendVerificationLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 3, // max 3 requests per IP per window
+  message: {
+    msg: "Too many verification emails sent. Please try again after 15 minutes.",
+  },
+  standardHeaders: true,
+  legacyHeaders: false,
+});
 
 // routes/userRoute.js
 router.get('/verify/:id', async (req, res) => {
@@ -22,7 +34,7 @@ router.get('/verify/:id', async (req, res) => {
       }
   
       // Check if token has expired
-      if (Date.now() > user.tokenExpiry) {
+      if (!user.tokenExpiry ||Date.now() > user.tokenExpiry) {
         return res.status(400).send(`
           <html>
             <head><title>Token Expired</title></head>
@@ -45,7 +57,7 @@ router.get('/verify/:id', async (req, res) => {
           <head><title>Email Verified</title></head>
           <body style="text-align:center; font-family:sans-serif; padding-top:50px;">
             <h1>✅ Your email has been verified!</h1>
-            <p>You can now <a href="http://localhost:3000/login">log in</a> to your account.</p>
+            <p>You can now <a href="http://localhost:8001/login">log in</a> to your account.</p>
           </body>
         </html>
       `);
@@ -63,7 +75,7 @@ router.get('/verify/:id', async (req, res) => {
     }
   });
   
-router.post("/resend-verification", resendVerificationEmail);
+router.post("/resend-verification",resendVerificationLimiter, resendVerificationEmail);
 
 
 module.exports = router;
