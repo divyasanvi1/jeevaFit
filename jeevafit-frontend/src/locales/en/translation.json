@@ -154,6 +154,195 @@
     "syncedVitals": "Synced Vitals",
     "vitalsSaved": "Vitals saved to database!",
     "vitalsFailed": "Failed to connect or save vitals."
+  },
+  "nearestHospitals": {
+  "title": "Nearby Hospitals",
+  "fetchingHospitals": "Fetching your location and nearby hospitals...",
+  "directionsButton": "Get Directions",
+  "distanceLabel": "Distance",
+  "currentLocation": "Your Location",
+  "hospitalDetails": {
+    "rating": "Rating"
+  },
+  "error": {
+    "locationDenied": "Permission denied or failed to get location.",
+    "locationUnavailable": "Geolocation not supported by this browser.",
+    "fetchError": "Failed to fetch hospitals or directions."
+  }
+},
+"weatherPage": {
+  "title": "Live Weather & Health Forecast",
+  "loading": "Fetching your location and weather details...",
+  "error": {
+    "geolocationDenied": "Permission denied or failed to get location.",
+    "geolocationUnsupported": "Geolocation not supported by this browser.",
+    "fetchFailed": "Failed to fetch weather or forecast data."
+  },
+  "weather": {
+    "humidity": "Humidity",
+    "wind": "Wind",
+    "pressure": "Pressure"
+  },
+  "precautions": {
+    "title": "Precautions",
+    "Clear": "It’s a clear day! Drink water and wear sunscreen.",
+    "Rain": "Carry an umbrella and avoid waterlogged areas.",
+    "Snow": "Wear warm clothes and avoid slippery roads.",
+    "Thunderstorm": "Stay indoors and avoid trees or metal objects.",
+    "Clouds": "Stay hydrated and carry light gear.",
+    "Default": "Stay cautious and check for alerts."
+  },
+  "pollen": "Pollen Levels",
+  "level": "Level",
+  "advice": "Advice",
+  "airQuality": "Air Quality",
+  "uvIndex": "UV Index",
+  "uvHigh": "(High - Wear sunscreen)",
+  "uvModerate": "(Moderate)",
+  "trend": "Temperature Trend"
+},
+"userProfile":{
+  "title": "User Profile",
+  "name": "Name",
+  "email": "Email",
+  "gender": "Gender",
+  "age": "Age",
+  "weight": "Weight",
+  "height": "Height",
+  "edit": "Edit",
+  "saveChanges": "Save Changes",
+  "downloadPdf": "Download PDF Report",
+  "setReminder": "Set Reminder",
+  "cancelReminder": "Cancel Reminder",
+  "bookAppointment": "Book Appointment",
+  "sendSOS": "Send SOS",
+  "sosConfirm": "Confirm SOS Alert",
+  "sosPrompt": "Are you sure you want to send an SOS alert?",
+  "sendSOSConfirm": "Yes, Send SOS",
+  "cancel": "Cancel",
+  "showWeather": "Show Weather",
+  "hideWeather": "Hide Weather"
+},
+"healthLearning":{
+"title": "Health Learning"
+},
+"healthTopics": {
+    "title": "Explore Health Topics",
+    "searchPlaceholder": "Enter disease or health topic",
+    "searchButton": "Search",
+    "loading": "Loading topics...",
+    "errorFetching": "Error fetching health topics",
+    "noTitle": "No title",
+    "noSummary": "No summary",
+    "readMore": "Read more",
+    "close": "Close"
+  },
+  "healthdashboard": {
+    "welcome": "Welcome {{name}}",
+    "guest": "Guest",
+    "bluetoothConnectTitle": "Bluetooth Connect",
+    "emergencySosTitle": "Emergency SOS",
+    "startSosTracking": "Start SOS Tracking",
+    "voiceCommandTitle": "Voice Command",
+    "uploadPdfTitle": "Upload PDF",
+    "predictRiskTitle": "Predict Health Risk",
+    "latestVitalsTitle": "Latest Health Vitals",
+    "fatalAlertTitle": "Fatal Alert",
+    "healthVitalsTrendsTitle": "Health Vitals Trends",
+    "vitals": {
+  "Heart Rate": "Heart Rate",
+  "SpO₂": "SpO₂",
+  "Temperature": "Body Temperature",
+  "Respiratory Rate": "Respiratory Rate",
+  "Systolic BP": "Systolic BP",
+  "Diastolic BP": "Diastolic BP",
+  "HRV": "HRV",
+  "BMI": "BMI",
+  "Pulse Pressure": "Pulse Pressure",
+  "MAP": "MAP"
+},
+
+    "charts": {
+      "heartRate": "Heart Rate Over Time",
+      "respiratoryRate": "Respiratory Rate Over Time",
+      "hrv": "HRV Over Time",
+      "bloodPressure": "Blood Pressure (Sys & Dia)",
+      "oxygenSaturation": "Oxygen Saturation Over Time"
+    }
+    
+  },
+  "voicecommand": {
+    "title": "Voice Command Assistant",
+    "start": "Start Voice Command",
+    "listening": "Listening...",
+    "clickToSpeak": "Click the mic to start speaking",
+    "heard": "Heard",
+    "is": "is",
+    "female": "female",
+    "male": "male",
+    "normalRangeEnglish": "Normal range for {{gender}} is {{min}} to {{max}} {{unit}}.",
+    "normalRangeHindi": "सामान्य सीमा {{gender}} के लिए {{min}} से {{max}} {{unit}} के बीच होनी चाहिए।"
+  },
+  "pdfupload": {
+    "title": "Upload Medical PDF",
+    "upload": "Upload",
+    "uploading": "Uploading...",
+    "pleaseSelect": "Please select a PDF file.",
+    "success": "Upload successful!",
+    "failed": "Upload failed."
+  },
+  "risk": {
+    "predict": "Predict Risk",
+    "predicting": "Predicting...",
+    "error": "Prediction failed.",
+    "resultTitle": "Prediction Result:",
+    "riskLevel": "Risk Level",
+    "unknown": "Unknown",
+    "reasons": "Reasons",
+    "confidence": "Confidence"
+  },
+  "healthProfileQR":{
+    "title": "Your Health Profile QR",
+  "description": "Scan this to access your health profile"
+  },
+  "lowBattery":{
+    "warningLabel": "Warning",
+  "warningMessage": "Your battery is low. Please charge your device.",
+  "okMessage": "Your battery is fine!"
+  },
+  "reminderForm":{
+    "title": "Schedule a Medical Reminder",
+  "labels": {
+    "reason": "Reminder Reason",
+    "time": "Reminder Time",
+    "startDate": "Start Date",
+    "endDate": "End Date"
+  },
+  "placeholders": {
+    "reason": "e.g. Take blood pressure medicine"
+  },
+  "button": "Schedule Reminder",
+  "success": "Reminder scheduled!",
+  "errors": {
+    "fillAllFields": "Please fill in all fields.",
+    "failed": "Failed to schedule reminder."
+  }
+  },
+  "tracking":{
+    "title": "SOS Tracking",
+  "button": {
+    "start": "Start Tracking",
+    "active": "Tracking Active..."
+  },
+  "distance": "Distance from safe zone: {{distance}} meters",
+  "alerts": {
+    "beyondLimit": "🚨 Alert sent: You moved beyond the safe zone."
+  },
+  "errors": {
+    "failedStart": "Failed to start tracking."
+  },
+  "thresholdLabel": "Threshold Distance (in meters)",
+  "thresholdHint": "Enter the safe distance threshold for triggering the alert."
   }
   
 }

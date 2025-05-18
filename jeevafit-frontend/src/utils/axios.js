@@ -1,6 +1,6 @@
 // frontend/src/utils/axios.js
 import axios from 'axios';
-import { LoadingProvider } from '../context/LoadingContext';
+
 
 const instance = axios.create({
   baseURL: 'http://localhost:8001',

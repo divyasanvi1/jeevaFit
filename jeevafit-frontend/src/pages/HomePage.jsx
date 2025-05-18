@@ -20,10 +20,13 @@ import FatalAlertPopup from "../components/FatalAlertPopup"; // Add this
 import PdfFileInput from "../components/FunctionalComponents/PdfUpload";
 import BluetoothConnect from "../components/FunctionalComponents/BluetoothConnect";
 import PredictRisk from "../components/FunctionalComponents/PredictRisk";
+import { useTranslation } from "react-i18next";
+import socket from "../utils/socket";
+
 
 const HomePage = () => {
   const [fatalAlert, setFatalAlert] = useState(null);
-
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { data, status } = useSelector((state) => state.health);
@@ -50,9 +53,7 @@ const HomePage = () => {
     dispatch(fetchHealthData());
 
     // Initialize socket inside the useEffect
-    const socket = io("http://localhost:8001", {
-      withCredentials: true,
-    });
+    socket.connect();
 
     // Identify user to server
     socket.on("connect", () => {
@@ -71,6 +72,17 @@ const HomePage = () => {
         dispatch(addNewHealthData(data));
       }
     });
+    // Listen for real-time Bluetooth vitals
+socket.on("vitals-updated", (data) => {
+  console.log("📡 [DASHBOARD] Received vitals via socket:", data);
+  console.log("👤 Dashboard userId:", userIdtwo);
+  console.log("🆔 Incoming userId:", data.userId);
+  if (data.userId === userIdtwo) {
+    console.log("📡 Vitals from Bluetooth received:", data);
+    dispatch(addNewHealthData(data));
+  }
+});
+
     // Inside your existing useEffect
     socket.on("fatalHealthAlert", ({ userId: alertUserId, values, reason }) => {
       console.log("fatalHealthAlert received:", { userIdtwo, values, reason });
@@ -92,6 +104,7 @@ const HomePage = () => {
 
     // Cleanup on unmount
     return () => {
+      socket.off("connect");
       socket.disconnect();
     };
   }, [dispatch, user]);
@@ -153,7 +166,7 @@ const HomePage = () => {
   return (
     <div className="px-6 py-10 bg-gray-50 min-h-screen">
   <h2 className="text-2xl font-bold text-gray-800 mb-4">
-    Welcome {user ? user.name : "Guest"}
+  {t("healthdashboard.welcome", { name: user ? user.name : t("healthdashboard.guest") })}
   </h2>
 
   <div className="flex items-center justify-between mb-6">
@@ -172,7 +185,7 @@ const HomePage = () => {
   {/* Bluetooth Connect Panel */}
   <div className="p-6 bg-white rounded-2xl shadow-md border border-gray-100">
     <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
-      <span className="text-blue-600 text-2xl">🔗</span> Bluetooth Connect
+      <span className="text-blue-600 text-2xl">🔗</span> {t("healthdashboard.bluetoothConnectTitle")}
     </h3>
     <BluetoothConnect userId={userIdtwo} />
   </div>
@@ -180,13 +193,13 @@ const HomePage = () => {
   {/* Emergency SOS Panel */}
   <div className="p-6 bg-white rounded-2xl shadow-md border border-gray-100">
     <h3 className="text-lg font-semibold text-gray-800 mb-4">
-      🆘 Emergency SOS
+      🆘 {t("healthdashboard.emergencySosTitle")}
     </h3>
     <button
       onClick={() => setShowTracking(true)}
       className="px-6 py-3 bg-red-600 text-white rounded-full shadow-md hover:bg-red-700 transition duration-200 "
     >
-      🚨 Start SOS Tracking
+      🚨 {t("healthdashboard.startSosTracking")}
     </button>
     {showTracking && (
       <div className="mt-6">
@@ -199,7 +212,7 @@ const HomePage = () => {
   {latest && (
     <div className="p-6 bg-white rounded-2xl shadow-md border border-gray-100">
       <h3 className="text-lg font-semibold text-gray-800 mb-4">
-        🗣️ Voice Command
+        🗣️ {t("healthdashboard.voiceCommandTitle")}
       </h3>
       <VoiceCommandHandler latest={latest} gender={user.gender}/>
     </div>
@@ -208,21 +221,21 @@ const HomePage = () => {
   {/* PDF Upload Panel */}
   <div className="p-6 bg-white rounded-2xl shadow-md border border-gray-100">
     <h3 className="text-lg font-semibold text-gray-800 mb-4">
-      📄 Upload PDF
+      📄 {t("healthdashboard.uploadPdfTitle")}
     </h3>
     <PdfFileInput userId={userIdtwo} />
   </div>
   {/* Predict Risk Panel */}
   <div className="p-6 bg-white rounded-2xl shadow-md border border-gray-100">
     <h3 className="text-lg font-semibold text-gray-800 mb-4">
-      🧠 Predict Health Risk
+      🧠{t("healthdashboard.predictRiskTitle")}
     </h3>
     <PredictRisk userId={userIdtwo} />
   </div>
 </div>
 
   <h2 className="text-2xl font-bold text-gray-800 mb-6">
-    🩺 Latest Health Vitals
+    🩺 {t("healthdashboard.latestVitalsTitle")}
   </h2>
 
   <div className="flex flex-wrap gap-6">
@@ -250,7 +263,7 @@ const HomePage = () => {
         <HealthCard
           key={label}
           value={value}
-          label={label}
+          label={t(`healthdashboard.vitals.${label}`)}
           color={getHealthColor(label, value)}
           maxValue={maxValue}
         />
@@ -259,7 +272,7 @@ const HomePage = () => {
 
   {fatalAlert && (
     <Modal>
-      <h2 className="text-lg font-semibold text-red-700">Fatal Alert</h2>
+      <h2 className="text-lg font-semibold text-red-700">{t("healthdashboard.fatalAlertTitle")}</h2>
       <p>{fatalAlert.reason}</p>
     </Modal>
   )}
@@ -267,41 +280,41 @@ const HomePage = () => {
   {/* Chart Section */}
   <div className="mt-12">
     <h2 className="text-2xl font-bold text-gray-800 mb-6">
-      📊 Health Vitals Trends
+      📊 {t("healthdashboard.healthVitalsTrendsTitle")}
     </h2>
 
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
       <div className="bg-white rounded-2xl shadow-lg p-6">
         <h3 className="text-lg font-semibold text-gray-700 mb-4">
-          Heart Rate Over Time
+        {t("healthdashboard.charts.heartRate")}
         </h3>
         <HeartRateChart healthData={data} />
       </div>
 
       <div className="bg-white rounded-2xl shadow-lg p-6">
         <h3 className="text-lg font-semibold text-gray-700 mb-4">
-          Respiratory Rate Over Time
+        {t("healthdashboard.charts.respiratoryRate")}
         </h3>
         <RespiratoryRateChart healthData={data} />
       </div>
 
       <div className="bg-white rounded-2xl shadow-lg p-6">
         <h3 className="text-lg font-semibold text-gray-700 mb-4">
-          HRV Over Time
+        {t("healthdashboard.charts.hrv")}
         </h3>
         <HRVChart healthData={data} />
       </div>
 
       <div className="bg-white rounded-2xl shadow-lg p-6">
         <h3 className="text-lg font-semibold text-gray-700 mb-4">
-          Blood Pressure (Sys & Dia)
+        {t("healthdashboard.charts.bloodPressure")}
         </h3>
         <BloodPressureChart healthData={data} />
       </div>
 
       <div className="bg-white rounded-2xl shadow-lg p-6 md:col-span-2">
         <h3 className="text-lg font-semibold text-gray-700 mb-4">
-          Oxygen Saturation Over Time
+        {t("healthdashboard.charts.oxygenSaturation")}
         </h3>
         <OxygenSaturationChart healthData={data} />
       </div>

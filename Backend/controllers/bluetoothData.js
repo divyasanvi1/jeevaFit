@@ -20,8 +20,9 @@ const derived_MAP = parseFloat(((2 * diastolicBP + systolicBP) / 3).toFixed(2));
 console.log("mappp",derived_MAP);
      // If you don’t have height/weight, set null
      console.log("derived_HRV",derived_HRV);
+     const userId= req.user._id || req.user.id;
     const newVitals = new HealthData({
-      userId: req.user._id || req.user.id, // Assumes auth middleware sets req.user
+      userId, // Assumes auth middleware sets req.user
       heartRate,
       respiratoryRate,
       bodyTemperature,

@@ -7,7 +7,7 @@ const Header = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
-  const { i18n,t } = useTranslation();
+  const { i18n, t } = useTranslation();
 
   useEffect(() => {
     const savedLang = localStorage.getItem("language") || "en";
@@ -15,7 +15,7 @@ const Header = () => {
       i18n.changeLanguage(savedLang);
     }
   }, []);
-  
+
   const handleChangeLanguage = (e) => {
     const selectedLang = e.target.value;
     i18n.changeLanguage(selectedLang);
@@ -109,7 +109,7 @@ const Header = () => {
                       onClick={closeSidebar}
                       className={navLinkClass}
                     >
-                     {t("header.home")}
+                      {t("header.home")}
                     </NavLink>
                   </li>
                 )}
@@ -117,22 +117,17 @@ const Header = () => {
                   <>
                     <li>
                       <NavLink to="/dashboard" className={navLinkClass}>
-                      {t("header.health_dashboard")}
+                        {t("header.health_dashboard")}
                       </NavLink>
                     </li>
                     <li>
                       <NavLink to="/nearest-hospitals" className={navLinkClass}>
-                      {t("header.nearest_hospitals")}
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink to="/weather" className={navLinkClass}>
-                      {t("header.weather")}
+                        {t("header.nearest_hospitals")}
                       </NavLink>
                     </li>
                     <li>
                       <NavLink to="/health-learning" className={navLinkClass}>
-                      {t("header.health_learning")}
+                        {t("header.health_learning")}
                       </NavLink>
                     </li>
                   </>
@@ -143,46 +138,46 @@ const Header = () => {
             {/* Notification & CTA */}
             <div className="flex items-center lg:space-x-6">
               <>
-              <select
-    value={i18n.language}
-    onChange={handleChangeLanguage}
-    className="bg-[#03045E] text-white border border-white px-2 py-1 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-[#FF6D00]"
-  >
-    <option value="en">English</option>
-    <option value="hi">हिन्दी</option>
-  </select>
-              {isLoggedIn ? (
-                <>
-                  {/* Notification Icon */}
-                  <Link to="/notifications">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="36"
-                      height="36"
-                      viewBox="0 0 24 24"
-                      className="cursor-pointer p-1 w-8 sm:h-8 lg:w-9 lg:h-9 rounded-full hover:bg-white hover:fill-[#FF6D00] transition duration-300 ease-in-out"
-                      fill="#fffffa"
+                <select
+                  value={i18n.language}
+                  onChange={handleChangeLanguage}
+                  className="bg-[#03045E] text-white border border-white px-2 py-1 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-[#FF6D00]"
+                >
+                  <option value="en">English</option>
+                  <option value="hi">हिन्दी</option>
+                </select>
+                {isLoggedIn ? (
+                  <>
+                    {/* Notification Icon */}
+                    <Link to="/notifications">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="36"
+                        height="36"
+                        viewBox="0 0 24 24"
+                        className="cursor-pointer p-1 w-8 sm:h-8 lg:w-9 lg:h-9 rounded-full hover:bg-white hover:fill-[#FF6D00] transition duration-300 ease-in-out"
+                        fill="#fffffa"
+                      >
+                        <path d="M10.5 2v2.2C7.92 4.87 6 7.22 6 10v6l-2 2v1h16v-1l-2-2v-6c0-2.78-1.92-5.13-4.5-5.8V2h-3zM10 20c0 1.1.9 2 2 2s2-.9 2-2h-4z"></path>
+                      </svg>
+                    </Link>
+                    <button
+                      onClick={handleLogout}
+                      className="ml-4 inline-block bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md text-sm font-semibold transition"
                     >
-                      <path d="M10.5 2v2.2C7.92 4.87 6 7.22 6 10v6l-2 2v1h16v-1l-2-2v-6c0-2.78-1.92-5.13-4.5-5.8V2h-3zM10 20c0 1.1.9 2 2 2s2-.9 2-2h-4z"></path>
-                    </svg>
-                  </Link>
-                  <button
-                    onClick={handleLogout}
-                    className="ml-4 inline-block bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md text-sm font-semibold transition"
-                  >
-                   {t("header.logout")}
-                  </button>
-                </>
-              ) : (
-                <div className="hidden lg:flex items-center justify-center">
-                  <NavLink
-                    to="/login"
-                    className="inline-block bg-[#FF5400] hover:bg-[#FF6D00] text-white px-5 py-2 rounded-md text-sm font-semibold hover:bg-opacity-90 transition"
-                  >
-                    {t("header.get_started")}
-                  </NavLink>
-                </div>
-              )}
+                      {t("header.logout")}
+                    </button>
+                  </>
+                ) : (
+                  <div className="hidden lg:flex items-center justify-center">
+                    <NavLink
+                      to="/login"
+                      className="inline-block bg-[#FF5400] hover:bg-[#FF6D00] text-white px-5 py-2 rounded-md text-sm font-semibold hover:bg-opacity-90 transition"
+                    >
+                      {t("header.get_started")}
+                    </NavLink>
+                  </div>
+                )}
               </>
             </div>
           </div>
@@ -203,18 +198,18 @@ const Header = () => {
             ✕
           </button>
           <ul className="flex-col space-x-6 space-y-2">
-          <select
-    value={i18n.language}
-    onChange={handleChangeLanguage}
-    className="bg-[#03045E] text-white border border-white px-2 py-1 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-[#FF6D00]"
-  >
-    <option value="en">English</option>
-    <option value="hi">हिन्दी</option>
-  </select>
+            <select
+              value={i18n.language}
+              onChange={handleChangeLanguage}
+              className="bg-[#03045E] text-white border border-white px-2 py-1 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-[#FF6D00]"
+            >
+              <option value="en">English</option>
+              <option value="hi">हिन्दी</option>
+            </select>
             {!isLoggedIn && (
               <li>
                 <NavLink to="/" onClick={closeSidebar} className={navLinkClass}>
-                {t("header.home")}
+                  {t("header.home")}
                 </NavLink>
               </li>
             )}
@@ -222,22 +217,22 @@ const Header = () => {
               <>
                 <li>
                   <NavLink to="/dashboard" className={navLinkClass}>
-                  {t("header.health_dashboard")}
+                    {t("header.health_dashboard")}
                   </NavLink>
                 </li>
                 <li>
                   <NavLink to="/nearest-hospitals" className={navLinkClass}>
-                  {t("header.nearest_hospitals")}
+                    {t("header.nearest_hospitals")}
                   </NavLink>
                 </li>
                 <li>
                   <NavLink to="/weather" className={navLinkClass}>
-                  {t("header.weather")}
+                    {t("header.weather")}
                   </NavLink>
                 </li>
                 <li>
                   <NavLink to="/health-learning" className={navLinkClass}>
-                  {t("header.health_learning")}
+                    {t("header.health_learning")}
                   </NavLink>
                 </li>
               </>
@@ -246,7 +241,7 @@ const Header = () => {
               <>
                 <li>
                   <NavLink to="/notifications" className={navLinkClass}>
-                  {t("header.notifications")}
+                    {t("header.notifications")}
                   </NavLink>
                 </li>
                 <li>
@@ -254,7 +249,7 @@ const Header = () => {
                     onClick={handleLogout}
                     className="text-[16px] font-semibold font-sans text-white hover:text-[#FF6D00] transition duration-300 ease-in-out"
                   >
-                   {t("header.logout")}
+                    {t("header.logout")}
                   </button>
                 </li>
               </>
@@ -267,7 +262,7 @@ const Header = () => {
                   className={navLinkClass}
                 >
                   <span className="inline-block mt-2 bg-[#FF6D00] text-white px-5 py-2 rounded-md text-sm font-semibold hover:bg-opacity-90 transition">
-                  {t("header.get_started")}
+                    {t("header.get_started")}
                   </span>
                 </NavLink>
               </li>

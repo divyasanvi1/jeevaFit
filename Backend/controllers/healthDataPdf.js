@@ -38,24 +38,66 @@ exports.handleHealthPdfUpload = async (req, res) => {
     console.log('Extracted PDF Text:', pdfText);
 
     // Extract health metrics using flexible regex
-    const extractValue = (label, unit) => {
-      const regex = new RegExp(`${label}[:\\s]+(\\d+(\\.\\d+)?)\\s*${unit}`);
-      const match = pdfText.match(regex);
-      console.log(`Extracting ${label}:`, match ? match[1] : 'NOT FOUND');
-      return match ? parseFloat(match[1]) : undefined;
+    const extractValue = (labels, units = []) => {
+      if (!Array.isArray(labels)) labels = [labels];
+      if (!Array.isArray(units)) units = [units];
+    
+      for (let label of labels) {
+        const escapedLabel = label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    
+        // Pattern 1: Label (unit)   value
+        const bracketPattern = new RegExp(`${escapedLabel}\\s*\\(.*?\\)\\s*([\\d.]+)`, 'i');
+        const matchBracket = pdfText.match(bracketPattern);
+        if (matchBracket) {
+          console.log(`Extracting ${label} (bracket):`, matchBracket[1]);
+          return parseFloat(matchBracket[1]);
+        }
+    
+        // Pattern 2: Label: value unit
+        for (let unit of units) {
+          const escapedUnit = unit.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+          const colonPattern = new RegExp(`${escapedLabel}\\s*[:\\s]+([\\d.]+)\\s*${escapedUnit}`, 'i');
+          const matchColon = pdfText.match(colonPattern);
+          if (matchColon) {
+            console.log(`Extracting ${label} (colon):`, matchColon[1]);
+            return parseFloat(matchColon[1]);
+          }
+    
+          // Pattern 3: Label unit value (e.g. Heart Rate bpm 80)
+          const inlinePattern = new RegExp(`${escapedLabel}\\s*${escapedUnit}\\s*([\\d.]+)`, 'i');
+          const matchInline = pdfText.match(inlinePattern);
+          if (matchInline) {
+            console.log(`Extracting ${label} (inline):`, matchInline[1]);
+            return parseFloat(matchInline[1]);
+          }
+        }
+    
+        // Pattern 4: Label   value (no unit)
+        const loosePattern = new RegExp(`${escapedLabel}\\s+([\\d.]+)`, 'i');
+        const matchLoose = pdfText.match(loosePattern);
+        if (matchLoose) {
+          console.log(`Extracting ${label} (loose):`, matchLoose[1]);
+          return parseFloat(matchLoose[1]);
+        }
+      }
+    
+      console.log(`Extracting ${labels[0]}: NOT FOUND`);
+      return undefined;
     };
     
+    
     // Extract values
-    const heartRate = extractValue('Heart Rate', 'bpm');
-    const respiratoryRate = extractValue('Respiratory Rate', 'breaths per minute');
-    const bodyTemperature = extractValue('Body Temperature', '°C');
-    const oxygenSaturation = extractValue('Oxygen Saturation', '%');
-    const systolicBP = extractValue('Systolic BP', 'mmHg');
-    const diastolicBP = extractValue('Diastolic BP', 'mmHg');
-    const derivedHRV = extractValue('Derived HRV', 'ms');
-    const pulsePressure = extractValue('Derived Pulse Pressure', 'mmHg');
-    const bmi = extractValue('BMI', '');
-    const map = extractValue('Derived MAP', 'mmHg');
+    const heartRate = extractValue(['Heart Rate'], ['bpm']);
+    const respiratoryRate = extractValue(['Respiratory Rate'], ['breaths/min', 'breaths per minute']);
+    const bodyTemperature = extractValue(['Body Temperature'], ['°C', 'C']);
+    const oxygenSaturation = extractValue(['Oxygen Saturation'], ['%', 'percent']);
+    const systolicBP = extractValue(['Systolic BP'], ['mmHg']);
+    const diastolicBP = extractValue(['Diastolic BP'], ['mmHg']);
+    const derivedHRV = extractValue(['Heart Rate Variability', 'HRV'], ['ms']);
+    const pulsePressure = extractValue(['Derived Pulse Pressure', 'Pulse Pressure'], ['mmHg']);
+    const bmi = extractValue(['Derived BMI', 'BMI'], []);
+    const map = extractValue(['Derived MAP', 'MAP'], ['mmHg']);
+    
 
     // Create and save a new health data record in the database
     const healthData = new HealthData({

@@ -14,6 +14,8 @@ const generatePDF = async ({ userData, healthData }) => {
   let yOffset = 20;
 
   const vitalData = healthData?.data?.[0] || {};
+  console.log("pdf data",vitalData);
+  console.log("Keys in vitalData:", Object.keys(vitalData));
 
   // Header
   pdf.setFontSize(18);
@@ -48,6 +50,8 @@ const generatePDF = async ({ userData, healthData }) => {
     ['Diastolic BP (mmHg)', vitalData.diastolicBP ?? 'N/A'],
     ['Heart Rate Variability (HRV)', vitalData.derived_HRV ?? 'N/A'],
     ['Body Temperature (°C)', vitalData.bodyTemperature ?? 'N/A'],
+    ['Pulse Pressure (mmHg)', vitalData.derived_Pulse_Pressure ?? 'N/A'],
+  ['MAP (mmHg)', vitalData.derived_MAP ?? 'N/A'],
   ];
 
   const rowHeight = 10;

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useTranslation } from 'react-i18next';
+
 
 const WeatherPage = () => {
   const [weatherData, setWeatherData] = useState(null);
@@ -9,12 +11,13 @@ const WeatherPage = () => {
   const [forecastData, setForecastData] = useState(null);
   const [location, setLocation] = useState(null);
   const [error, setError] = useState('');
+  const { t } = useTranslation();
   const weatherApiKey = import.meta.env.VITE_WEATHER_API_KEY;
 
   useEffect(() => {
     const fetchData = async () => {
       if (!navigator.geolocation) {
-        setError('Geolocation not supported');
+        setError(t('weatherPage.error.geolocationUnsupported'));
         return;
       }
 
@@ -43,7 +46,7 @@ const WeatherPage = () => {
 
         } catch (err) {
           console.error(err);
-          setError('Failed to fetch data.');
+          setError(t('weatherPage.error.fetchFailed'));
         }
       }, (err) => {
         setError('Geolocation error: ' + err.message);
@@ -55,14 +58,8 @@ const WeatherPage = () => {
 
   const renderPrecautions = () => {
     const currentWeather = weatherData?.weather?.[0]?.main;
-    switch (currentWeather) {
-      case 'Clear': return <p>It’s a clear day! Drink water and wear sunscreen.</p>;
-      case 'Rain': return <p>Carry an umbrella and avoid waterlogged areas.</p>;
-      case 'Snow': return <p>Wear warm clothes and avoid slippery roads.</p>;
-      case 'Thunderstorm': return <p>Stay indoors and avoid trees or metal objects.</p>;
-      case 'Clouds': return <p>Stay hydrated and carry light gear.</p>;
-      default: return <p>Stay cautious and check for alerts.</p>;
-    }
+    const key = `weatherPage.precautions.${currentWeather || 'Default'}`;
+    return <p>{t(key)}</p>;
   };
 
   const renderTemperatureTrend = () => {
@@ -87,7 +84,7 @@ const WeatherPage = () => {
     <div className="px-4 py-6 min-h-screen bg-gradient-to-b from-blue-100 to-blue-300">
   <div className="max-w-3xl mx-auto space-y-6">
     <h1 className="text-3xl font-extrabold text-center text-blue-900 drop-shadow-md">
-      🌤️ Live Weather & Health Forecast
+      🌤️ {t('weatherPage.title')}
     </h1>
 
     {error && <p className="text-red-700 text-center">{error}</p>}
@@ -108,27 +105,27 @@ const WeatherPage = () => {
         {/* Basic Details Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-sm text-gray-700">
           <div className="bg-blue-50 p-3 rounded-lg shadow-inner">
-            💧 Humidity: {weatherData.main.humidity}%
+            💧 {t('weatherPage.weather.humidity')}: {weatherData.main.humidity}%
           </div>
           <div className="bg-blue-50 p-3 rounded-lg shadow-inner">
-            🌬️ Wind: {weatherData.wind.speed} m/s
+            🌬️ {t('weatherPage.weather.wind')}: {weatherData.wind.speed} m/s
           </div>
           <div className="bg-blue-50 p-3 rounded-lg shadow-inner">
-            🧭 Pressure: {weatherData.main.pressure} hPa
+            🧭 {t('weatherPage.weather.pressure')}: {weatherData.main.pressure} hPa
           </div>
         </div>
 
         {/* Precautions */}
         <div className="bg-yellow-100 border-l-4 border-yellow-400 p-4 rounded-xl">
-          <h3 className="font-semibold text-yellow-800 mb-1">⚠️ Precautions</h3>
+          <h3 className="font-semibold text-yellow-800 mb-1">⚠️ {t('weatherPage.precautions.title')}</h3>
           {renderPrecautions()}
         </div>
 
         {/* Pollen Data */}
         {pollensData && (
           <div className="bg-green-100 border-l-4 border-green-400 p-4 rounded-xl">
-            <h3 className="font-semibold text-green-800 mb-1">🌾 Pollen Levels</h3>
-            <p className="text-sm">Level: {pollensData.pollenLevel}</p>
+            <h3 className="font-semibold text-green-800 mb-1">🌾 {t('weatherPage.pollen')}</h3>
+            <p className="text-sm">{t('weatherPage.level')}: {pollensData.pollenLevel}</p>
             <p className="text-sm">{pollensData.advice}</p>
           </div>
         )}
@@ -136,7 +133,7 @@ const WeatherPage = () => {
         {/* Air Quality */}
         {airQualityData && (
           <div className="bg-slate-100 border-l-4 border-slate-400 p-4 rounded-xl">
-            <h3 className="font-semibold text-slate-800 mb-1">🌫️ Air Quality</h3>
+            <h3 className="font-semibold text-slate-800 mb-1">🌫️ {t('weatherPage.airQuality')}</h3>
             <div className="text-sm space-y-1">
               <p>PM2.5: {airQualityData.list[0].components.pm2_5}</p>
               <p>CO: {airQualityData.list[0].components.co}</p>
@@ -148,25 +145,34 @@ const WeatherPage = () => {
         {/* UV Index */}
         {uvIndex !== null && (
           <div className="bg-pink-100 border-l-4 border-pink-400 p-4 rounded-xl">
-            <h3 className="font-semibold text-pink-800 mb-1">🌞 UV Index</h3>
+            <h3 className="font-semibold text-pink-800 mb-1">🌞 {t('weatherPage.uvIndex')}</h3>
             <p className="text-sm">
-              {uvIndex} {uvIndex >= 6 ? '(High - Wear sunscreen)' : '(Moderate)'}
+              {uvIndex} {uvIndex >= 6 ? t('weatherPage.uvHigh') : t('weatherPage.uvModerate')}
             </p>
           </div>
         )}
 
         {/* Temperature Trends */}
-        <div className="bg-purple-100 border-l-4 border-purple-400 p-4 rounded-xl">
-          <h3 className="font-semibold text-purple-800 mb-2">📈 Temperature Trend</h3>
-          <ul className="text-sm grid grid-cols-2 md:grid-cols-3 gap-2">
-            {forecastData?.list.slice(0, 6).map((hour, idx) => (
-              <li key={idx} className="flex justify-between bg-white rounded-lg px-3 py-2 shadow-sm">
-                <span>{new Date(hour.dt * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
-                <span>{hour.main.temp}°C</span>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {/* Temperature Trends */}
+{/* Temperature Trends */}
+{/* Temperature Trends */}
+<div className="bg-purple-100 border-l-4 border-purple-400 p-4 rounded-xl mb-4">
+  <h3 className="font-semibold text-purple-800 mb-3 text-sm md:text-base">📈 {t('weatherPage.trend')}</h3>
+  
+  <div className="flex overflow-x-auto gap-3 pb-1">
+    {forecastData?.list.slice(0, 6).map((hour, idx) => (
+      <div
+        key={idx}
+        className="min-w-[140px] flex flex-col justify-between bg-white rounded-lg px-3 py-2 shadow text-xs md:text-sm shrink-0"
+      >
+        <span className="text-gray-600">{new Date(hour.dt * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
+        <span className="font-medium text-purple-700">{hour.main.temp}°C</span>
+      </div>
+    ))}
+  </div>
+</div>
+
+
       </div>
     )}
   </div>

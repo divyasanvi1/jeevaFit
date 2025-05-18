@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import axios from '../../utils/axios';
+import { useTranslation } from 'react-i18next';
 
 const PdfFileInput = ({ userId }) => {
   console.log("userId in component:", userId);
-
+  const { t } = useTranslation();
   const [file, setFile] = useState(null);
   const [uploading, setUploading] = useState(false);
   const [message, setMessage] = useState('');
@@ -15,7 +16,7 @@ const PdfFileInput = ({ userId }) => {
 
   const handleUpload = async () => {
     if (!file) {
-      setMessage('Please select a PDF file.');
+      setMessage(t('pdfupload.pleaseSelect'));
       return;
     }
 
@@ -25,7 +26,7 @@ const PdfFileInput = ({ userId }) => {
 
     try {
       setUploading(true);
-      const res = await axios.post('http://localhost:8001/api/upload-health-pdf', formData, {
+      const res = await axios.post('/api/upload-health-pdf', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -42,7 +43,7 @@ const PdfFileInput = ({ userId }) => {
   return (
     <div className="p-6 bg-white rounded-2xl shadow-md mt-6 w-full max-w-md">
   <h3 className="text-lg font-semibold text-gray-800 mb-4">
-    📄 Upload Medical PDF
+    📄 {t('pdfupload.title')}
   </h3>
   <div className="flex items-center gap-4">
     <input
@@ -62,7 +63,7 @@ const PdfFileInput = ({ userId }) => {
           : "bg-blue-600 hover:bg-blue-700"
       }`}
     >
-      {uploading ? "Uploading..." : "Upload"}
+      {uploading ? t('pdfupload.uploading') : t('pdfupload.upload')}
     </button>
   </div>
   {message && (

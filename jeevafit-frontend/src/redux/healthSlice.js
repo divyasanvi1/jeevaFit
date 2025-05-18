@@ -6,6 +6,7 @@ export const fetchHealthData = createAsyncThunk('health/fetch', async () => {
   const res = await axios.get('http://localhost:8001/health/user-data', {
     withCredentials: true
   });
+  console.log('fetchHealthData response:', res.data);
   return res.data; // assuming res.data contains the health data directly
 });
 

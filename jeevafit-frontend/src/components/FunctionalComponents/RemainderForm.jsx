@@ -1,8 +1,10 @@
 // src/components/ReminderForm.jsx
 import React, { useState } from 'react';
-import axios from 'axios';
+import axios from '../../utils/axios';
+import { useTranslation } from 'react-i18next';
 
 const ReminderForm = ({ userId, userEmail }) => {
+  const { t } = useTranslation();
   const [reason, setReason] = useState('');
   const [time, setTime] = useState('');
   const [startDate, setStartDate] = useState('');
@@ -17,7 +19,7 @@ const ReminderForm = ({ userId, userEmail }) => {
     }
 
     try {
-      const response = await axios.post('http://localhost:8001/reminder/create', {
+      const response = await axios.post('/reminder/create', {
         userId,
         reason,
         time,
@@ -39,20 +41,20 @@ const ReminderForm = ({ userId, userEmail }) => {
 
   return (
     <div className="max-w-md mx-auto p-4 bg-white rounded shadow">
-      <h2 className="text-xl font-semibold mb-4">Schedule a Medical Reminder</h2>
+      <h2 className="text-xl font-semibold mb-4">{t('reminderForm.title')}</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label className="block text-sm font-medium">Reminder Reason</label>
+          <label className="block text-sm font-medium">{t('reminderForm.labels.reason')}</label>
           <input
             type="text"
             className="w-full border rounded p-2"
             value={reason}
             onChange={(e) => setReason(e.target.value)}
-            placeholder="e.g. Take blood pressure medicine"
+            placeholder={t('reminderForm.placeholders.reason')}
           />
         </div>
         <div>
-          <label className="block text-sm font-medium">Reminder Time</label>
+          <label className="block text-sm font-medium">{t('reminderForm.labels.time')}</label>
           <input
             type="time"
             className="w-full border rounded p-2"
@@ -61,7 +63,7 @@ const ReminderForm = ({ userId, userEmail }) => {
           />
         </div>
         <div>
-          <label className="block text-sm font-medium">Start Date</label>
+          <label className="block text-sm font-medium">{t('reminderForm.labels.startDate')}</label>
           <input
             type="date"
             className="w-full border rounded p-2"
@@ -70,7 +72,7 @@ const ReminderForm = ({ userId, userEmail }) => {
           />
         </div>
         <div>
-          <label className="block text-sm font-medium">End Date</label>
+          <label className="block text-sm font-medium">{t('reminderForm.labels.endDate')}</label>
           <input
             type="date"
             className="w-full border rounded p-2"
@@ -82,7 +84,7 @@ const ReminderForm = ({ userId, userEmail }) => {
           type="submit"
           className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
         >
-          Schedule Reminder
+         {t('reminderForm.button')}
         </button>
       </form>
       {message && <p className="mt-4 text-sm text-green-600">{message}</p>}

@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import axios from "axios";
+import axios from "../utils/axios";
+import { useTranslation } from "react-i18next";
+
 
 const calculateDistance = (lat1, lon1, lat2, lon2) => {
   const toRad = (value) => (value * Math.PI) / 180;
@@ -27,7 +29,7 @@ const NearestHospitalsPage = () => {
   const mapInstance = useRef(null);
   const directionsService = useRef(null);
   const directionsRenderer = useRef(null);
-
+  const { t } = useTranslation();
   // Dynamically load the Google Maps script once
   const loadGoogleMapsScript = () => {
     return new Promise((resolve, reject) => {
@@ -62,7 +64,7 @@ const NearestHospitalsPage = () => {
         await loadGoogleMapsScript();
 
         if (!navigator.geolocation) {
-          setError("Geolocation not supported by this browser.");
+          setError(t("nearestHospitals.error.locationUnavailable"));
           setLoading(false);
           return;
         }
@@ -73,7 +75,7 @@ const NearestHospitalsPage = () => {
             setLocation({ latitude, longitude });
 
             try {
-              const res = await axios.post("http://localhost:8001/location/hospitals", {
+              const res = await axios.post("/location/hospitals", {
                 latitude,
                 longitude,
               });
@@ -110,19 +112,19 @@ const NearestHospitalsPage = () => {
 
             } catch (err) {
               console.error("Fetch hospitals error:", err);
-              setError("Failed to fetch hospitals.");
+              setError(t("nearestHospitals.error.fetchError"));
             } finally {
               setLoading(false);
             }
           },
           () => {
-            setError("Permission denied or failed to get location.");
+            setError(t("nearestHospitals.error.locationDenied"));
             setLoading(false);
           }
         );
       } catch (err) {
         console.error("Google Maps script load error:", err);
-        setError("Failed to load Google Maps.");
+        setError(t("nearestHospitals.error.fetchError"));
         setLoading(false);
       }
     };
@@ -163,7 +165,7 @@ console.log("lng",lng);
         directionsRenderer.current.setDirections(result);
       } else {
         console.error("Directions request failed due to " + status);
-        setError("Failed to get directions.");
+        setError(t("nearestHospitals.error.fetchError"));
       }
     });
   };
@@ -191,7 +193,7 @@ console.log("lng",lng);
       new window.google.maps.Marker({
         position: { lat: location.latitude, lng: location.longitude },
         map: mapInstance.current,
-        title: "Your Location",
+        title: t("nearestHospitals.currentLocation"),
       });
 
       // Add hospital markers
@@ -217,8 +219,8 @@ console.log("lng",lng);
 
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold mb-4">Nearby Hospitals</h1>
-      {loading && <p>Fetching your location and nearby hospitals...</p>}
+      <h1 className="text-2xl font-bold mb-4">{t("nearestHospitals.title")}</h1>
+      {loading && <p>{t("nearestHospitals.fetchingHospitals")}</p>}
       {error && <p className="text-red-500">{error}</p>}
 
       {/* Map container */}
@@ -229,15 +231,15 @@ console.log("lng",lng);
           <li key={index} className="border-b pb-2">
             <strong>{hospital.name}</strong>
             <p>{hospital.address}</p>
-            <p> Distance: {hospital.distance.toFixed(2)} km </p>
+            <p> {t("nearestHospitals.distanceLabel")}: {hospital.distance.toFixed(2)} km </p>
             {hospital.rating && (
-              <p className="text-sm text-gray-500">  Rating: {hospital.rating}</p>
+              <p className="text-sm text-gray-500">  {t("nearestHospitals.hospitalDetails.rating")}: {hospital.rating}</p>
             )}
             <button
               onClick={() => getDirectionsToHospital(hospital)}
               className="bg-blue-600 text-white px-3 py-1 rounded mt-2"
             >
-              Get Directions
+              {t("nearestHospitals.directionsButton")}
             </button>
           </li>
         ))}

@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 
 const HealthTopics = () => {
+  const { t } = useTranslation();
   const [searchTerm, setSearchTerm] = useState('');
   const [topics, setTopics] = useState([]);
   const [selectedTopic, setSelectedTopic] = useState(null);
@@ -82,13 +84,13 @@ const HealthTopics = () => {
       fontFamily: 'Segoe UI, sans-serif',
     }}>
       <h2 style={{ fontSize: '2rem', marginBottom: '1rem', color: '#03045E' }}>
-        🔍 Explore Health Topics
+        🔍 {t('healthTopics.title')}
       </h2>
       <form onSubmit={handleSubmit} style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem' }}>
         <input
           type="text"
           value={searchTerm}
-          placeholder="Enter disease or health topic"
+          placeholder={t('healthTopics.searchPlaceholder')}
           onChange={(e) => setSearchTerm(e.target.value)}
           style={{
             padding: '0.75rem 1rem',
@@ -111,11 +113,11 @@ const HealthTopics = () => {
             fontWeight: 'bold',
           }}
         >
-          Search
+          {t('healthTopics.searchButton')}
         </button>
       </form>
 
-      {loading && <p style={{ color: '#555' }}>Loading topics...</p>}
+      {loading && <p style={{ color: '#555' }}>{t('healthTopics.loading')}</p>}
       {error && <p style={{ color: 'red' }}>{error}</p>}
 
       <ul style={{ listStyle: 'none', padding: 0 }}>
@@ -169,7 +171,7 @@ const HealthTopics = () => {
             rel="noopener noreferrer"
             style={{ color: '#FF6D00', textDecoration: 'underline', fontWeight: 'bold' }}
           >
-            Read more →
+            {t('healthTopics.readMore')} →
           </a>
           <div style={{ marginTop: '1.5rem', textAlign: 'right' }}>
             <button
@@ -182,7 +184,7 @@ const HealthTopics = () => {
                 cursor: 'pointer',
               }}
             >
-              Close
+              {t('healthTopics.close')}
             </button>
           </div>
         </div>

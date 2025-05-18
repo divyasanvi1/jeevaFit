@@ -4,7 +4,7 @@ const User = require('../models/userModel');
 const nodemailer = require('nodemailer');
 require('dotenv').config();
 
-const RADIUS = 500; // 500 meters
+//const RADIUS = 500; // 500 meters
 
 // Setup mail transporter
 const transporter = nodemailer.createTransport({
@@ -30,39 +30,74 @@ const calculateDistance = (lat1, lng1, lat2, lng2) => {
 
 // Start tracking
 const startTracking = async (req, res) => {
-  const { userId, location } = req.body;
+  const { userId, location, thresholdDistance = 500 } = req.body;
   if (!userId || !location?.lat || !location?.lng) {
     return res.status(400).json({ error: 'Missing data' });
   }
-
+  await Tracking.updateMany({ userId, active: true }, { active: false });
   const tracking = new Tracking({
     userId,
-    triggeredLocation: location
+    triggeredLocation: location,
+    thresholdDistance
   });
 
   await tracking.save();
   res.status(201).json({ message: 'Tracking started', tracking });
+};
+const stopTracking = async (req, res) => {
+  const { userId } = req.body;
+  if (!userId) return res.status(400).json({ error: 'Missing userId' });
+
+  const tracking = await Tracking.findOne({ userId, active: true });
+  if (!tracking) return res.status(404).json({ error: 'No active tracking found' });
+
+  tracking.active = false;
+  await tracking.save();
+
+  res.status(200).json({ message: 'Tracking stopped successfully' });
+};
+// Get current tracking status
+const getTrackingStatus = async (req, res) => {
+  const { userId } = req.query;
+  if (!userId) return res.status(400).json({ error: 'Missing userId' });
+
+  const tracking = await Tracking.findOne({ userId, active: true });
+  if (!tracking) return res.status(200).json({ active: false });
+
+  res.status(200).json({ active: true, tracking });
 };
 
 // Update location (periodic call)
 const updateLocation = async (req, res) => {
   const { userId, currentLocation } = req.body;
   if (!userId || !currentLocation?.lat || !currentLocation?.lng) {
+    console.log('Missing required data');
     return res.status(400).json({ error: 'Missing data' });
   }
 
   const tracking = await Tracking.findOne({ userId, active: true });
-  if (!tracking) return res.status(404).json({ error: 'No active tracking found' });
-
+  if (!tracking) {
+    console.log('No active tracking found for user:', userId);
+    return res.status(404).json({ error: 'No active tracking found' });
+  }
+  console.log('Active tracking:', tracking);
   const distance = calculateDistance(
     tracking.triggeredLocation.lat,
     tracking.triggeredLocation.lng,
     currentLocation.lat,
     currentLocation.lng
   );
+  const threshold = tracking.thresholdDistance || 500;
+  console.log(`Distance: ${distance} Threshold: ${threshold}`);
 
-  if (distance > RADIUS) {
+  if (distance >threshold) {
+    console.log('Threshold exceeded, checking user email...');
     const user = await User.findById(userId);
+    if (!user) {
+      console.log('User not found!');
+      return res.status(404).json({ error: 'User not found' });
+    }
+    console.log('User email:', user.emergencyContactEmail);
     if (user?.emergencyContactEmail) {
       await transporter.sendMail({
         from: process.env.EMAIL_USER,
@@ -70,13 +105,14 @@ const updateLocation = async (req, res) => {
         subject: '🚨 SOS Location Alert',
         text: `User ${user.name} moved beyond safe zone.\nLocation: https://maps.google.com?q=${currentLocation.lat},${currentLocation.lng}`
       });
+      tracking.emailSentAt = new Date();
     }
 
     tracking.active = false;
     await tracking.save();
   }
 
-  res.status(200).json({ message: 'Location updated', distance });
+  res.status(200).json({ message: 'Location updated', distance,  emailSentAt: tracking.emailSentAt || null });
 };
 
-module.exports = { startTracking, updateLocation };
+module.exports = { startTracking, updateLocation, stopTracking, getTrackingStatus };

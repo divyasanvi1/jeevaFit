@@ -2,8 +2,10 @@ import React, { useEffect } from "react";
 import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
 import commandMap from "../../locales/HindiEnglishVocals";
 import vitalRanges from "../../utils/vitalRanges";
+import { useTranslation } from "react-i18next";
 
 const VoiceCommandHandler = ({ latest,gender }) => {
+  const { t } = useTranslation();
   const { transcript, listening, resetTranscript } = useSpeechRecognition();
   useEffect(() => {
     console.log("Latest vitals received:", latest);
@@ -72,24 +74,24 @@ utterance.lang = isHindiCommand ? "hi-IN" : "en-IN";
   return (
     <div className="p-6 bg-white rounded-2xl shadow-md mt-6">
   <h3 className="text-lg font-semibold text-gray-800 mb-4">
-    🎤 Voice Command Assistant
+    🎤{t("voicecommand.title")}
   </h3>
   <button
     onClick={SpeechRecognition.startListening}
     className="px-5 py-2 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition duration-200 shadow"
   >
-    🎤 Start Voice Command
+    🎤 {t("voicecommand.start")}
   </button>
   <div className="mt-4 text-sm text-gray-700">
     <p className="mb-1">
       {listening ? (
-        <span className="text-green-600 font-medium">Listening...</span>
+        <span className="text-green-600 font-medium">{t("voicecommand.listening")}</span>
       ) : (
-        "Click the mic to start speaking"
+        t("voicecommand.clickToSpeak")
       )}
     </p>
     <p>
-      <span className="font-medium text-gray-900">Heard:</span> {transcript}
+      <span className="font-medium text-gray-900">{t("voicecommand.heard")}:</span> {transcript}
     </p>
   </div>
 </div>
