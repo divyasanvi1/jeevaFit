@@ -45,7 +45,7 @@ exports.predictRiskLive = async (req, res) => {
     console.log("Sending gender", user.gender);
     console.log("Sending to model API:", inputData);
 
-    const response = await axios.post('http://127.0.0.1:5000/predict', [inputData]);
+    const response = await axios.post('http://127.0.0.1:5000/predict', inputData);
 
     res.status(200).json({
       message: 'Prediction complete',
@@ -55,6 +55,7 @@ exports.predictRiskLive = async (req, res) => {
 
   } catch (error) {
     console.error('Prediction error:', error.message);
+    console.error(error.stack);
     res.status(500).json({ error: 'Prediction failed' });
   }
 };

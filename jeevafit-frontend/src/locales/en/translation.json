@@ -48,7 +48,7 @@
         "part1": "Your Health,",
         "part2": "All in Place"
       },
-      "description": "Track your vitals, book appointments, check your medical history, get reminders, find hospitals, chat with health experts, and even talk to our AI-powered chatbot – all in one place.",
+      "description": "Track your vitals,  check your medical history, get reminders, find hospitals,  and even get AI-powered risk analysis – all in one place.",
       "knowMoreButton": "Know More",
       "getStartedButton": "Get Started"
     },
@@ -70,7 +70,7 @@
   },
   "finalCTA": {
     "title": "Ready to take charge of your health?",
-    "subtitle": "Join thousands who track vitals, book appointments, manage medical history, and stay on top of their health with JeevaFit.",
+    "subtitle": "Join thousands who track vitals,  manage medical history, and stay on top of their health with JeevaFit.",
     "buttonText": "Get Started Now"
   },
   "features": {
@@ -78,11 +78,11 @@
     "subtitle": "JeevaFit goes beyond tracking — it transforms your well-being with intelligent tools, personalized care, and a user-first experience.",
     "liveTracking": {
       "title": "Live Health Tracking",
-      "description": "Track heart rate, blood oxygen, steps, and more — synced directly from your smartwatch."
+      "description": "Track heart rate, blood oxygen, steps, and more — synced directly from your smartwatch and bluetooth enabled health devices."
     },
     "appointment": {
-      "title": "Appointment Scheduling",
-      "description": "Let HealthMate auto-book appointments when your health metrics need professional care."
+      "title": "Nearest Hospital",
+      "description": "Let JeevaFit find hospitals nearby when your health metrics need professional care."
     },
     "reports": {
       "title": "Personalized Health Reports",
