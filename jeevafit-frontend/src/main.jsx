@@ -22,6 +22,7 @@ import PublicRoute from './components/PublicRoute.jsx';
 import ProfilePage from './pages/ProfilePage';
 import ResendVerification from './pages/ResendVerification.jsx';
 import { LoadingProvider } from './context/LoadingContext.jsx';
+import UploadsListPage from './pages/UploadsListPage.jsx';
 
 
 
@@ -82,6 +83,14 @@ const router = createBrowserRouter([
         element: (
           <ProtectedRoute>
             <NearestHospitalsPage />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: 'uploadList',
+        element: (
+          <ProtectedRoute>
+            <UploadsListPage />
           </ProtectedRoute>
         ),
       },

@@ -343,6 +343,14 @@
   },
   "thresholdLabel": "Threshold Distance (in meters)",
   "thresholdHint": "Enter the safe distance threshold for triggering the alert."
+  },
+  "upload": {
+    "title": "Upload Medical Files",
+    "upload": "Upload",
+    "uploading": "Uploading...",
+    "previous": "Previously Uploaded Files",
+    "none": "No uploads found.",
+    "download": "Download"
   }
   
 }

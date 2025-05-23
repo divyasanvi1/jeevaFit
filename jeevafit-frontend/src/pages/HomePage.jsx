@@ -22,6 +22,7 @@ import BluetoothConnect from "../components/FunctionalComponents/BluetoothConnec
 import PredictRisk from "../components/FunctionalComponents/PredictRisk";
 import { useTranslation } from "react-i18next";
 import socket from "../utils/socket";
+import UploadMedicalFileCompact from "../components/FunctionalComponents/UploadMedicalFileCompact";
 
 
 const HomePage = () => {
@@ -232,6 +233,7 @@ socket.on("vitals-updated", (data) => {
     </h3>
     <PredictRisk userId={userIdtwo} />
   </div>
+  <UploadMedicalFileCompact />
 </div>
 
   <h2 className="text-2xl font-bold text-gray-800 mb-6">
