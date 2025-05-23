@@ -19,7 +19,7 @@ const UploadMedicalFileCompact = () => {
 
   const handleUpload = async () => {
     if (!file) {
-      setMessage(t('pdfupload.pleaseSelect'));
+      setMessage(t('upload.pleaseSelect'));
       setError(true);
       return;
     }
@@ -33,13 +33,23 @@ const UploadMedicalFileCompact = () => {
         headers: { 'Content-Type': 'multipart/form-data' },
         withCredentials: true,
       });
-      setMessage(res.data.message || t('pdfupload.success'));
+      setMessage(res.data.message || t('upload.success'));
       setError(false);
       setFile(null);
       document.getElementById('fileInput').value = null;
     } catch (err) {
       console.error(err);
-      setMessage(t('pdfupload.fail'));
+      console.log("error",err);
+      const backendMessage = err.response?.data?.message?.trim();
+      console.log("backendMessage :",backendMessage);
+    if (backendMessage === "Not a medical-related file") {
+      setMessage(t('upload.notMedical'));
+      setError(true);
+    return; 
+    } else {
+      setMessage(t('upload.fail'));
+    }
+      setMessage(t('upload.fail'));
       setError(true);
     } finally {
       setUploading(false);
@@ -71,7 +81,7 @@ const UploadMedicalFileCompact = () => {
               : 'bg-blue-600 hover:bg-blue-700'
           }`}
         >
-          {uploading ? t('pdfupload.uploading') : t('pdfupload.upload')}
+          {uploading ? t('upload.uploading') : t('upload.upload')}
         </button>
       </div>
 

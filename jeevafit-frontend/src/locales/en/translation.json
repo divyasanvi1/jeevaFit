@@ -350,7 +350,8 @@
     "uploading": "Uploading...",
     "previous": "Previously Uploaded Files",
     "none": "No uploads found.",
-    "download": "Download"
+    "download": "Download",
+    "notMedical": "File doesn't appear medical"
   }
   
 }
