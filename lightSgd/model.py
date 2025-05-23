@@ -105,7 +105,7 @@ sgd_model = SGDClassifier(
     loss='log_loss',
     max_iter=1000,
     tol=1e-3,
-    class_weight='balanced',
+    class_weight=class_weights,
     random_state=42
 )
 
