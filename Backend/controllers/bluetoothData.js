@@ -1,6 +1,10 @@
 const HealthData = require('../models/healthModel');
-
+const User= require('../models/userModel')
 // Save health vitals (Bluetooth)
+function roundToTwo(value) {
+  return value !== undefined ? parseFloat(parseFloat(value).toFixed(2)) : undefined;
+}
+
 exports.saveVitals = async (req, res) => {
     console.log("req",req);
   try {
@@ -13,16 +17,11 @@ exports.saveVitals = async (req, res) => {
       diastolicBP,
       derived_HRV,
     } = req.body;
-
-    // Derived metrics
-    const derived_Pulse_Pressure = parseFloat((systolicBP - diastolicBP).toFixed(2));
-const derived_MAP = parseFloat(((2 * diastolicBP + systolicBP) / 3).toFixed(2));
-console.log("mappp",derived_MAP);
-     // If you don’t have height/weight, set null
-     console.log("derived_HRV",derived_HRV);
-     const userId= req.user._id || req.user.id;
-    const newVitals = new HealthData({
-      userId, // Assumes auth middleware sets req.user
+    const userId= req.user._id || req.user.id;
+    if (!userId) {
+      return res.status(401).json({ error: 'User not authenticated' });
+    }
+    const incomingData = {
       heartRate,
       respiratoryRate,
       bodyTemperature,
@@ -30,8 +29,41 @@ console.log("mappp",derived_MAP);
       systolicBP,
       diastolicBP,
       derived_HRV,
-      derived_Pulse_Pressure,
-      derived_MAP,
+    };
+
+    const latestVitals = await HealthData.findOne({ userId }).sort({ createdAt: -1 });
+
+    // ⛔ Enforce full vitals if it's the user's first submission
+    if (!latestVitals && Object.values(incomingData).filter(v => v !== undefined).length < 7) {
+      return res.status(400).json({ error: 'Initial full vitals required (all 7 fields).' });
+    }
+    const user = await User.findById(userId);
+    if (!user || !user.height || !user.weight) {
+      return res.status(400).json({ error: 'User profile incomplete: height and weight required.' });
+    }
+    // Derived metrics
+   
+    const mergedData = {
+      heartRate: roundToTwo(heartRate ?? latestVitals?.heartRate),
+      respiratoryRate: roundToTwo(respiratoryRate ?? latestVitals?.respiratoryRate),
+      bodyTemperature: roundToTwo(bodyTemperature ?? latestVitals?.bodyTemperature),
+      oxygenSaturation: roundToTwo(oxygenSaturation ?? latestVitals?.oxygenSaturation),
+      systolicBP: roundToTwo(systolicBP ?? latestVitals?.systolicBP),
+      diastolicBP: roundToTwo(diastolicBP ?? latestVitals?.diastolicBP),
+      derived_HRV: roundToTwo(derived_HRV ?? latestVitals?.derived_HRV),
+    };
+    
+     // If you don’t have height/weight, set null
+     const derived_BMI = parseFloat((user.weight / (user.height * user.height)).toFixed(2));
+     
+     const newVitals = new HealthData({
+      userId,
+      ...mergedData,
+      derived_BMI,
+      ...(mergedData.systolicBP && mergedData.diastolicBP && {
+        derived_Pulse_Pressure: roundToTwo(mergedData.systolicBP - mergedData.diastolicBP),
+        derived_MAP: roundToTwo((2 * mergedData.diastolicBP + mergedData.systolicBP) / 3),
+      }),
     });
 
     await newVitals.save();

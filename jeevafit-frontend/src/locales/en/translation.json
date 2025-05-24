@@ -153,7 +153,7 @@
     "connectAndSave": "Connect & Save",
     "syncedVitals": "Synced Vitals",
     "vitalsSaved": "Vitals saved to database!",
-    "vitalsFailed": "Failed to connect or save vitals."
+    "vitalsFailed": "Failed to connect or save vitals or ,may be first entry."
   },
   "nearestHospitals": {
   "title": "Nearby Hospitals",
