@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: process.env.NODE_ENV === 'production' ? '.env.production' : '.env.development'
+});
+
 const express=require("express");
 const {connectToMongoDb}=require("./connect");
 const cookieParser=require("cookie-parser");
@@ -22,13 +26,14 @@ const path = require('path');
 const passwordRoute = require('./routes/password');
 
 
+
 const app=express();
-const PORT=8001;
+const PORT=process.env.PORT || 8001;
 
 const server = http.createServer(app); // 👈 create server using http
 const io = socketIo(server, {
   cors: {
-    origin: ["http://localhost:5173","http://localhost:3000 "], // frontend origin
+    origin: process.env.FRONTEND_URL, // frontend origin
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
   }
@@ -50,12 +55,18 @@ io.on("connection", (socket) => {
 app.set("io", io);
 app.use(express.json())
 app.use(cors({
-    origin: "http://localhost:5173", // Allow frontend origin
+    origin: process.env.FRONTEND_URL, // Allow frontend origin
     credentials: true, // Allow cookies & authentication headers
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allowed methods
     allowedHeaders: ["Content-Type", "Authorization"], 
 }));
-connectToMongoDb("mongodb://127.0.0.1:27017/jeevaFit").then(()=>console.log("mongoDb Connected")) .catch((error) => console.error(error));
+
+console.log("EMAIL_USER:", process.env.EMAIL_USER);
+console.log("EMAIL_PASS:", process.env.EMAIL_PASS ? 'Loaded' : 'Not Loaded');
+console.log("FRONTEND_URL:", process.env.FRONTEND_URL);
+console.log("Connecting to MongoDB at:", process.env.MONGO_URI);
+
+connectToMongoDb(process.env.MONGO_URI).then(()=>console.log("mongoDb Connected")) .catch((error) => console.error(error));
 //console.log("mongoDb Connected after")
 //console.log(sosRoutes);
 app.use(express.urlencoded({extended:false}));

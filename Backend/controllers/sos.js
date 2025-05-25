@@ -2,6 +2,8 @@ const nodemailer = require('nodemailer');
 const SOS = require('../models/sosModel');
 const User = require('../models/userModel'); // Import the User model
 require('dotenv').config();
+console.log("Email user:", process.env.EMAIL_USER);
+console.log("Email password:", process.env.EMAIL_PASS ? "Loaded ✅" : "❌ Not Loaded");
 
 // Create a transporter for Gmail (use environment variables for sensitive info)
 const transporter = nodemailer.createTransport({
