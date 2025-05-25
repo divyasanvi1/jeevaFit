@@ -109,6 +109,8 @@ async function handleUserLogin(req,res){
         res.cookie("auth_token",token,{
             httpOnly: true,
             maxAge: 7 * 24 * 60 * 60 * 1000,
+            secure: process.env.NODE_ENV === "production", // only secure in prod
+            sameSite: process.env.NODE_ENV === "production" ? "none" : "lax", // 'none' for cross-site, 'lax' for dev
         })
         res.json({ msg: "Login successful",token, user: {
           _id: user._id, 

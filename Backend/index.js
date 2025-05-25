@@ -30,6 +30,9 @@ const passwordRoute = require('./routes/password');
 const app=express();
 const PORT=process.env.PORT || 8001;
 
+app.use(express.urlencoded({extended:false}));
+app.use(cookieParser());
+
 const server = http.createServer(app); // 👈 create server using http
 const io = socketIo(server, {
   cors: {
@@ -58,7 +61,7 @@ app.use(cors({
     origin: process.env.FRONTEND_URL, // Allow frontend origin
     credentials: true, // Allow cookies & authentication headers
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allowed methods
-    allowedHeaders: ["Content-Type", "Authorization"], 
+    allowedHeaders: "*",
 }));
 
 console.log("EMAIL_USER:", process.env.EMAIL_USER);
@@ -69,8 +72,7 @@ console.log("Connecting to MongoDB at:", process.env.MONGO_URI);
 connectToMongoDb(process.env.MONGO_URI).then(()=>console.log("mongoDb Connected")) .catch((error) => console.error(error));
 //console.log("mongoDb Connected after")
 //console.log(sosRoutes);
-app.use(express.urlencoded({extended:false}));
-app.use(cookieParser());
+
 app.use("/userRoute",userRoute);
 app.use("/health", healthRoute);
 app.use("/location",locationRoute);
