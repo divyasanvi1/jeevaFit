@@ -3,7 +3,7 @@ const { resendVerificationEmail } = require("../controllers/user");
 const router = express.Router();
 const User = require("../models/userModel"); // Adjust the path if needed
 const rateLimit = require('express-rate-limit');
-
+const BASE_URL = process.env.BASE_URL || 'http://localhost:8001';
 // Create a rate limiter for resend verification
 const resendVerificationLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
@@ -57,7 +57,7 @@ router.get('/verify/:id', async (req, res) => {
           <head><title>Email Verified</title></head>
           <body style="text-align:center; font-family:sans-serif; padding-top:50px;">
             <h1>✅ Your email has been verified!</h1>
-            <p>You can now <a href="http://localhost:8001/login">log in</a> to your account.</p>
+            <p>You can now <a href="${BASE_URL}/login">log in</a> to your account.</p>
           </body>
         </html>
       `);
