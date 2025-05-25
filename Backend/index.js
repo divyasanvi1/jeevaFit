@@ -33,6 +33,8 @@ const PORT=process.env.PORT || 8001;
 app.use(express.urlencoded({extended:false}));
 app.use(cookieParser());
 
+
+
 const server = http.createServer(app); // 👈 create server using http
 const io = socketIo(server, {
   cors: {
@@ -73,6 +75,10 @@ console.log("Connecting to MongoDB at:", process.env.MONGO_URI);
 connectToMongoDb(process.env.MONGO_URI).then(()=>console.log("mongoDb Connected")) .catch((error) => console.error(error));
 //console.log("mongoDb Connected after")
 //console.log(sosRoutes);
+app.use((req, res, next) => {
+  console.log(`[GLOBAL LOGGER] ${req.method} ${req.url}`);
+  next();
+});
 
 app.use("/userRoute",userRoute);
 app.use("/health", healthRoute);

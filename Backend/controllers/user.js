@@ -112,6 +112,8 @@ async function handleUserLogin(req,res){
             secure: process.env.NODE_ENV === "production", // only secure in prod
             sameSite: process.env.NODE_ENV === "production" ? "none" : "lax", // 'none' for cross-site, 'lax' for dev
         })
+        console.log("Setting auth_token cookie with token:", token);
+
         res.json({ msg: "Login successful",token, user: {
           _id: user._id, 
            name: user.name,

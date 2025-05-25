@@ -23,13 +23,13 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 // Upload endpoint
-router.post('/upload-medical',  upload.single('file'), uploadMedicalFile);
+router.post('/upload-medical', restrictToLoggedInUserOnly , upload.single('file'), uploadMedicalFile);
 
 // Get uploaded files
-router.get('/user-uploads',  getUserUploads);
+router.get('/user-uploads',restrictToLoggedInUserOnly ,  getUserUploads);
 
 // **New: Download endpoint**
-router.get('/download/:filename',  (req, res) => {
+router.get('/download/:filename',restrictToLoggedInUserOnly ,  (req, res) => {
   const filename = req.params.filename;
   const filePath = path.join(uploadDir, filename);
 
