@@ -48,6 +48,9 @@ const HomePage = () => {
 
   console.log("fatal", fatalAlert);
   useEffect(() => {
+    console.log("[useEffect Triggered]");
+  console.log("Redux user:", user);
+  console.log("Derived userIdtwo:", userIdtwo);
     if (!userIdtwo) return;
 
     // Fetch initial health data
@@ -106,6 +109,9 @@ socket.on("vitals-updated", (data) => {
     // Cleanup on unmount
     return () => {
       socket.off("connect");
+      socket.off("healthDataUpdated");
+  socket.off("vitals-updated");
+  socket.off("fatalHealthAlert");
       socket.disconnect();
     };
   }, [dispatch, user]);

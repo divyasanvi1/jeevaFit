@@ -2,7 +2,7 @@ const User=require("../models/userModel")
 const { hashPassword, comparePassword, generateToken}=require("../service/auth")
 const { sendVerificationEmail } = require('../service/emailVerification');
 const crypto = require('crypto');
-
+const BASE_URL = process.env.BASE_URL || 'http://localhost:8001';
 async function handleUserSignUp(req, res) {
   try {
       const { name, email, password, age, weight, gender, height, phoneNumber, emergencyContactEmail, emergencyContactPhone, bloodGroup } = req.body;
@@ -26,7 +26,7 @@ async function handleUserSignUp(req, res) {
 
       // Generate a unique verification token using crypto
       const verificationToken = crypto.randomBytes(32).toString('hex');
-      const verificationLink = `http://localhost:8001/api/verify/${verificationToken}`;
+      const verificationLink = `${BASE_URL}/api/verify/${verificationToken}`;
 
       // Set token expiry to 1 hour (or your desired time)
       const tokenExpiry = Date.now() + 60 * 60 * 1000;  // 1 hour from now
@@ -75,7 +75,7 @@ async function resendVerificationEmail(req, res) {
     // Generate a new verification token
     const verificationToken = crypto.randomBytes(32).toString('hex');
     const tokenExpiry = Date.now() + 60 * 60 * 1000; // 1 hour
-    const verificationLink = `http://localhost:8001/api/verify/${verificationToken}`;
+    const verificationLink = `${BASE_URL}/api/verify/${verificationToken}`;
 
     // Update the user with new token and expiry
     user.verificationToken = verificationToken;
