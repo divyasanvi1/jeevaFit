@@ -61,8 +61,9 @@ app.use(cors({
     origin: process.env.FRONTEND_URL, // Allow frontend origin
     credentials: true, // Allow cookies & authentication headers
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allowed methods
-    allowedHeaders: "*",
+    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Accept"] ,
 }));
+// Preflight handler
 
 console.log("EMAIL_USER:", process.env.EMAIL_USER);
 console.log("EMAIL_PASS:", process.env.EMAIL_PASS ? 'Loaded' : 'Not Loaded');
