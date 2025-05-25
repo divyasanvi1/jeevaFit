@@ -18,8 +18,8 @@ const LoadingOverlay = () => {
 
     {/* Spinner and message */}
     <div className="relative z-10 flex flex-col items-center">
-        <div className="h-20 w-20 border-8 border-t-blue-600 border-gray-200 rounded-full animate-spin mb-4"></div>
-        <span className="text-blue-700 text-lg font-semibold">Please wait...</span>
+        <div className="h-20 w-20 border-8 border-t-orange-600 border-gray-200 rounded-full animate-spin mb-4"></div>
+        <span className="text-orange-700 text-lg font-semibold">Please wait...</span>
       </div>
   </div>
 

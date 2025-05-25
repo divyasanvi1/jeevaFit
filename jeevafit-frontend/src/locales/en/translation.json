@@ -18,7 +18,8 @@
       "privacy": "Privacy Policy",
       "and": " and ",
       "terms": "Terms of Use"
-    }
+    },
+    "forgotPassword": "Forgot Password?"
   },
   "landingPage": {
     "title": "Welcome to JeevaFit",
@@ -352,6 +353,18 @@
     "none": "No uploads found.",
     "download": "Download",
     "notMedical": "File doesn't appear medical"
+  },
+  "forgotPassword": {
+    "title": "Forgot Password",
+    "email": "Email Address",
+    "sendLink": "Send Reset Link"
+  },
+  "resetPassword": {
+    "title": "Reset Your Password",
+    "newPassword": "New Password",
+    "confirmPassword": "Confirm Password",
+    "submit": "Reset Password",
+    "mismatch": "Passwords do not match"
   }
   
 }

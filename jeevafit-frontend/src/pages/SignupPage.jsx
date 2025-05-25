@@ -42,7 +42,7 @@ const SignUpPage = () => {
     return regex.test(password);
   };
   const validateAge = (age) => {
-    return age >= 15 && age <= 120;
+    return age >= 12 && age <= 120;
   };
 
   // Inside  SignUpPage component

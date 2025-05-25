@@ -27,12 +27,12 @@ exports.predictRiskLive = async (req, res) => {
     
 
     const inputData = {
-      "Heart Rate": latestHealth.heartRate,
-      "Respiratory Rate": latestHealth.respiratoryRate,
-      "Body Temperature": latestHealth.bodyTemperature,
-      "Oxygen Saturation": latestHealth.oxygenSaturation,
-      "Systolic Blood Pressure": latestHealth.systolicBP,
-      "Diastolic Blood Pressure": latestHealth.diastolicBP,
+      "Heart_Rate": latestHealth.heartRate,
+      "Respiratory_Rate": latestHealth.respiratoryRate,
+      "Body_Temperature": latestHealth.bodyTemperature,
+      "Oxygen_Saturation": latestHealth.oxygenSaturation,
+      "Systolic_Blood_Pressure": latestHealth.systolicBP,
+      "Diastolic_Blood_Pressure": latestHealth.diastolicBP,
       "Age": user.age,
       "Gender": user.gender.toLowerCase() === 'female' ? 1 : 0,
       "Weight (kg)": user.weight,

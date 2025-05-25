@@ -23,6 +23,8 @@ import ProfilePage from './pages/ProfilePage';
 import ResendVerification from './pages/ResendVerification.jsx';
 import { LoadingProvider } from './context/LoadingContext.jsx';
 import UploadsListPage from './pages/UploadsListPage.jsx';
+import ForgotPasswordPage from './pages/ForgotpasswordPage.jsx';
+import ResetPasswordPage from './pages/ResetPassword.jsx';
 
 
 
@@ -143,7 +145,24 @@ const router = createBrowserRouter([
         <ResendVerification />
       </PublicRoute>
     ),
-  }
+  },
+  {
+    path: '/forgot-password',
+    element: (
+      <PublicRoute>
+        <ForgotPasswordPage />
+      </PublicRoute>
+    ),
+  },
+  {
+    path: '/reset-password/:token',
+    element: (
+      <PublicRoute>
+        <ResetPasswordPage />
+      </PublicRoute>
+    ),
+  },
+  
 ]);
 createRoot(document.getElementById('root')).render(
   <StrictMode>

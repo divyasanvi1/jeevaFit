@@ -19,6 +19,7 @@ const http = require('http');
 const socketIo = require('socket.io');
 const uploadMedical=require('./routes/uploadMedical');
 const path = require('path');
+const passwordRoute = require('./routes/password');
 
 
 const app=express();
@@ -71,6 +72,7 @@ app.use('/api/bluetooth', bluetoothRoutes);
 app.use('/api', predictRiskRoute);
 app.use('/api',emailroute);
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
+app.use('/api', passwordRoute);
 
 app.use('/api', uploadMedical); // where uploadHealthPdfRoutes handles /upload-medical and /user-uploads
 

@@ -80,6 +80,14 @@ const LoginPage = () => {
                 placeholder={t('loginPage.passwordPlaceholder')}
                 required
               />
+              <div className="text-right mr-2 mb-2">
+    <Link
+      to="/forgot-password"
+      className="text-sm text-blue-600 hover:underline"
+    >
+      {t('loginPage.forgotPassword')}
+    </Link>
+  </div>
               <button
                 className="bg-[#03045E] hover:bg-[#023E8A] font-semibold text-[20px]  text-white hover:text-gray-300 rounded-full px-8 py-2 m-2 mt-6"
                 type="submit"

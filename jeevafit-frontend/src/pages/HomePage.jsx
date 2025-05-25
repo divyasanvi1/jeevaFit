@@ -124,7 +124,7 @@ socket.on("vitals-updated", (data) => {
         if (value > 95) return "#f87171"; // high - red
         return "#34d399"; // normal - green
       case "SpO₂":
-        if (value < 90) return "#60a5fa"; // low - red
+        if (value < 95) return "#60a5fa"; // low - red
         if (value > 100) return "#f87171"; 
         return "#34d399"; // normal - green
       case "Temperature":
@@ -133,19 +133,19 @@ socket.on("vitals-updated", (data) => {
         return "#34d399";
       case "Respiratory Rate":
         if (value < 12) return "#60a5fa";
-        if (value > 20) return "#f87171";
+        if (value > 18) return "#f87171";
         return "#34d399";
       case "Systolic BP":
         if (value < 90) return "#60a5fa";
-        if (value > 140) return "#f87171";
+        if (value > 130) return "#f87171";
         return "#34d399";
       case "Diastolic BP":
         if (value < 60) return "#60a5fa";
         if (value > 90) return "#f87171";
         return "#34d399";
       case "HRV":
-        if (value < 20) return "#60a5fa";
-        if (value > 100) return "#f87171";
+        if (value < 0.03) return "#60a5fa";
+        if (value > 0.2) return "#f87171";
         return "#34d399";
       case "BMI":
         if (value < 18.5) return "#60a5fa";
@@ -243,17 +243,17 @@ socket.on("vitals-updated", (data) => {
   <div className="flex flex-wrap gap-6">
     {latest &&
       [
-        { label: "Heart Rate", value: latest.heartRate, maxValue: 220 },
+        { label: "Heart Rate", value: latest.heartRate, maxValue: 100 },
         { label: "SpO₂", value: latest.oxygenSaturation },
-        { label: "Temperature", value: latest.bodyTemperature, maxValue: 45 },
+        { label: "Temperature", value: latest.bodyTemperature, maxValue: 39 },
         {
           label: "Respiratory Rate",
           value: latest.respiratoryRate,
           maxValue: 60,
         },
-        { label: "Systolic BP", value: latest.systolicBP, maxValue: 180 },
-        { label: "Diastolic BP", value: latest.diastolicBP, maxValue: 120 },
-        { label: "HRV", value: latest.derived_HRV, maxValue: 100 },
+        { label: "Systolic BP", value: latest.systolicBP, maxValue: 150 },
+        { label: "Diastolic BP", value: latest.diastolicBP, maxValue: 100 },
+        { label: "HRV", value: latest.derived_HRV, maxValue: 0.2 },
         { label: "BMI", value: latest.derived_BMI, maxValue: 50 },
         {
           label: "Pulse Pressure",
