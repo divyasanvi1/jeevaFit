@@ -5,7 +5,8 @@ import { useTranslation } from 'react-i18next';
 
 
 const HealthProfileQR = ({ userId }) => {
-  const profileUrl = `http://localhost:5173/profile/${userId}`;
+  const frontendBaseUrl = import.meta.env.VITE_FRONTEND_URL || 'http://localhost:5173';
+  const profileUrl = `${frontendBaseUrl}profile/${userId}`;
   const { t } = useTranslation();
  console.log("profileUrl",profileUrl);
 

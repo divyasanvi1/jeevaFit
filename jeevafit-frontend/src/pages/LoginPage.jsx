@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { loginStart, loginSuccess, loginFailure } from '../redux/authSlice';
-import axios from 'axios';
+import axios from '../utils/axios';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { FcGoogle } from "react-icons/fc";
@@ -22,7 +22,7 @@ const LoginPage = () => {
     dispatch(loginStart());
 
     try {
-      const response = await axios.post('http://localhost:8001/userRoute/login', {
+      const response = await axios.post('/userRoute/login', {
         email,
         password,
       }, {

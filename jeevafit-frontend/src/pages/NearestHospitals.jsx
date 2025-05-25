@@ -31,6 +31,9 @@ const NearestHospitalsPage = () => {
   const directionsRenderer = useRef(null);
   const { t } = useTranslation();
   // Dynamically load the Google Maps script once
+
+  const googleMapsApiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
+
   const loadGoogleMapsScript = () => {
     return new Promise((resolve, reject) => {
       if (window.google && window.google.maps) {
@@ -49,7 +52,7 @@ const NearestHospitalsPage = () => {
       }
 
       const script = document.createElement("script");
-      script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBKIyISxZz4HoVWHC5kNpDJE0M4Yk-E31o&libraries=places`;
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${googleMapsApiKey}&libraries=places`;
       script.async = true;
       script.defer = true;
       script.onload = resolve;
@@ -152,7 +155,7 @@ console.log("lng",lng);
     // Get the user's current location (origin)
     const origin = new window.google.maps.LatLng(location.latitude, location.longitude);
     const mapsUrl = `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${destination}&travelmode=driving`;
-
+//const mapsUrl = `https://www.google.com/maps/dir/?api=1&origin=${location.latitude},${location.longitude}&destination=${lat},${lng}&travelmode=driving`;
   window.open(mapsUrl, "_blank");
     const request = {
       origin: origin,

@@ -3,6 +3,7 @@ const ResetToken = require('../models/resetToken');
 const crypto = require('crypto');
 const sendEmail = require('../service/passwordSendEmail'); // You need to create this util
 
+const FRONTEND_URL = process.env.FRONTEND_URL;
 exports.sendResetLink = async (req, res) => {
   const { email } = req.body;
 
@@ -18,7 +19,7 @@ exports.sendResetLink = async (req, res) => {
 
     await new ResetToken({ userId: user._id, token, expiresAt }).save();
 
-    const resetLink = `http://localhost:5173/reset-password/${token}`;
+    const resetLink = `${FRONTEND_URL}/reset-password/${token}`;
 
     await sendEmail(
       user.email,

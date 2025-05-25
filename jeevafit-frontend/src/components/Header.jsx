@@ -29,7 +29,7 @@ const Header = () => {
   const handleLogout = async () => {
     try {
       // Call backend to clear the cookie
-      await fetch("http://localhost:8001/userRoute/logout", {
+      await fetch(`${import.meta.env.VITE_API_BASE_URL}/userRoute/logout`, {
         method: "POST",
         credentials: "include", // include cookies
       });

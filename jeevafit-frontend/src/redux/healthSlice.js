@@ -1,9 +1,9 @@
 // src/redux/healthSlice.js
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import axios from '../utils/axios';
 
 export const fetchHealthData = createAsyncThunk('health/fetch', async () => {
-  const res = await axios.get('http://localhost:8001/health/user-data', {
+  const res = await axios.get('/health/user-data', {
     withCredentials: true
   });
   console.log('fetchHealthData response:', res.data);

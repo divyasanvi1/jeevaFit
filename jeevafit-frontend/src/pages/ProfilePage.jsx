@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
+import axios from '../utils/axios';
 
 const ProfilePage = () => {
   const { userId } = useParams();
@@ -10,7 +10,7 @@ const ProfilePage = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await axios.get(`http://localhost:8001/userRoute/getUser/${userId}`);
+        const res = await axios.get(`/userRoute/getUser/${userId}`);
         setUserData(res.data);
       } catch (err) {
         console.error("Failed to fetch user data", err);
@@ -19,7 +19,7 @@ const ProfilePage = () => {
 
     const fetchLatestVitals = async () => {
       try {
-        const res = await axios.get(`http://localhost:8001/healthdataRoute/latest/${userId}`);
+        const res = await axios.get(`/healthdataRoute/latest/${userId}`);
         setLatestVitals(res.data);
       } catch (err) {
         console.error("Failed to fetch vitals", err);

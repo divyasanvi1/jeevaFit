@@ -1,5 +1,7 @@
 const axios = require('axios');
 require('dotenv').config();
+
+
 async function handleNearbyHospitals(req, res) {
    // console.log("Received coordinates in backend:", req.body);
 
