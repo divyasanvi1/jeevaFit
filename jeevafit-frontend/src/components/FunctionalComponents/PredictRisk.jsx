@@ -19,6 +19,7 @@ const PredictRisk = ({ userId }) => {
       setResult(response.data.result);  // Set result from response
     } catch (err) {
       setError(err.response?.data?.error || 'Prediction failed.');
+      console.log("Prediction error:", err); 
     } finally {
       setLoading(false);
     }

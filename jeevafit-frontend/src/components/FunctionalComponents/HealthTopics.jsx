@@ -10,7 +10,7 @@ const HealthTopics = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api';
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ;
   const API_URL = '/api';
   const DB = 'healthTopics';
 
@@ -33,7 +33,7 @@ const HealthTopics = () => {
     setError(null);
     setSelectedTopic(null);
     try {
-      const response = await axios.get(API_BASE_URL, {
+      const response = await axios.get(API_URL, {
         params: {
           db: DB,
           term: term,
