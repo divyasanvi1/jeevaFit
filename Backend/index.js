@@ -85,19 +85,68 @@ app.use((req, res, next) => {
 app.get('/api/healthtopics', async (req, res) => {
   try {
     const { db, term, rettype, retmax } = req.query;
-    // Construct URL for external API
-    const url = `https://wsearch.nlm.nih.gov/ws/query?db=${encodeURIComponent(db)}&term=${encodeURIComponent(term)}&rettype=${encodeURIComponent(rettype)}&retmax=${encodeURIComponent(retmax)}`;
 
-    // Call the external API
+    // Validate required query params
+    if (!db || !term || !rettype || !retmax) {
+      return res.status(400).json({
+        error: {
+          code: 400,
+          type: "BadRequest",
+          message: "Missing one or more required query parameters: db, term, rettype, retmax"
+        }
+      });
+    }
+
+    const url = `https://wsearch.nlm.nih.gov/ws/query?db=${encodeURIComponent(db)}&term=${encodeURIComponent(term)}&rettype=${encodeURIComponent(rettype)}&retmax=${encodeURIComponent(retmax)}`;
     const response = await axios.get(url);
 
-    // Forward the response data to the frontend
+    // Forward the response
     res.set('Content-Type', response.headers['content-type']);
     res.status(response.status).send(response.data);
-
   } catch (error) {
     console.error('Proxy error:', error.message);
-    res.status(500).json({ error: 'Proxy server error' });
+
+    // If error is from Axios and a response was received
+    if (error.response) {
+      res.status(error.response.status).json({
+        error: {
+          code: error.response.status,
+          type: "UpstreamAPIError",
+          message: "Error returned from external NIH API.",
+          details: {
+            statusText: error.response.statusText,
+            responseData: error.response.data
+          }
+        }
+      });
+    }
+    // If no response was received (e.g., network issue)
+    else if (error.request) {
+      res.status(502).json({
+        error: {
+          code: 502,
+          type: "BadGateway",
+          message: "No response received from NIH API.",
+          details: {
+            request: error.request._currentUrl || "Unknown request URL"
+          }
+        }
+      });
+    }
+    // Other errors (code bugs, config issues)
+    else {
+      res.status(500).json({
+        error: {
+          code: 500,
+          type: "InternalServerError",
+          message: "An unexpected error occurred while proxying the request.",
+          details: {
+            errorMessage: error.message,
+            stack: error.stack
+          }
+        }
+      });
+    }
   }
 });
 
