@@ -2,7 +2,22 @@ import os
 import datetime
 import pandas as pd
 import joblib
-from sklearn.metrics import accuracy_score, classification_report
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+
+def save_confusion_matrix(y_true, y_pred, labels, output_dir):
+    cm = confusion_matrix(y_true, y_pred)
+    plt.figure(figsize=(6, 5))
+    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=labels, yticklabels=labels)
+    plt.title("Confusion Matrix")
+    plt.xlabel("Predicted")
+    plt.ylabel("Actual")
+    os.makedirs(output_dir, exist_ok=True)
+    plot_path = os.path.join(output_dir, f"confusion_matrix_{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}.png")
+    plt.savefig(plot_path)
+    plt.close()
+    print(f"[INFO] Confusion matrix saved to {plot_path}")
 
 def incremental_train_sgd(new_data_csv_path, sgd_model_path, scaler_path, label_encoder_path, gender_le_path):
     print(f"[INFO] Training started at {datetime.datetime.now()}")
@@ -17,10 +32,20 @@ def incremental_train_sgd(new_data_csv_path, sgd_model_path, scaler_path, label_
         return
     
     new_df.columns = [col.replace(" ", "_") for col in new_df.columns]
+    
+    print(f"[DEBUG] Rows before filtering Risk_Category: {len(new_df)}")
+    original_labels = pd.read_csv(new_data_csv_path)["Risk_Category"]
+    cleaned_labels = new_df["Risk_Category"]
 
+    print("== All original Risk_Category values ==")
+    print(original_labels.value_counts(dropna=False))
+
+    print("== After cleaning/stripping ==")
+    print(original_labels.astype(str).str.strip().value_counts(dropna=False))
     # Clean Risk_Category: remove NaN or empty strings and strip whitespace
     new_df["Risk_Category"] = new_df["Risk_Category"].astype(str).str.strip()
     new_df = new_df[(new_df["Risk_Category"].notna()) & (new_df["Risk_Category"].str.lower() != 'nan') & (new_df["Risk_Category"] != '')]
+    print(f"[DEBUG] Rows after filtering Risk_Category: {len(new_df)}")
 
     if new_df.empty:
         print("[WARN] No valid Risk_Category labels after filtering. Exiting.")
@@ -111,6 +136,14 @@ def incremental_train_sgd(new_data_csv_path, sgd_model_path, scaler_path, label_
 
     print(f"[INFO] Incrementally trained SGD model with {len(new_df)} new samples.")
     print(f"[INFO] Training finished at {datetime.datetime.now()}")
+    print("Predicted label counts:")
+    print(pd.Series(y_pred).value_counts())
+
+    print("True labels:")
+    print(pd.Series(y_new).value_counts())
+    print("Label encoder classes:", le_risk.classes_)
+    print("Predicted labels:", y_pred)
+    print("True labels:", y_new)
 
 
 if __name__ == "__main__":
@@ -122,3 +155,7 @@ if __name__ == "__main__":
         label_encoder_path="/Users/anishanand/JeevaFitApp/lightsgd/models/risk_label_encoder.pkl",
         gender_le_path="/Users/anishanand/JeevaFitApp/lightsgd/models/gender_label_encoder.pkl"
     )
+
+
+#*/2 * * * * /Users/anishanand/.pyenv/versions/3.10.13/bin/python /Users/anishanand/JeevaFitApp/lightSgd/incremental.py >> /Users/anishanand/JeevaFitApp/lightsgd/incremental.log 2>&1
+#tail -f /Users/anishanand/JeevaFitApp/lightsgd/incremental.log

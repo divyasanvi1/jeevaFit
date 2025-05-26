@@ -280,6 +280,8 @@ def append_data_to_csv(data, prediction):
 
      # Convert to DataFrame
     df_new = pd.DataFrame([row])
+    print(df_new)
+
 
     # Append or create CSV
     if os.path.exists(NEW_DATA_CSV_PATH):
