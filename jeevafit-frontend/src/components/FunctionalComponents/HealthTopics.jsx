@@ -10,8 +10,15 @@ const HealthTopics = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ;
-  const API_URL = '/api';
+  const FRONTEND_URL = import.meta.env.VITE_FRONTEND_URL;
+
+const isProduction = window.location.origin === FRONTEND_URL;
+
+// If on Vercel (production), call the real URL directly
+// If in dev (localhost), use Vite proxy `/api`
+const API_URL = isProduction
+  ? 'https://wsearch.nlm.nih.gov/ws/query'
+  : '/api';
   const DB = 'healthTopics';
 
   useEffect(() => {
