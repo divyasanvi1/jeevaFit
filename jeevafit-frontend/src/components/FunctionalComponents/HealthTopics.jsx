@@ -10,16 +10,18 @@ const HealthTopics = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const FRONTEND_URL = import.meta.env.VITE_FRONTEND_URL;
+  const BACKEND_URL = import.meta.env.VITE_API_BASE_URL; // e.g. 'https://your-backend-url.com'
+const FRONTEND_URL = import.meta.env.VITE_FRONTEND_URL; // e.g. 'https://jeeva-fit-gahh.vercel.app'
 
-  const isProd = window.location.origin === FRONTEND_URL.replace(/\/$/, '');
+const isProd = window.location.origin === FRONTEND_URL.replace(/\/$/, '');
 
-// If on Vercel (production), call the real URL directly
-// If in dev (localhost), use Vite proxy `/api`
+// If in production, call your backend's API URL (proxy)
+// If in dev, use Vite proxy `/api`
 const API_URL = isProd
-  ? 'https://wsearch.nlm.nih.gov/ws/query'
+  ? `${BACKEND_URL}/api`
   : '/api';
-  const DB = 'healthTopics';
+
+const DB = 'healthTopics';
 
   useEffect(() => {
     // Lock scroll when modal is open
