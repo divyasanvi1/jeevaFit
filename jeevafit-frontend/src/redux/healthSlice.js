@@ -3,7 +3,11 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from '../utils/axios';
 
 export const fetchHealthData = createAsyncThunk('health/fetch', async () => {
+  const token = localStorage.getItem('token');
   const res = await axios.get('/health/user-data', {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
     withCredentials: true,
   });
   console.log('fetchHealthData response:', res.data);
