@@ -15,6 +15,7 @@ instance.interceptors.request.use(
     if (token) {
       config.headers['Authorization'] = `Bearer ${token}`;
     }
+    console.log("header token sent",token);
     return config;
   },
   (error) => Promise.reject(error)
