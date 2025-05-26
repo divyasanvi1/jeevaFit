@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs');
 require('dotenv').config();
 
 const SECRET_KEY=process.env.JWT_SECRET;
+console.log("JWT_SECRET:", process.env.JWT_SECRET);
 
 async function hashPassword(password){
     return bcrypt.hash(password,10);
