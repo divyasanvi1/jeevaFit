@@ -15,6 +15,7 @@ async function restrictToLoggedInUserOnly(req,res,next) {
 
         const decoded = verifyToken(token);
         req.user = decoded;
+        console.log("Decoded JWT:", decoded);
         next();
     } catch (error) {
         res.status(401).json({ msg: "Invalid or expired token, please log in again" });
