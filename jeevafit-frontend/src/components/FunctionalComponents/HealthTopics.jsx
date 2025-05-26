@@ -18,7 +18,7 @@ const isProd = window.location.origin === FRONTEND_URL.replace(/\/$/, '');
 // If in production, call your backend's API URL (proxy)
 // If in dev, use Vite proxy `/api`
 const API_URL = isProd
-  ? `${BACKEND_URL}/api`
+  ? `${BACKEND_URL}/api/healthtopics`
   : '/api';
 
 const DB = 'healthTopics';

@@ -82,7 +82,7 @@ app.use((req, res, next) => {
 });
 
 // Proxy endpoint
-app.get('/api', async (req, res) => {
+app.get('/api/healthtopics', async (req, res) => {
   try {
     const { db, term, rettype, retmax } = req.query;
     // Construct URL for external API
