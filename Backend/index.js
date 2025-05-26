@@ -59,6 +59,7 @@ io.on("connection", (socket) => {
   // Make io accessible in routes
 app.set("io", io);
 app.use(express.json())
+app.set('trust proxy', 1);
 app.use(cors({
     origin: process.env.FRONTEND_URL, // Allow frontend origin
     credentials: true, // Allow cookies & authentication headers
