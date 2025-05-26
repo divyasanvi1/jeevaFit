@@ -22,6 +22,7 @@ const API_URL = isProd
   : '/api';
 
 const DB = 'healthTopics';
+console.log('API_URL:', API_URL);
 
   useEffect(() => {
     // Lock scroll when modal is open
