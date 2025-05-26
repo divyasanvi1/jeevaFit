@@ -12,11 +12,11 @@ const HealthTopics = () => {
 
   const FRONTEND_URL = import.meta.env.VITE_FRONTEND_URL;
 
-const isProduction = window.location.origin === FRONTEND_URL;
+  const isProd = window.location.origin === 'https://jeeva-fit-gahh.vercel.app/health-learning';
 
 // If on Vercel (production), call the real URL directly
 // If in dev (localhost), use Vite proxy `/api`
-const API_URL = isProduction
+const API_URL = isProd
   ? 'https://wsearch.nlm.nih.gov/ws/query'
   : '/api';
   const DB = 'healthTopics';
