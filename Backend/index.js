@@ -81,6 +81,26 @@ app.use((req, res, next) => {
   next();
 });
 
+// Proxy endpoint
+app.get('/api', async (req, res) => {
+  try {
+    const { db, term, rettype, retmax } = req.query;
+    // Construct URL for external API
+    const url = `https://wsearch.nlm.nih.gov/ws/query?db=${encodeURIComponent(db)}&term=${encodeURIComponent(term)}&rettype=${encodeURIComponent(rettype)}&retmax=${encodeURIComponent(retmax)}`;
+
+    // Call the external API
+    const response = await axios.get(url);
+
+    // Forward the response data to the frontend
+    res.set('Content-Type', response.headers['content-type']);
+    res.status(response.status).send(response.data);
+
+  } catch (error) {
+    console.error('Proxy error:', error.message);
+    res.status(500).json({ error: 'Proxy server error' });
+  }
+});
+
 app.use("/userRoute",userRoute);
 app.use("/health", healthRoute);
 app.use("/location",locationRoute);
