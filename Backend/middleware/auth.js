@@ -3,7 +3,7 @@ const {verifyToken}=require("../service/auth")
 async function restrictToLoggedInUserOnly(req,res,next) {
     console.log(`[App Middleware] ${req.method} ${req.url} Cookies:`, req.cookies);
     try {
-        const token = req.cookies.auth_token;
+        let token = req.cookies.auth_token;
         //console.log("req:", req);
         if (!token && req.headers.authorization && req.headers.authorization.startsWith("Bearer ")) {
             token = req.headers.authorization.split(" ")[1];
