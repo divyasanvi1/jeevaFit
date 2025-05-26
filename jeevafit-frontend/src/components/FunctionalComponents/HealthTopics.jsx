@@ -72,6 +72,7 @@ const API_URL = isProduction
       setTopics(topicsData);
     } catch (err) {
       console.error(err);
+      console.log("error",err);
       setError('Error fetching health topics');
     }
     setLoading(false);
