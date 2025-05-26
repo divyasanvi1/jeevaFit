@@ -9,7 +9,16 @@ const instance = axios.create({
     'Content-Type': 'application/json', // ✅ This triggers preflight
   }
 });
-
+instance.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('token'); // Assumes token is stored under this key
+    if (token) {
+      config.headers['Authorization'] = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
 export const setupInterceptors = (setLoading) => {
   instance.interceptors.request.use((config) => {
     setLoading(true);
