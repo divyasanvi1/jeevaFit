@@ -6,18 +6,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 
-def save_confusion_matrix(y_true, y_pred, labels, output_dir):
-    cm = confusion_matrix(y_true, y_pred)
-    plt.figure(figsize=(6, 5))
-    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=labels, yticklabels=labels)
-    plt.title("Confusion Matrix")
-    plt.xlabel("Predicted")
-    plt.ylabel("Actual")
-    os.makedirs(output_dir, exist_ok=True)
-    plot_path = os.path.join(output_dir, f"confusion_matrix_{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}.png")
-    plt.savefig(plot_path)
-    plt.close()
-    print(f"[INFO] Confusion matrix saved to {plot_path}")
+
 
 def incremental_train_sgd(new_data_csv_path, sgd_model_path, scaler_path, label_encoder_path, gender_le_path):
     print(f"[INFO] Training started at {datetime.datetime.now()}")
@@ -144,7 +133,12 @@ def incremental_train_sgd(new_data_csv_path, sgd_model_path, scaler_path, label_
     print("Label encoder classes:", le_risk.classes_)
     print("Predicted labels:", y_pred)
     print("True labels:", y_new)
-
+    print("[DEBUG] Model coef_ shape:", sgd_model.coef_.shape)
+    print("[DEBUG] Model coef_:", sgd_model.coef_)
+    print("[DEBUG] Model intercept_:", sgd_model.intercept_)
+    print("Scaled feature means:\n", pd.DataFrame(X_new_scaled, columns=feature_cols).mean())
+    print("Scaled feature stds:\n", pd.DataFrame(X_new_scaled, columns=feature_cols).std())
+ 
 
 if __name__ == "__main__":
     print(f"[INFO] Current working directory: {os.getcwd()}")
@@ -156,6 +150,24 @@ if __name__ == "__main__":
         gender_le_path="/Users/anishanand/JeevaFitApp/lightsgd/models/gender_label_encoder.pkl"
     )
 
+#crontab -e
+# Make sure you are in normal mode:
+# Press Esc once or twice to be sure.
 
+# Enter insert mode:
+# Press i to start editing the text.
+
+# Edit the cron schedule (the first 5 characters):
+# Change */2 * * * * to 0 10 * * * so it looks like:
+
+# swift
+# Copy
+# Edit
+# 0 10 * * * /Users/anishanand/.pyenv/versions/3.10.13/bin/python /Users/anishanand/JeevaFitApp/lightSgd/incremental.py >> /Users/anishanand/JeevaFitApp/lightsgd/incremental.log 2>&1
+# Exit insert mode:
+# Press Esc.
+
+# Save and quit:
+# Type :wq and then press Enter.
 #*/2 * * * * /Users/anishanand/.pyenv/versions/3.10.13/bin/python /Users/anishanand/JeevaFitApp/lightSgd/incremental.py >> /Users/anishanand/JeevaFitApp/lightsgd/incremental.log 2>&1
 #tail -f /Users/anishanand/JeevaFitApp/lightsgd/incremental.log

@@ -87,34 +87,30 @@ exports.handleHealthPdfUpload = async (req, res) => {
     
     
     // Extract values
-    const heartRate = extractValue(['Heart Rate'], ['bpm']);
-    const respiratoryRate = extractValue(['Respiratory Rate'], ['breaths/min', 'breaths per minute']);
-    const bodyTemperature = extractValue(['Body Temperature'], ['°C', 'C']);
-    const oxygenSaturation = extractValue(['Oxygen Saturation'], ['%', 'percent']);
-    const systolicBP = extractValue(['Systolic BP'], ['mmHg']);
-    const diastolicBP = extractValue(['Diastolic BP'], ['mmHg']);
-    const derivedHRV = extractValue(['Heart Rate Variability', 'HRV'], ['ms']);
-    const pulsePressure = extractValue(['Derived Pulse Pressure', 'Pulse Pressure'], ['mmHg']);
-    const bmi = extractValue(['Derived BMI', 'BMI'], []);
-    const map = extractValue(['Derived MAP', 'MAP'], ['mmHg']);
-    
-
-    // Create and save a new health data record in the database
-    const healthData = new HealthData({
-      userId,       // User who uploaded the PDF
-      heartRate,
-      respiratoryRate,
-      bodyTemperature,
-      oxygenSaturation,
-      systolicBP,
-      diastolicBP,
-      derived_HRV:derivedHRV,
-      derived_Pulse_Pressure:pulsePressure,
-      derived_BMI:bmi ,
-      derived_MAP:map,
-              // The parsed text from the PDF
-    });
-
+    const metrics = {
+      heartRate: extractValue(['Heart Rate'], ['bpm']),
+      respiratoryRate: extractValue(['Respiratory Rate'], ['breaths/min', 'breaths per minute']),
+      bodyTemperature: extractValue(['Body Temperature'], ['°C', 'C']),
+      oxygenSaturation: extractValue(['Oxygen Saturation'], ['%', 'percent']),
+      systolicBP: extractValue(['Systolic BP'], ['mmHg']),
+      diastolicBP: extractValue(['Diastolic BP'], ['mmHg']),
+      derived_HRV: extractValue(['Heart Rate Variability', 'HRV'], ['ms']),
+      derived_Pulse_Pressure: extractValue(['Derived Pulse Pressure', 'Pulse Pressure'], ['mmHg']),
+      derived_BMI: extractValue(['Derived BMI', 'BMI']),
+      derived_MAP: extractValue(['Derived MAP', 'MAP'], ['mmHg']),
+    };
+// Filter out undefined values
+const healthDataPayload = { userId };
+for (const [key, value] of Object.entries(metrics)) {
+  if (value !== undefined) {
+    healthDataPayload[key] = value;
+  }
+}
+// Check if any metric was found
+if (Object.keys(healthDataPayload).length === 1) { // only userId present
+  return res.status(400).json({ message: 'No valid health metrics found in the PDF.' });
+}
+const healthData = new HealthData(healthDataPayload);
     await healthData.save();  // Save to the database
     console.log('Health data saved successfully');
 

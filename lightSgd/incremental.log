@@ -1242,3 +1242,4513 @@ Name: count, dtype: int64
 Label encoder classes: ['High Risk' 'Low Risk']
 Predicted labels: [1 1 1 1 1 1 1 1 1 1]
 True labels: [1 1 1 0 0 0 0 0 1 1]
+/Users/anishanand/.pyenv/versions/3.10.13/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+/Users/anishanand/.pyenv/versions/3.10.13/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+/Users/anishanand/.pyenv/versions/3.10.13/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 18:58:03.930302
+[DEBUG] Rows before filtering Risk_Category: 10
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     5
+High Risk    5
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     5
+High Risk    5
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 10
+[INFO] Accuracy on incremental batch: 0.5000
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       0.00      0.00      0.00         5
+    Low Risk       0.50      1.00      0.67         5
+
+    accuracy                           0.50        10
+   macro avg       0.25      0.50      0.33        10
+weighted avg       0.25      0.50      0.33        10
+
+[INFO] Incrementally trained SGD model with 10 new samples.
+[INFO] Training finished at 2025-05-26 18:58:04.126294
+Predicted label counts:
+1    10
+Name: count, dtype: int64
+True labels:
+1    5
+0    5
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 1 1 1 1 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1]
+/Users/anishanand/.pyenv/versions/3.10.13/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+/Users/anishanand/.pyenv/versions/3.10.13/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+/Users/anishanand/.pyenv/versions/3.10.13/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 19:00:03.581454
+[DEBUG] Rows before filtering Risk_Category: 10
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     5
+High Risk    5
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     5
+High Risk    5
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 10
+[INFO] Accuracy on incremental batch: 0.5000
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       0.00      0.00      0.00         5
+    Low Risk       0.50      1.00      0.67         5
+
+    accuracy                           0.50        10
+   macro avg       0.25      0.50      0.33        10
+weighted avg       0.25      0.50      0.33        10
+
+[INFO] Incrementally trained SGD model with 10 new samples.
+[INFO] Training finished at 2025-05-26 19:00:03.764806
+Predicted label counts:
+1    10
+Name: count, dtype: int64
+True labels:
+1    5
+0    5
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 1 1 1 1 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1]
+/Users/anishanand/.pyenv/versions/3.10.13/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+/Users/anishanand/.pyenv/versions/3.10.13/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+/Users/anishanand/.pyenv/versions/3.10.13/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 19:02:03.259150
+[DEBUG] Rows before filtering Risk_Category: 10
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     5
+High Risk    5
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     5
+High Risk    5
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 10
+[INFO] Accuracy on incremental batch: 0.5000
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       0.00      0.00      0.00         5
+    Low Risk       0.50      1.00      0.67         5
+
+    accuracy                           0.50        10
+   macro avg       0.25      0.50      0.33        10
+weighted avg       0.25      0.50      0.33        10
+
+[INFO] Incrementally trained SGD model with 10 new samples.
+[INFO] Training finished at 2025-05-26 19:02:03.457127
+Predicted label counts:
+1    10
+Name: count, dtype: int64
+True labels:
+1    5
+0    5
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 1 1 1 1 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1]
+/Users/anishanand/.pyenv/versions/3.10.13/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+/Users/anishanand/.pyenv/versions/3.10.13/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+/Users/anishanand/.pyenv/versions/3.10.13/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 19:04:04.469013
+[DEBUG] Rows before filtering Risk_Category: 20
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     10
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     10
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 20
+[INFO] Accuracy on incremental batch: 0.5000
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       0.00      0.00      0.00        10
+    Low Risk       0.50      1.00      0.67        10
+
+    accuracy                           0.50        20
+   macro avg       0.25      0.50      0.33        20
+weighted avg       0.25      0.50      0.33        20
+
+[INFO] Incrementally trained SGD model with 20 new samples.
+[INFO] Training finished at 2025-05-26 19:04:04.687909
+Predicted label counts:
+1    20
+Name: count, dtype: int64
+True labels:
+1    10
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1]
+/Users/anishanand/.pyenv/versions/3.10.13/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+/Users/anishanand/.pyenv/versions/3.10.13/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+/Users/anishanand/.pyenv/versions/3.10.13/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 19:06:04.766842
+[DEBUG] Rows before filtering Risk_Category: 20
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     10
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     10
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 20
+[INFO] Accuracy on incremental batch: 0.5000
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       0.00      0.00      0.00        10
+    Low Risk       0.50      1.00      0.67        10
+
+    accuracy                           0.50        20
+   macro avg       0.25      0.50      0.33        20
+weighted avg       0.25      0.50      0.33        20
+
+[INFO] Incrementally trained SGD model with 20 new samples.
+[INFO] Training finished at 2025-05-26 19:06:05.012309
+Predicted label counts:
+1    20
+Name: count, dtype: int64
+True labels:
+1    10
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1]
+/Users/anishanand/.pyenv/versions/3.10.13/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+/Users/anishanand/.pyenv/versions/3.10.13/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+/Users/anishanand/.pyenv/versions/3.10.13/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 19:08:04.074452
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.5455
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       0.00      0.00      0.00        10
+    Low Risk       0.55      1.00      0.71        12
+
+    accuracy                           0.55        22
+   macro avg       0.27      0.50      0.35        22
+weighted avg       0.30      0.55      0.39        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 19:08:04.302061
+Predicted label counts:
+1    22
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+/Users/anishanand/.pyenv/versions/3.10.13/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+/Users/anishanand/.pyenv/versions/3.10.13/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+/Users/anishanand/.pyenv/versions/3.10.13/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 19:10:04.834426
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.5455
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       0.00      0.00      0.00        10
+    Low Risk       0.55      1.00      0.71        12
+
+    accuracy                           0.55        22
+   macro avg       0.27      0.50      0.35        22
+weighted avg       0.30      0.55      0.39        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 19:10:05.066432
+Predicted label counts:
+1    22
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 19:12:04.357461
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.5909
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.10      0.18        10
+    Low Risk       0.57      1.00      0.73        12
+
+    accuracy                           0.59        22
+   macro avg       0.79      0.55      0.45        22
+weighted avg       0.77      0.59      0.48        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 19:12:04.578167
+Predicted label counts:
+1    21
+0     1
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 19:14:03.631236
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.5909
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.10      0.18        10
+    Low Risk       0.57      1.00      0.73        12
+
+    accuracy                           0.59        22
+   macro avg       0.79      0.55      0.45        22
+weighted avg       0.77      0.59      0.48        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 19:14:03.837951
+Predicted label counts:
+1    21
+0     1
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 19:16:03.529723
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.5909
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.10      0.18        10
+    Low Risk       0.57      1.00      0.73        12
+
+    accuracy                           0.59        22
+   macro avg       0.79      0.55      0.45        22
+weighted avg       0.77      0.59      0.48        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 19:16:03.757128
+Predicted label counts:
+1    21
+0     1
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 19:18:03.852748
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.5909
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.10      0.18        10
+    Low Risk       0.57      1.00      0.73        12
+
+    accuracy                           0.59        22
+   macro avg       0.79      0.55      0.45        22
+weighted avg       0.77      0.59      0.48        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 19:18:04.071665
+Predicted label counts:
+1    21
+0     1
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1112.13823105 -1202.78941223  3179.42086062  1883.30922
+    870.08900196   582.06963352  1119.03351434  -896.43711608
+  20241.43434016   467.84224707  1064.40788034   910.21125633]]
+[DEBUG] Model intercept_: [-934.8766418]
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 19:20:04.485163
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.5909
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.10      0.18        10
+    Low Risk       0.57      1.00      0.73        12
+
+    accuracy                           0.59        22
+   macro avg       0.79      0.55      0.45        22
+weighted avg       0.77      0.59      0.48        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 19:20:04.724748
+Predicted label counts:
+1    21
+0     1
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1167.95274473 -1300.69093909  3011.36402234  1970.3414512
+    890.80854746   579.95273529  1176.50734112  -941.11806237
+  19869.84888081   485.36873604  1074.11642415   942.9090732 ]]
+[DEBUG] Model intercept_: [-992.15358704]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      1.004024
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  9.687691e-01
+Respiratory_Rate            1.121592e+00
+Body_Temperature            1.675525e+00
+Oxygen_Saturation           1.333261e+00
+Systolic_Blood_Pressure     1.589166e+00
+Diastolic_Blood_Pressure    1.332710e+00
+Age                         2.331717e-01
+Gender                      2.272699e-16
+Derived_HRV                 9.299944e-01
+Derived_Pulse_Pressure      8.199198e-01
+Derived_MAP                 1.932787e+00
+RespiratoryRate_x_Age       4.766206e-01
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 19:22:03.832249
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.5909
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.10      0.18        10
+    Low Risk       0.57      1.00      0.73        12
+
+    accuracy                           0.59        22
+   macro avg       0.79      0.55      0.45        22
+weighted avg       0.77      0.59      0.48        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 19:22:04.054517
+Predicted label counts:
+1    21
+0     1
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1222.23523182 -1395.90521257  2847.92009791  2054.98477524
+    910.95937181   577.89394281  1232.40359561  -959.61916821
+  19508.46289757   502.41414857  1083.55848267   974.70938293]]
+[DEBUG] Model intercept_: [-1048.63965887]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 19:24:04.257767
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.5909
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.10      0.18        10
+    Low Risk       0.57      1.00      0.73        12
+
+    accuracy                           0.59        22
+   macro avg       0.79      0.55      0.45        22
+weighted avg       0.77      0.59      0.48        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 19:24:04.477575
+Predicted label counts:
+1    21
+0     1
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1275.04791619 -1488.54137648  2688.90173204  2137.3362185
+    930.56457384   575.89089609  1286.78635151  -977.61932103
+  19156.86213481   518.99802379  1092.7448793   1005.64863813]]
+[DEBUG] Model intercept_: [-1104.35640068]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 19:26:04.658815
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.6364
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.20      0.33        10
+    Low Risk       0.60      1.00      0.75        12
+
+    accuracy                           0.64        22
+   macro avg       0.80      0.60      0.54        22
+weighted avg       0.78      0.64      0.56        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 19:26:04.867988
+Predicted label counts:
+1    20
+0     2
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 1 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1310.43923287 -1553.53920004  2565.7269561   2194.38844289
+    964.06338555   585.02077695  1334.32658689  -989.04251553
+  18814.66107889   541.01353859  1119.19219989  1036.58477428]]
+[DEBUG] Model intercept_: [-1153.21201796]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 19:28:04.194240
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.6364
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.20      0.33        10
+    Low Risk       0.60      1.00      0.75        12
+
+    accuracy                           0.64        22
+   macro avg       0.80      0.60      0.54        22
+weighted avg       0.78      0.64      0.56        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 19:28:04.419007
+Predicted label counts:
+1    20
+0     2
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 1 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1344.89752503 -1616.82348002  2445.79944806  2249.93659425
+    996.67906502   593.90996593  1380.61351468 -1000.16455931
+  18481.48150078   562.44865635  1144.94228735  1066.70533824]]
+[DEBUG] Model intercept_: [-1201.41993904]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 19:30:04.607170
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.6364
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.20      0.33        10
+    Low Risk       0.60      1.00      0.75        12
+
+    accuracy                           0.64        22
+   macro avg       0.80      0.60      0.54        22
+weighted avg       0.78      0.64      0.56        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 19:30:04.895704
+Predicted label counts:
+1    20
+0     2
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 1 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1378.45920876 -1678.4610963   2328.99246655  2304.0393768
+   1028.44608104   602.56785726  1425.69605168 -1010.99720632
+  18156.97129075   583.32603007  1170.02235478  1096.04216193]]
+[DEBUG] Model intercept_: [-1248.99711291]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 19:32:04.288770
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.6364
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.20      0.33        10
+    Low Risk       0.60      1.00      0.75        12
+
+    accuracy                           0.64        22
+   macro avg       0.80      0.60      0.54        22
+weighted avg       0.78      0.64      0.56        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 19:32:04.518309
+Predicted label counts:
+1    20
+0     2
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 1 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1411.15882939 -1738.51549301  2215.18578112  2356.75247901
+   1059.39713167   611.00336259  1469.62060174 -1021.55160671
+  17840.79642763   603.66714901  1194.45821734  1124.62544198]]
+[DEBUG] Model intercept_: [-1295.95983188]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 19:34:04.881371
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.6364
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.20      0.33        10
+    Low Risk       0.60      1.00      0.75        12
+
+    accuracy                           0.64        22
+   macro avg       0.80      0.60      0.54        22
+weighted avg       0.78      0.64      0.56        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 19:34:05.123203
+Predicted label counts:
+1    20
+0     2
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 1 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1443.02918011 -1797.04689638  2104.26525947  2408.12876479
+   1089.56325652   619.22494156  1512.43121509 -1031.83834508
+  17532.63983193   623.49241248  1218.27438078  1152.48384345]]
+[DEBUG] Model intercept_: [-1342.32376502]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 19:36:04.025714
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.6364
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.20      0.33        10
+    Low Risk       0.60      1.00      0.75        12
+
+    accuracy                           0.64        22
+   macro avg       0.80      0.60      0.54        22
+weighted avg       0.78      0.64      0.56        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 19:36:04.228727
+Predicted label counts:
+1    20
+0     2
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 1 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1474.10141162 -1854.11251616  1996.12248566  2458.21845035
+   1118.97394057   627.24063011  1554.16973567 -1041.86747587
+  17232.20030521   642.8211981   1241.49412351  1179.64459572]]
+[DEBUG] Model intercept_: [-1388.10398961]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 19:38:04.193762
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.6818
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.30      0.46        10
+    Low Risk       0.63      1.00      0.77        12
+
+    accuracy                           0.68        22
+   macro avg       0.82      0.65      0.62        22
+weighted avg       0.80      0.68      0.63        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 19:38:04.403294
+Predicted label counts:
+1    19
+0     3
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1494.93342989 -1891.36977015  1906.9202501   2489.57519226
+   1157.75912868   645.31540093  1589.61579895 -1057.24716088
+  16941.14541824   664.40646264  1278.40507213  1205.39133861]]
+[DEBUG] Model intercept_: [-1427.6875585]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 19:40:04.597147
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.6818
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.30      0.46        10
+    Low Risk       0.63      1.00      0.77        12
+
+    accuracy                           0.68        22
+   macro avg       0.82      0.65      0.62        22
+weighted avg       0.80      0.68      0.63        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 19:40:04.834624
+Predicted label counts:
+1    19
+0     3
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1515.25650379 -1927.71679695  1819.89730292  2520.16586163
+   1195.59676083   662.94858934  1624.19588401 -1072.25110676
+  16657.20125587   685.46438035  1314.4142541   1230.50906613]]
+[DEBUG] Model intercept_: [-1466.78473214]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 19:42:03.947738
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.6818
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.30      0.46        10
+    Low Risk       0.63      1.00      0.77        12
+
+    accuracy                           0.68        22
+   macro avg       0.82      0.65      0.62        22
+weighted avg       0.80      0.68      0.63        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 19:42:04.182813
+Predicted label counts:
+1    19
+0     3
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1535.08905918 -1963.18655047  1734.97474503  2550.01819339
+   1232.5211424    680.15618242  1657.94134276 -1086.89291682
+  16380.11038102   706.01404333  1349.55431704  1255.02055119]]
+[DEBUG] Model intercept_: [-1505.40731901]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 19:44:04.073776
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.7273
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.40      0.57        10
+    Low Risk       0.67      1.00      0.80        12
+
+    accuracy                           0.73        22
+   macro avg       0.83      0.70      0.69        22
+weighted avg       0.82      0.73      0.70        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 19:44:04.267607
+Predicted label counts:
+1    18
+0     4
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 1 1 1 1 1 1 1 0 1 0 1 1 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1554.44864306 -1997.81041285  1652.07744055  2579.15859963
+   1268.56494251   696.95340472  1690.88203177 -1101.1855455
+  16109.62763543   726.07363304  1383.85635137  1278.9474805 ]]
+[DEBUG] Model intercept_: [-1543.56670272]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 19:46:04.447047
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.7273
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.40      0.57        10
+    Low Risk       0.67      1.00      0.80        12
+
+    accuracy                           0.73        22
+   macro avg       0.83      0.70      0.69        22
+weighted avg       0.82      0.73      0.70        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 19:46:04.681031
+Predicted label counts:
+1    18
+0     4
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 1 1 1 1 1 1 1 0 1 0 1 1 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1562.93618957 -2016.42272436  1592.81952622  2592.79662569
+   1307.19963881   718.47707327  1717.00367243 -1109.76359502
+  15849.23713785   745.6893354   1423.50821137  1299.72254837]]
+[DEBUG] Model intercept_: [-1575.86553334]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 19:48:03.967143
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.7273
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.40      0.57        10
+    Low Risk       0.67      1.00      0.80        12
+
+    accuracy                           0.73        22
+   macro avg       0.83      0.70      0.69        22
+weighted avg       0.82      0.73      0.70        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 19:48:04.206232
+Predicted label counts:
+1    18
+0     4
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 1 1 1 1 1 1 1 0 1 0 1 1 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1571.2260378  -2034.60150399  1534.94189152  2606.11698466
+   1344.93442689   739.49939643  1742.51686831 -1118.1418382
+  15594.91185037   764.84813415  1462.23647061  1320.01370783]]
+[DEBUG] Model intercept_: [-1607.78632618]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 19:50:04.173118
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.7273
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.40      0.57        10
+    Low Risk       0.67      1.00      0.80        12
+
+    accuracy                           0.73        22
+   macro avg       0.83      0.70      0.69        22
+weighted avg       0.82      0.73      0.70        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 19:50:04.388626
+Predicted label counts:
+1    18
+0     4
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 1 1 1 1 1 1 1 0 1 0 1 1 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1579.32501563 -2052.36172459  1478.39686589  2619.13064776
+   1381.80038678   760.03768914  1767.4426332  -1126.32717573
+  15346.4422995    783.56580933  1500.07302738  1339.83767157]]
+[DEBUG] Model intercept_: [-1639.33782833]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 19:52:04.651314
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.7273
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.40      0.57        10
+    Low Risk       0.67      1.00      0.80        12
+
+    accuracy                           0.73        22
+   macro avg       0.83      0.70      0.69        22
+weighted avg       0.82      0.73      0.70        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 19:52:04.867401
+Predicted label counts:
+1    18
+0     4
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 1 1 1 1 1 1 1 0 1 0 1 1 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1587.23964012 -2069.71767736  1423.13894896  2631.84808677
+   1417.82718358   780.10847802  1791.80102423 -1134.32619414
+  15103.62854802   801.85742258  1537.04832782  1359.21039143]]
+[DEBUG] Model intercept_: [-1670.52848676]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 19:54:04.033479
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.7273
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.40      0.57        10
+    Low Risk       0.67      1.00      0.80        12
+
+    accuracy                           0.73        22
+   macro avg       0.83      0.70      0.69        22
+weighted avg       0.82      0.73      0.70        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 19:54:04.238447
+Predicted label counts:
+1    18
+0     4
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 1 1 1 1 1 1 1 0 1 0 1 1 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1594.97613495 -2086.68301023  1369.12468848  2644.27930208
+   1453.04314711   799.72754583  1815.61119573 -1142.1451835
+  14866.27965848   819.73735758  1573.19144759  1378.14710124]]
+[DEBUG] Model intercept_: [-1701.36646188]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 19:56:04.370815
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.7273
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.40      0.57        10
+    Low Risk       0.67      1.00      0.80        12
+
+    accuracy                           0.73        22
+   macro avg       0.83      0.70      0.69        22
+weighted avg       0.82      0.73      0.70        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 19:56:04.593695
+Predicted label counts:
+1    18
+0     4
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 1 1 1 1 1 1 1 0 1 0 1 1 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1602.5404468  -2103.27076361  1316.31256632  2656.43384898
+   1487.47534615   818.90997277  1838.89144939 -1149.79015387
+  14634.21319237   837.21935776  1608.53016813  1396.6623567 ]]
+[DEBUG] Model intercept_: [-1731.8596404]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 19:58:04.821103
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.7273
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.40      0.57        10
+    Low Risk       0.67      1.00      0.80        12
+
+    accuracy                           0.73        22
+   macro avg       0.83      0.70      0.69        22
+weighted avg       0.82      0.73      0.70        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 19:58:05.119542
+Predicted label counts:
+1    18
+0     4
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 1 1 1 1 1 1 1 0 1 0 1 1 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1609.93826053 -2119.49340386  1264.66289207  2668.32086207
+   1521.14965786   837.67017521  1861.65928127 -1157.26685075
+  14407.25474252   854.31656154  1643.09104789  1414.77007277]]
+[DEBUG] Model intercept_: [-1762.01564739]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 20:00:04.354730
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.7273
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.40      0.57        10
+    Low Risk       0.67      1.00      0.80        12
+
+    accuracy                           0.73        22
+   macro avg       0.83      0.70      0.69        22
+weighted avg       0.82      0.73      0.70        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 20:00:04.592601
+Predicted label counts:
+1    18
+0     4
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 1 1 1 1 1 1 1 0 1 0 1 1 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1617.1750135  -2135.36285451  1214.13770355  2679.94907824
+   1554.09083266   856.02194178  1883.93142556 -1164.58076948
+  14185.23749594   871.04153525  1676.89948891  1432.48355851]]
+[DEBUG] Model intercept_: [-1791.84185774]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 20:02:04.082270
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.7273
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.40      0.57        10
+    Low Risk       0.67      1.00      0.80        12
+
+    accuracy                           0.73        22
+   macro avg       0.83      0.70      0.69        22
+weighted avg       0.82      0.73      0.70        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 20:02:04.331276
+Predicted label counts:
+1    18
+0     4
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 1 1 1 1 1 1 1 0 1 0 1 1 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1624.25590884 -2150.89052551  1164.70067377  2691.32685804
+   1586.32255484   873.97846716  1905.72389568 -1171.73716866
+  13968.0018249    887.40630394  1709.97979904  1449.8155497 ]]
+[DEBUG] Model intercept_: [-1821.34540701]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 20:04:04.589853
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.7273
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.40      0.57        10
+    Low Risk       0.67      1.00      0.80        12
+
+    accuracy                           0.73        22
+   macro avg       0.83      0.70      0.69        22
+weighted avg       0.82      0.73      0.70        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 20:04:04.814860
+Predicted label counts:
+1    18
+0     4
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 1 1 1 1 1 1 1 0 1 0 1 1 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1631.18592796 -2166.08734057  1116.3170238   2702.46220573
+   1617.8674994    891.55238377  1927.0520226  -1178.74108282
+  13755.39490424   903.42238023  1742.35525027  1466.77823938]]
+[DEBUG] Model intercept_: [-1850.53320166]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 20:06:04.380801
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.7273
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.40      0.57        10
+    Low Risk       0.67      1.00      0.80        12
+
+    accuracy                           0.73        22
+   macro avg       0.83      0.70      0.69        22
+weighted avg       0.82      0.73      0.70        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 20:06:04.603380
+Predicted label counts:
+1    18
+0     4
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 1 1 1 1 1 1 1 0 1 0 1 1 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1637.96984222 -2180.96376279  1068.9534412   2713.36278806
+   1648.74738524   908.75579136  1947.93049088 -1185.5973342
+  13547.27035278   919.10079128  1774.04813328  1483.38330646]]
+[DEBUG] Model intercept_: [-1879.41192872]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 20:08:03.792881
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.7273
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.40      0.57        10
+    Low Risk       0.67      1.00      0.80        12
+
+    accuracy                           0.73        22
+   macro avg       0.83      0.70      0.69        22
+weighted avg       0.82      0.73      0.70        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 20:08:04.041303
+Predicted label counts:
+1    18
+0     4
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 1 1 1 1 1 1 1 0 1 0 1 1 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1644.61222389 -2195.52981868  1022.57800351  2724.03595189
+   1678.983025     925.6002848   1968.37337235 -1192.31054383
+  13343.48789722   934.45210413  1805.07980868  1499.64194257]]
+[DEBUG] Model intercept_: [-1907.98806506]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 20:10:03.944106
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.7273
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.40      0.57        10
+    Low Risk       0.67      1.00      0.80        12
+
+    accuracy                           0.73        22
+   macro avg       0.83      0.70      0.69        22
+weighted avg       0.82      0.73      0.70        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 20:10:04.153354
+Predicted label counts:
+1    18
+0     4
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 1 1 1 1 1 1 1 0 1 0 1 1 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1651.11745644 -2209.79512072   977.16010654  2734.48874068
+   1708.59437187   942.09698016  1988.39415771 -1198.8851419
+  13143.91305689   949.48644948  1835.47075498  1515.56487712]]
+[DEBUG] Model intercept_: [-1936.26788602]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 20:12:03.690021
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.7273
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.40      0.57        10
+    Low Risk       0.67      1.00      0.80        12
+
+    accuracy                           0.73        22
+   macro avg       0.83      0.70      0.69        22
+weighted avg       0.82      0.73      0.70        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 20:12:03.873370
+Predicted label counts:
+1    18
+0     4
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 1 1 1 1 1 1 1 0 1 0 1 1 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1657.48974415 -2223.76888848   932.67039697  2744.72791
+   1737.60056349   958.25653915  2008.00578629 -1205.32537755
+  12948.41684776   964.21354392  1865.24061366  1531.16240103]]
+[DEBUG] Model intercept_: [-1964.25747377]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 20:14:03.828994
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.7727
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.50      0.67        10
+    Low Risk       0.71      1.00      0.83        12
+
+    accuracy                           0.77        22
+   macro avg       0.85      0.75      0.75        22
+weighted avg       0.84      0.77      0.75        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 20:14:04.004363
+Predicted label counts:
+1    17
+0     5
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1663.73312121 -2237.45996853   889.08070911  2754.75994211
+   1766.01996319   974.08919212  2027.22067388 -1211.63532796
+  12756.87550446   978.64271093  1894.40823152  1546.44438883]]
+[DEBUG] Model intercept_: [-1991.96272508]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 20:16:03.326775
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.7727
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.50      0.67        10
+    Low Risk       0.71      1.00      0.83        12
+
+    accuracy                           0.77        22
+   macro avg       0.85      0.75      0.75        22
+weighted avg       0.84      0.77      0.75        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 20:16:03.508324
+Predicted label counts:
+1    17
+0     5
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1663.75738649 -2241.93103802   851.12341204  2755.1516529
+   1796.79379019   993.95767404  2041.35352467 -1213.24892815
+  12573.9066949    992.80742683  1928.22493398  1558.95907151]]
+[DEBUG] Model intercept_: [-2014.82106283]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 20:18:07.146551
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.7727
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.50      0.67        10
+    Low Risk       0.71      1.00      0.83        12
+
+    accuracy                           0.77        22
+   macro avg       0.85      0.75      0.75        22
+weighted avg       0.84      0.77      0.75        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 20:18:07.410634
+Predicted label counts:
+1    17
+0     5
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1663.78117062 -2246.31345179   813.91876079  2755.53559655
+   1826.95741063  1013.43218877  2055.20613867 -1214.83053266
+  12394.56592844  1006.69127409  1961.37109344  1571.22560365]]
+[DEBUG] Model intercept_: [-2037.45178678]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 20:20:04.444346
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.7727
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.50      0.67        10
+    Low Risk       0.71      1.00      0.83        12
+
+    accuracy                           0.77        22
+   macro avg       0.85      0.75      0.75        22
+weighted avg       0.84      0.77      0.75        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 20:20:04.668101
+Predicted label counts:
+1    17
+0     5
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1663.80448778 -2250.60982084   777.44458908  2755.91200182
+   1856.52879577  1032.52433908  2068.78676918 -1216.3810838
+  12218.74635506  1020.30252462  1993.86645816  1583.25129357]]
+[DEBUG] Model intercept_: [-2059.85938524]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 20:22:03.507882
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.7727
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.50      0.67        10
+    Low Risk       0.71      1.00      0.83        12
+
+    accuracy                           0.77        22
+   macro avg       0.85      0.75      0.75        22
+weighted avg       0.84      0.77      0.75        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 20:22:03.703017
+Predicted label counts:
+1    17
+0     5
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1663.82735157 -2254.82265465   741.67959261  2756.28108856
+   1885.52521805  1051.24527657  2082.10334854 -1217.90148725
+  12046.3452798   1033.64912865  2025.73000845  1595.04316539]]
+[DEBUG] Model intercept_: [-2082.04821504]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 20:38:04.397476
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.7727
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.50      0.67        10
+    Low Risk       0.71      1.00      0.83        12
+
+    accuracy                           0.77        22
+   macro avg       0.85      0.75      0.75        22
+weighted avg       0.84      0.77      0.75        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 20:38:04.560720
+Predicted label counts:
+1    17
+0     5
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1663.84977509 -2258.95436606   706.60328754  2756.64306816
+   1913.96328472  1069.60572336  2095.16350361 -1219.39261377
+  11877.26396267  1046.73873024  2056.97999367  1606.60797272]]
+[DEBUG] Model intercept_: [-2104.02250665]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 20:40:04.594768
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.7727
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.50      0.67        10
+    Low Risk       0.71      1.00      0.83        12
+
+    accuracy                           0.77        22
+   macro avg       0.85      0.75      0.75        22
+weighted avg       0.84      0.77      0.75        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 20:40:04.963706
+Predicted label counts:
+1    17
+0     5
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1663.87177095 -2263.00727587   672.19597138  2756.99814394
+   1941.85896953  1087.61599258  2107.97457033 -1220.85530095
+  11711.40743008  1059.57868187  2087.63396702  1617.95221156]]
+[DEBUG] Model intercept_: [-2125.78636899]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 20:42:04.003532
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.8182
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.60      0.75        10
+    Low Risk       0.75      1.00      0.86        12
+
+    accuracy                           0.82        22
+   macro avg       0.88      0.80      0.80        22
+weighted avg       0.86      0.82      0.81        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 20:42:04.234800
+Predicted label counts:
+1    16
+0     6
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 0 1 1 1 1 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1663.89335126 -2266.98361718   638.4386861   2757.34651155
+   1969.22764269  1105.28600767  2120.54360746 -1222.29035471
+  11548.68429699  1072.17605819  2117.70881851  1629.08213244]]
+[DEBUG] Model intercept_: [-2147.34379408]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 20:44:04.205657
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.8636
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.70      0.82        10
+    Low Risk       0.80      1.00      0.89        12
+
+    accuracy                           0.86        22
+   macro avg       0.90      0.85      0.86        22
+weighted avg       0.89      0.86      0.86        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 20:44:04.404731
+Predicted label counts:
+1    15
+0     7
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 0 1 1 1 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1659.15030198 -2265.28816318   610.27812288  2745.64062932
+   1972.07608813  1115.98513644  2120.00650726 -1215.15729719
+  11409.64993602  1068.21308456  2127.48924038  1628.89092576]]
+[DEBUG] Model intercept_: [-2160.15711844]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 20:46:04.054954
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.8636
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.70      0.82        10
+    Low Risk       0.80      1.00      0.89        12
+
+    accuracy                           0.86        22
+   macro avg       0.90      0.85      0.86        22
+weighted avg       0.89      0.86      0.86        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 20:46:04.248912
+Predicted label counts:
+1    15
+0     7
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 0 1 1 1 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1654.495198   -2263.62414617   582.63971085  2734.15179674
+   1974.8717179   1126.4858827   2119.47936594 -1208.15650033
+  11273.19354045  1064.32359211  2137.08831436  1628.70326442]]
+[DEBUG] Model intercept_: [-2172.85116296]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 20:48:04.104643
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.8636
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.70      0.82        10
+    Low Risk       0.80      1.00      0.89        12
+
+    accuracy                           0.86        22
+   macro avg       0.90      0.85      0.86        22
+weighted avg       0.89      0.86      0.86        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 20:48:04.318876
+Predicted label counts:
+1    15
+0     7
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 0 1 1 1 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1649.92561576 -2261.99069983   555.50906089  2722.87403248
+   1977.61598745  1136.79371338  2118.96190905 -1201.28431935
+  11139.24406822  1060.50555589  2146.51103792  1628.51905072]]
+[DEBUG] Model intercept_: [-2185.42812794]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 20:50:04.694830
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.9091
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.80      0.89        10
+    Low Risk       0.86      1.00      0.92        12
+
+    accuracy                           0.91        22
+   macro avg       0.93      0.90      0.91        22
+weighted avg       0.92      0.91      0.91        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 20:50:04.939508
+Predicted label counts:
+1    14
+0     8
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 0 0 1 1 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1639.54180569 -2254.05853437   536.06577526  2707.23101801
+   1973.41198132  1140.09139683  2112.19415117 -1190.38323161
+  11017.7728829   1054.78889306  2146.16584459  1623.45744579]]
+[DEBUG] Model intercept_: [-2193.73041959]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 20:52:04.194608
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.8636
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       0.89      0.80      0.84        10
+    Low Risk       0.85      0.92      0.88        12
+
+    accuracy                           0.86        22
+   macro avg       0.87      0.86      0.86        22
+weighted avg       0.87      0.86      0.86        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 20:52:04.430028
+Predicted label counts:
+1    13
+0     9
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 0 0 0 1 1 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1629.34532141 -2246.26946659   516.97325     2691.87020629
+   1969.28381616  1143.32958941  2105.54848481 -1179.67880142
+  10898.49305977  1049.17535985  2145.82687853  1618.48715308]]
+[DEBUG] Model intercept_: [-2201.9575757]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 20:54:04.041735
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.9091
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.80      0.89        10
+    Low Risk       0.86      1.00      0.92        12
+
+    accuracy                           0.91        22
+   macro avg       0.93      0.90      0.91        22
+weighted avg       0.92      0.91      0.91        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 20:54:04.230280
+Predicted label counts:
+1    14
+0     8
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 0 0 1 1 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1609.71111276 -2225.25168677   486.61289915  2641.68207507
+   1931.35454053  1113.0072835   2068.28261587 -1148.76704774
+  10830.64742011  1033.99747273  2098.36992722  1587.06544104]]
+[DEBUG] Model intercept_: [-2189.76092376]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 20:56:03.276601
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.9091
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.80      0.89        10
+    Low Risk       0.86      1.00      0.92        12
+
+    accuracy                           0.91        22
+   macro avg       0.93      0.90      0.91        22
+weighted avg       0.92      0.91      0.91        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 20:56:03.446399
+Predicted label counts:
+1    14
+0     8
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 0 0 1 1 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1599.95962267 -2217.85588104   468.29686781  2627.17424467
+   1927.67216801  1116.42806576  2062.14378126 -1138.62103521
+  10715.13927325  1028.66763133  2098.46045165  1582.50566669]]
+[DEBUG] Model intercept_: [-2197.84181627]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 20:58:03.957074
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.9091
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.80      0.89        10
+    Low Risk       0.86      1.00      0.92        12
+
+    accuracy                           0.91        22
+   macro avg       0.93      0.90      0.91        22
+weighted avg       0.92      0.91      0.91        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 20:58:04.132417
+Predicted label counts:
+1    14
+0     8
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 0 0 1 1 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1580.92836435 -2197.45681626   438.89728976  2578.43584955
+   1890.77456678  1086.8746281   2025.91368146 -1108.61282964
+  10650.09562618  1013.93644962  2052.25306811  1551.95187801]]
+[DEBUG] Model intercept_: [-2185.85950682]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 21:00:04.341097
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.9091
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.80      0.89        10
+    Low Risk       0.86      1.00      0.92        12
+
+    accuracy                           0.91        22
+   macro avg       0.93      0.90      0.91        22
+weighted avg       0.92      0.91      0.91        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 21:00:04.560595
+Predicted label counts:
+1    14
+0     8
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 0 0 1 1 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1571.59724863 -2190.4317674    421.31558719  2564.73124886
+   1887.5095998   1090.46335813  2020.25059884 -1098.99306062
+  10538.170581    1008.87406193  2052.74350857  1547.77719605]]
+[DEBUG] Model intercept_: [-2193.7992455]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 21:02:05.007672
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.8636
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       0.89      0.80      0.84        10
+    Low Risk       0.85      0.92      0.88        12
+
+    accuracy                           0.86        22
+   macro avg       0.87      0.86      0.86        22
+weighted avg       0.87      0.86      0.86        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 21:02:05.255444
+Predicted label counts:
+1    13
+0     9
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 0 0 0 1 1 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1562.42720357 -2183.52798262   404.03737419  2551.26321249
+   1884.30099161  1093.99014067  2014.68527048 -1089.53934489
+  10428.17754915  1003.8990595   2053.22548322  1543.67457608]]
+[DEBUG] Model intercept_: [-2201.67024048]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 21:04:04.405659
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.9091
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.80      0.89        10
+    Low Risk       0.86      1.00      0.92        12
+
+    accuracy                           0.91        22
+   macro avg       0.93      0.90      0.91        22
+weighted avg       0.92      0.91      0.91        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 21:04:04.629210
+Predicted label counts:
+1    14
+0     8
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 0 0 1 1 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1544.20565985 -2163.94632432   375.9423784   2504.42554736
+   1848.72171305  1065.38736861  1979.7913332  -1060.72146945
+  10367.25916021   989.75798538  2008.59136168  1514.23740896]]
+[DEBUG] Model intercept_: [-2189.99568208]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 21:06:03.610442
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.9091
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.80      0.89        10
+    Low Risk       0.86      1.00      0.92        12
+
+    accuracy                           0.91        22
+   macro avg       0.93      0.90      0.91        22
+weighted avg       0.92      0.91      0.91        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 21:06:03.843789
+Predicted label counts:
+1    14
+0     8
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 0 0 1 1 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1535.42361978 -2157.38440082   359.34231888  2491.69770343
+   1845.89664217  1069.06706027  1974.6637134  -1051.75288234
+  10260.58265156   985.02959066  2009.43976145  1510.48896971]]
+[DEBUG] Model intercept_: [-2197.73270009]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 21:08:04.002717
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.9091
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.80      0.89        10
+    Low Risk       0.86      1.00      0.92        12
+
+    accuracy                           0.91        22
+   macro avg       0.93      0.90      0.91        22
+weighted avg       0.92      0.91      0.91        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 21:08:04.205100
+Predicted label counts:
+1    14
+0     8
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 0 0 1 1 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1517.73585303 -2138.35216957   332.09606918  2446.14925378
+   1811.23911655  1041.15523648  1940.69360308 -1023.73779415
+  10202.09925185   971.28520318  1965.92502318  1481.82630305]]
+[DEBUG] Model intercept_: [-2186.25467452]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 21:10:04.367813
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.9091
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.80      0.89        10
+    Low Risk       0.86      1.00      0.92        12
+
+    accuracy                           0.91        22
+   macro avg       0.93      0.90      0.91        22
+weighted avg       0.92      0.91      0.91        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 21:10:04.608374
+Predicted label counts:
+1    14
+0     8
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 0 0 1 1 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1509.32117947 -2132.11326315   316.13879366  2434.11997018
+   1808.77389408  1044.97569435  1935.97772592 -1015.22740146
+  10098.58060606   966.78981968  1967.11522418  1478.41080868]]
+[DEBUG] Model intercept_: [-2193.86220027]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 21:12:03.787255
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.8636
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       0.89      0.80      0.84        10
+    Low Risk       0.85      0.92      0.88        12
+
+    accuracy                           0.86        22
+   macro avg       0.87      0.86      0.86        22
+weighted avg       0.87      0.86      0.86        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 21:12:04.002050
+Predicted label counts:
+1    13
+0     9
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 0 0 0 1 1 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1501.04574835 -2125.97759549   300.44557235  2422.28974206
+   1806.34946507  1048.7329329   1931.33988509 -1006.85783513
+   9996.77494276   962.36882387  1968.28573025  1475.05183245]]
+[DEBUG] Model intercept_: [-2201.40659187]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 21:14:03.395803
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.9091
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.80      0.89        10
+    Low Risk       0.86      1.00      0.92        12
+
+    accuracy                           0.91        22
+   macro avg       0.93      0.90      0.91        22
+weighted avg       0.92      0.91      0.91        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 21:14:03.576439
+Predicted label counts:
+1    14
+0     8
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 0 0 1 1 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1484.07551453 -2107.67161452   274.35336252  2378.43214388
+   1772.86964724  1021.67509313  1898.56155079  -979.90081739
+   9941.89604658   949.14874316  1926.17992946  1447.38556751]]
+[DEBUG] Model intercept_: [-2190.21126439]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 21:16:03.983890
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.9091
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.80      0.89        10
+    Low Risk       0.86      1.00      0.92        12
+
+    accuracy                           0.91        22
+   macro avg       0.93      0.90      0.91        22
+weighted avg       0.92      0.91      0.91        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 21:16:04.160836
+Predicted label counts:
+1    14
+0     8
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 0 0 1 1 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1476.14026972 -2101.83475768   259.25569475  2367.24773973
+   1770.77691201  1025.56081661  1894.30373987  -971.95501937
+   9843.02286922   944.94329581  1927.66455843  1444.33378709]]
+[DEBUG] Model intercept_: [-2197.63248006]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 21:18:03.809292
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.9091
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.80      0.89        10
+    Low Risk       0.86      1.00      0.92        12
+
+    accuracy                           0.91        22
+   macro avg       0.93      0.90      0.91        22
+weighted avg       0.92      0.91      0.91        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 21:18:03.995521
+Predicted label counts:
+1    14
+0     8
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 0 0 1 1 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1459.64512244 -2084.01927417   233.91733247  2324.54267674
+   1738.12487699   999.12695171  1862.35367782  -945.71505511
+   9790.27139214   932.07736011  1886.56658188  1417.3622424 ]]
+[DEBUG] Model intercept_: [-2186.61800667]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 21:20:03.592889
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.9091
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.80      0.89        10
+    Low Risk       0.86      1.00      0.92        12
+
+    accuracy                           0.91        22
+   macro avg       0.93      0.90      0.91        22
+weighted avg       0.92      0.91      0.91        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 21:20:03.773117
+Predicted label counts:
+1    14
+0     8
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 0 0 1 1 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1452.03263679 -2078.46533441   219.38533271  2313.96900505
+   1736.34392381  1003.13101783  1858.4540456   -938.17031348
+   9694.19623523   928.07599363  1888.34468372  1414.5997927 ]]
+[DEBUG] Model intercept_: [-2193.92000397]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 21:22:04.314308
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.8636
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       0.89      0.80      0.84        10
+    Low Risk       0.85      0.92      0.88        12
+
+    accuracy                           0.86        22
+   macro avg       0.87      0.86      0.86        22
+weighted avg       0.87      0.86      0.86        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 21:22:04.530913
+Predicted label counts:
+1    13
+0     9
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 0 0 0 1 1 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1444.54111515 -2072.99964792   205.08424952  2303.56335125
+   1734.59127035  1007.0714585   1854.61637936  -930.7454594
+   9599.64773304   924.13820971  1890.09453114  1411.88123891]]
+[DEBUG] Model intercept_: [-2201.16381705]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-26 21:24:04.746767
+[DEBUG] Rows before filtering Risk_Category: 22
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     12
+High Risk    10
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 22
+[INFO] Accuracy on incremental batch: 0.9091
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       1.00      0.80      0.89        10
+    Low Risk       0.86      1.00      0.92        12
+
+    accuracy                           0.91        22
+   macro avg       0.93      0.90      0.91        22
+weighted avg       0.92      0.91      0.91        22
+
+[INFO] Incrementally trained SGD model with 22 new samples.
+[INFO] Training finished at 2025-05-26 21:24:04.993627
+Predicted label counts:
+1    14
+0     8
+Name: count, dtype: int64
+True labels:
+1    12
+0    10
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [1 1 1 0 0 1 1 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1428.68511553 -2055.83274712   180.7720799   2262.37014448
+   1702.99660489   981.40842877  1823.73468923  -905.45083658
+   9550.06209276   911.74051609  1850.26456141  1385.80330869]]
+[DEBUG] Model intercept_: [-2190.40992809]
+Scaled feature means:
+ Heart_Rate                  0.638705
+Respiratory_Rate            1.371112
+Body_Temperature            1.203146
+Oxygen_Saturation          -1.243151
+Systolic_Blood_Pressure    -0.549249
+Diastolic_Blood_Pressure   -0.306857
+Age                        -1.344626
+Gender                      0.367656
+Derived_HRV                 1.796615
+Derived_Pulse_Pressure     -0.287637
+Derived_MAP                -0.575487
+RespiratoryRate_x_Age      -0.985796
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                  0.968769
+Respiratory_Rate            1.121592
+Body_Temperature            1.675525
+Oxygen_Saturation           1.333261
+Systolic_Blood_Pressure     1.589166
+Diastolic_Blood_Pressure    1.332710
+Age                         0.233172
+Gender                      0.953470
+Derived_HRV                 0.929994
+Derived_Pulse_Pressure      0.819920
+Derived_MAP                 1.932787
+RespiratoryRate_x_Age       0.476621
+dtype: float64
+/Users/anishanand/.pyenv/versions/3.10.13/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+/Users/anishanand/.pyenv/versions/3.10.13/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+/Users/anishanand/.pyenv/versions/3.10.13/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+[INFO] Current working directory: /Users/anishanand
+[INFO] Training started at 2025-05-27 10:00:04.538958
+[DEBUG] Rows before filtering Risk_Category: 25
+== All original Risk_Category values ==
+Risk_Category
+Low Risk     14
+High Risk    11
+Name: count, dtype: int64
+== After cleaning/stripping ==
+Risk_Category
+Low Risk     14
+High Risk    11
+Name: count, dtype: int64
+[DEBUG] Rows after filtering Risk_Category: 25
+[INFO] Accuracy on incremental batch: 0.4400
+[INFO] Classification Report on incremental batch:
+              precision    recall  f1-score   support
+
+   High Risk       0.44      1.00      0.61        11
+    Low Risk       0.00      0.00      0.00        14
+
+    accuracy                           0.44        25
+   macro avg       0.22      0.50      0.31        25
+weighted avg       0.19      0.44      0.27        25
+
+[INFO] Incrementally trained SGD model with 25 new samples.
+[INFO] Training finished at 2025-05-27 10:00:04.773874
+Predicted label counts:
+0    25
+Name: count, dtype: int64
+True labels:
+1    14
+0    11
+Name: count, dtype: int64
+Label encoder classes: ['High Risk' 'Low Risk']
+Predicted labels: [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+True labels: [1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1 1 1 0]
+[DEBUG] Model coef_ shape: (1, 12)
+[DEBUG] Model coef_: [[-1443.06840896 -1953.43545235   239.05620376  2138.198724
+   1616.66813065   919.79264777  1613.62676833  -832.94944606
+   -707.01072545   873.62213481  1748.76032605  1206.92167579]]
+[DEBUG] Model intercept_: [-2055.21646505]
+Scaled feature means:
+ Heart_Rate                    0.556573
+Respiratory_Rate              1.302967
+Body_Temperature              1.387531
+Oxygen_Saturation            -1.151775
+Systolic_Blood_Pressure      -0.544840
+Diastolic_Blood_Pressure     -0.328963
+Age                          -1.364828
+Gender                        0.444020
+Derived_HRV                 119.365175
+Derived_Pulse_Pressure       -0.271717
+Derived_MAP                  -0.590471
+RespiratoryRate_x_Age        -1.021725
+dtype: float64
+Scaled feature stds:
+ Heart_Rate                    0.943174
+Respiratory_Rate              1.068396
+Body_Temperature              1.722406
+Oxygen_Saturation             1.310040
+Systolic_Blood_Pressure       1.514354
+Diastolic_Blood_Pressure      1.281262
+Age                           0.225145
+Gender                        0.916523
+Derived_HRV                 588.014085
+Derived_Pulse_Pressure        0.772399
+Derived_MAP                   1.853176
+RespiratoryRate_x_Age         0.456885
+dtype: float64
