@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from '../utils/axios';
+import axios from '../utils/axiosweather';
 import { useTranslation } from 'react-i18next';
 
 
@@ -27,10 +27,10 @@ const WeatherPage = () => {
 
         try {
           const [weatherRes, airRes, uvRes, forecastRes] = await Promise.all([
-            axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${weatherApiKey}&units=metric`),
-            axios.get(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${latitude}&lon=${longitude}&appid=${weatherApiKey}`),
-            axios.get(`https://api.openweathermap.org/data/2.5/uvi?lat=${latitude}&lon=${longitude}&appid=${weatherApiKey}`),
-            axios.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${weatherApiKey}&units=metric`)
+            axios.get(`/weather?lat=${latitude}&lon=${longitude}&appid=${weatherApiKey}&units=metric`),
+            axios.get(`/air_pollution?lat=${latitude}&lon=${longitude}&appid=${weatherApiKey}`),
+            axios.get(`/uvi?lat=${latitude}&lon=${longitude}&appid=${weatherApiKey}`),
+            axios.get(`/forecast?lat=${latitude}&lon=${longitude}&appid=${weatherApiKey}&units=metric`)
           ]);
 
           setWeatherData(weatherRes.data);
