@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   LineChart,
   Line,
@@ -10,11 +11,12 @@ import {
 } from 'recharts';
 
 const HeartRateChart = ({ healthData }) => {
+  const { t } = useTranslation();
   const sortedData = [...healthData].reverse();
 
   return (
     <div id="heart-rate-chart">
-      <h3 className="text-lg font-medium mb-2">Heart Rate</h3>
+      <h3 className="text-lg font-medium mb-2">{t('graph.charts.heartRate')}</h3>
       <ResponsiveContainer width="100%" height={300}>
         <LineChart data={sortedData}>
           <CartesianGrid strokeDasharray="3 3" />

@@ -24,3 +24,4 @@ Heart_Rate,Respiratory_Rate,Body_Temperature,Oxygen_Saturation,Systolic_Blood_Pr
 76,17,37.5,95.9,125,80,22,1,0.14,45,95,374,Low Risk
 76,17,37.5,95.9,125,80,22,1,0.14,45,95,374,Low Risk
 85,18,38.8,98.6,110,70,22,1,85,40,83.33,396,High Risk
+85,18,38.8,98.6,110,70,22,1,85,40,83.33,396,High Risk

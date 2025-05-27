@@ -1,10 +1,12 @@
 import { LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer } from 'recharts';
+import { useTranslation } from 'react-i18next';
 
 const HRVChart = ({ healthData }) => {
+  const { t } = useTranslation();
   const sortedData = [...healthData].reverse();
   return (
     <div id="hrv-chart">
-      <h3 className="text-lg font-medium mb-2">Heart Rate Variability (HRV)</h3>
+      <h3 className="text-lg font-medium mb-2">{t('graph.charts.hrv')}</h3>
       <ResponsiveContainer width="100%" height={300}>
         <LineChart data={sortedData}>
           <CartesianGrid strokeDasharray="3 3" />

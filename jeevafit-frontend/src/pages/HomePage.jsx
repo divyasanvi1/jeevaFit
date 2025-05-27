@@ -169,7 +169,19 @@ socket.on("vitals-updated", (data) => {
         return "#d1d5db"; // gray fallback
     }
   };
-
+  const unitsMap = {
+    "Heart Rate": "bpm",
+    "SpO₂": "%",
+    "Temperature": "°C",
+    "Respiratory Rate": "breaths/min",
+    "Systolic BP": "mmHg",
+    "Diastolic BP": "mmHg",
+    "HRV": "s",
+    "BMI": "",
+    "Pulse Pressure": "mmHg",
+    "MAP": "mmHg",
+  };
+  
   return (
     <div className="px-6 py-10 bg-gray-50 min-h-screen">
   <h2 className="text-2xl font-bold text-gray-800 mb-4">
@@ -247,6 +259,7 @@ socket.on("vitals-updated", (data) => {
   </h2>
 
   <div className="flex flex-wrap gap-6">
+    
     {latest &&
       [
         { label: "Heart Rate", value: latest.heartRate, maxValue: 100 },
@@ -271,7 +284,7 @@ socket.on("vitals-updated", (data) => {
         <HealthCard
           key={label}
           value={value}
-          label={t(`healthdashboard.vitals.${label}`)}
+          label={`${t(`healthdashboard.vitals.${label}`)}${unitsMap[label] ? ` (${unitsMap[label]})` : ''}`}
           color={getHealthColor(label, value)}
           maxValue={maxValue}
         />

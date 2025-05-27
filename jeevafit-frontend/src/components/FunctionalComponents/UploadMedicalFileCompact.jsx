@@ -3,6 +3,7 @@ import axios from '../../utils/axios';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
+
 const UploadMedicalFileCompact = () => {
   const { t } = useTranslation();
   const [file, setFile] = useState(null);
@@ -10,7 +11,7 @@ const UploadMedicalFileCompact = () => {
   const [message, setMessage] = useState('');
   const [error, setError] = useState(false);
   const navigate = useNavigate();
-
+  
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
     setMessage('');
@@ -19,7 +20,7 @@ const UploadMedicalFileCompact = () => {
 
   const handleUpload = async () => {
     if (!file) {
-      setMessage(t('upload.pleaseSelect'));
+      setMessage(t('pdfuploadmedical.pleaseSelect'));
       setError(true);
       return;
     }
@@ -33,7 +34,7 @@ const UploadMedicalFileCompact = () => {
         headers: { 'Content-Type': 'multipart/form-data' },
         withCredentials: true,
       });
-      setMessage(res.data.message || t('upload.success'));
+      setMessage(res.data.message || t('pdfuploadmedical.success'));
       setError(false);
       setFile(null);
       document.getElementById('fileInput').value = null;
@@ -43,13 +44,13 @@ const UploadMedicalFileCompact = () => {
       const backendMessage = err.response?.data?.message?.trim();
       console.log("backendMessage :",backendMessage);
     if (backendMessage === "Not a medical-related file") {
-      setMessage(t('upload.notMedical'));
+      setMessage(t('pdfuploadmedical.notMedical'));
       setError(true);
     return; 
     } else {
-      setMessage(t('upload.fail'));
+      setMessage(t('pdfuploadmedical.fail'));
     }
-      setMessage(t('upload.fail'));
+      setMessage(t('pdfuploadmedical.fail'));
       setError(true);
     } finally {
       setUploading(false);
@@ -59,7 +60,7 @@ const UploadMedicalFileCompact = () => {
   return (
     <div className="p-6 bg-white rounded-2xl shadow-md border border-gray-100">
       <h3 className="text-lg font-semibold text-gray-800 mb-4">
-        📄 {t('healthdashboard.uploadPdfTitle')}
+        📄 {t('pdfuploadmedical.PdfTitle')}
       </h3>
 
       <div className="flex items-center gap-4">
@@ -81,7 +82,7 @@ const UploadMedicalFileCompact = () => {
               : 'bg-blue-600 hover:bg-blue-700'
           }`}
         >
-          {uploading ? t('upload.uploading') : t('upload.upload')}
+          {uploading ? t('pdfuploadmedical.uploading') : t('pdfuploadmedical.upload')}
         </button>
       </div>
 
@@ -95,7 +96,7 @@ const UploadMedicalFileCompact = () => {
         className="mt-4 text-blue-600 underline"
         onClick={() => navigate('/uploadList')}
       >
-        {t('pdfupload.viewUploads', 'View My Uploaded Files')}
+        {t('pdfuploadmedical.viewUploads', 'View My Uploaded Files')}
       </button>
     </div>
   );

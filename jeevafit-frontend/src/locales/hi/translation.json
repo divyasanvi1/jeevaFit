@@ -363,6 +363,33 @@
     "confirmPassword": "पासवर्ड की पुष्टि करें",
     "submit": "पासवर्ड रीसेट करें",
     "mismatch": "पासवर्ड मेल नहीं खाते"
+  },
+  "graph":{
+    "charts": {
+      "bloodPressure": "रक्तचाप",
+      "systolicBP": "सिस्टोलिक बीपी",
+      "diastolicBP": "डायस्टोलिक बीपी",
+      "heartRate": "हृदय गति",
+      "bpm": "बीपीएम",
+       "hrv": "हृदय गति परिवर्तनशीलता (HRV)",
+      "hrv_short": "HRV",
+      "oxygenSaturation": "ऑक्सीजन संतृप्ति",
+      "oxygenSaturation_short": "SpO₂",
+      "respiratoryRate": "श्वसन दर",
+      "respiratoryRate_short": "RR"
+    }
+    
+  },
+  "pdfuploadmedical": {
+    "PdfTitle": "मेडिकल रिपोर्ट अपलोड करें (PDF/छवि)",
+    "pleaseSelect": "कृपया अपलोड करने से पहले एक फ़ाइल चुनें।",
+    "upload": "अपलोड करें",
+    "uploading": "अपलोड हो रहा है...",
+    "success": "फ़ाइल सफलतापूर्वक अपलोड हो गई!",
+    "fail": "फ़ाइल अपलोड करने में विफल। कृपया पुनः प्रयास करें।",
+    "notMedical": "चयनित फ़ाइल चिकित्सा से संबंधित नहीं लगती है।",
+    "viewUploads": "अपलोड की गई फ़ाइलें देखें"
+
   }
 
 

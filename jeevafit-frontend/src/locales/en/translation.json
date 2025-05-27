@@ -365,6 +365,32 @@
     "confirmPassword": "Confirm Password",
     "submit": "Reset Password",
     "mismatch": "Passwords do not match"
+  },
+  "graph":{
+    "charts": {
+      "bloodPressure": "Blood Pressure",
+      "systolicBP": "Systolic BP",
+      "diastolicBP": "Diastolic BP",
+      "heartRate": "Heart Rate",
+      "bpm": "bpm",
+      "hrv": "Heart Rate Variability (HRV)",
+      "hrv_short": "HRV",
+      "oxygenSaturation": "Oxygen Saturation",
+      "oxygenSaturation_short": "SpO₂",
+      "respiratoryRate": "Respiratory Rate",
+      "respiratoryRate_short": "RR"
+    }
+
+  },
+  "pdfuploadmedical": {
+    "PdfTitle": "Upload Medical Report (PDF/Image)",
+    "pleaseSelect": "Please select a file before uploading.",
+    "upload": "Upload",
+    "uploading": "Uploading...",
+    "success": "File uploaded successfully!",
+    "fail": "Failed to upload the file. Please try again.",
+    "notMedical": "The selected file does not appear to be medical-related.",
+    "viewUploads": "View My Uploaded Files"
   }
   
 }
