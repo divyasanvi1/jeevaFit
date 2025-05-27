@@ -19,8 +19,13 @@ const ProfilePage = () => {
 
     const fetchLatestVitals = async () => {
       try {
-        const res = await axios.get(`/healthdataRoute/latest/${userId}`);
-        setLatestVitals(res.data);
+        const res = await axios.get(`/health/user-data`); // returns array
+        console.log("Vitals API response:", res);
+        if (Array.isArray(res.data.data) && res.data.data.length > 0) {
+          setLatestVitals(res.data.data[0]); // pick first (latest) record
+        } else {
+          setLatestVitals(null);
+        }
       } catch (err) {
         console.error("Failed to fetch vitals", err);
       }
@@ -30,6 +35,7 @@ const ProfilePage = () => {
     fetchLatestVitals();
   }, [userId]);
 
+ console.log("latestVitals",latestVitals);
   if (!userData) return <p>Loading profile...</p>;
 
   return (
@@ -57,7 +63,7 @@ const ProfilePage = () => {
             <p><strong>Systolic BP:</strong> {latestVitals.systolicBP ?? 'N/A'} mmHg</p>
             <p><strong>Diastolic BP:</strong> {latestVitals.diastolicBP ?? 'N/A'} mmHg</p>
             <p><strong>HRV:</strong> {latestVitals.derived_HRV ?? 'N/A'}</p>
-            <p><strong>BMI:</strong> {latestVitals.bmi ?? 'N/A'}</p>
+            <p><strong>BMI:</strong> {latestVitals.derived_BMI ?? 'N/A'}</p>
           </div>
         </div>
       )}

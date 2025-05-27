@@ -29,7 +29,14 @@ const healthSlice = createSlice({
       })
       .addCase(fetchHealthData.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.data = action.payload.data; // updated this line to directly set the data
+
+        if (action.payload && Array.isArray(action.payload.data)) {
+          state.data = action.payload.data;
+        } else if (Array.isArray(action.payload)) {
+          state.data = action.payload;
+        } else {
+          state.data = [];
+        }
       })
       .addCase(fetchHealthData.rejected, (state, action) => {
         state.status = 'failed';

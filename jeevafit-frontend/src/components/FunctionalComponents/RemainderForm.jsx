@@ -10,7 +10,13 @@ const ReminderForm = ({ userId, userEmail }) => {
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [message, setMessage] = useState('');
-
+  const today = new Date().toISOString().split('T')[0];
+  const getCurrentTimeString = () => {
+    const now = new Date();
+    return now.toTimeString().split(':').slice(0, 2).join(':'); // HH:MM
+  };
+  const isTodaySelected = startDate === today;
+  const minTime = isTodaySelected ? getCurrentTimeString() : undefined;
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -60,6 +66,7 @@ const ReminderForm = ({ userId, userEmail }) => {
             className="w-full border rounded p-2"
             value={time}
             onChange={(e) => setTime(e.target.value)}
+            min={minTime}
           />
         </div>
         <div>
@@ -69,6 +76,7 @@ const ReminderForm = ({ userId, userEmail }) => {
             className="w-full border rounded p-2"
             value={startDate}
             onChange={(e) => setStartDate(e.target.value)}
+            min={today}
           />
         </div>
         <div>
@@ -78,6 +86,7 @@ const ReminderForm = ({ userId, userEmail }) => {
             className="w-full border rounded p-2"
             value={endDate}
             onChange={(e) => setEndDate(e.target.value)}
+            min={today}
           />
         </div>
         <button
